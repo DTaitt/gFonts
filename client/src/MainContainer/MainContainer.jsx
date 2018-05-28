@@ -5,6 +5,7 @@ import axios from 'axios';
 // import Main from './../Main/Main';
 import {store} from './../index';
 import { initializeFontData, updateFontDataLoadedStatus, initializeFavData, updateFavDataLoadedStatus } from './../redux/actions';
+import Main from '../Main/Main'
 
 type Props = {};
 type State = {};
@@ -38,7 +39,7 @@ export default class MainContainer extends Component<Props, State> {
     render() {
         return (
             <Fragment>
-                <p>asdf</p>
+                <Main />
             </Fragment>
         );
     }
