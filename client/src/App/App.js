@@ -5,6 +5,7 @@ import logo from './../logo.svg';
 import './App.css';
 
 import Header from './../Header/Header';
+import MainContainer from '../MainContainer/MainContainer'
 
 type Props = {};
 type State = {};
@@ -20,6 +21,7 @@ class App extends Component<Props, State> {
     return (
       <div className="App">
         <Header />
+        <MainContainer />
       </div>
     );
   }

@@ -11,7 +11,7 @@ import {
 } from 'redux'
 import rootReducer from './redux/reducers';
 
-const store = createStore(rootReducer);
+export const store = createStore(rootReducer);
 
 ReactDOM.render(
     <Provider store={store}>
