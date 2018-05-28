@@ -1,8 +1,8 @@
 // @flow
 import React, { Fragment } from "react";
 
-// import CardDisplay from './../CardDisplay/CardDisplay';
 import {store} from './../index';
+import FontList from '../FontList/FontList'
 
 type Props = {}
 
@@ -62,10 +62,7 @@ export default function FontListContainer(props: Props) {
 
     return (
         <Fragment>
-            {/* <CardDisplay
-                fontData={fontData}
-            /> */}
-            <p>FontList</p>
+            <FontList fontData = { fontData } />
         </Fragment>
     );
 }
