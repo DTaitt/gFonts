@@ -12,16 +12,16 @@ type State = {};
 
 class App extends Component<Props, State> {
 
-  async componentDidMount() {
-    const res = await axios.get('/favorites/?format=json')
-    console.log(res.data)
-  }
+  // async componentDidMount() {
+  //   const res = await axios.get('/favorites/?format=json')
+  //   console.log(res.data)
+  // }
   
   render() {
     return (
       <div className="App">
         <Header />
-        <MainContainer />
+        {/* <MainContainer /> */}
       </div>
     );
   }
