@@ -2,8 +2,7 @@ import React, { Component, Fragment } from "react";
 import axios from 'axios';
 import {connect} from 'react-redux';
 import {initializeFontData} from './actions'
-
-// import Main from './../Main/Main';
+import Main from '../Main/Main';
 
 
 type Props = {};
@@ -30,7 +29,7 @@ export class MainContainer extends Component<Props, State> {
     render() {
         return (
             <Fragment>
-                <p>asdf</p>
+                <Main />
             </Fragment>
         );
     }
