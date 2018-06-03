@@ -4,7 +4,9 @@ import './FontList.css';
 
 // import FontCardContainer from './../FontCardContainer';
 
-type Props = {};
+type Props = {
+    fontData: Object[],
+};
 
 export default function FontList(props: Props) {
     return (

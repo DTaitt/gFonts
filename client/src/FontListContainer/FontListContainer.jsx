@@ -1,9 +1,13 @@
+//@flow
 import React, { Component } from 'react';
 import axios from 'axios';
 import {connect} from 'react-redux';
 import {initializeFontData} from './actions'
 
-type Props = {};
+type Props = {
+    fontData: Object[],
+    initializeFontData(Object[]):Object[],
+};
 type State = {};
 
 class FontListContainer extends Component<Props, State>{
@@ -17,7 +21,6 @@ class FontListContainer extends Component<Props, State>{
                 `https://www.googleapis.com/webfonts/v1/webfonts?sort=popularity&key=AIzaSyAOVSz0lHeFAs7ll5LO6HTADinYVxy1vt4`
             );
             this.props.initializeFontData(res.data.items)
-            console.log(this.props.fontData)
         } catch (error) {
             console.log(error)
         }
