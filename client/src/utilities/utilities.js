@@ -67,3 +67,12 @@ export function renameFontVariants(fontData:Object[]):Object[] {
 export function formatFontData(fontData:Object[]):Object[] {
     return renameFontVariants(addFontNameHrefFormat(fontData))
 }
+
+export const categoryOptions: string[] = [
+  "view all",
+  "sans-serif",
+  "serif",
+  "display",
+  "handwriting",
+  "monospace"
+];

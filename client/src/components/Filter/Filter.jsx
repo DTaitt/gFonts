@@ -4,6 +4,7 @@ import './Filter.css';
 
 import {Row, Input, Collection, CollectionItem} from 'react-materialize';
 import Search from './../Search/Search';
+import Categories from './../Categories/Categories';
 type Props = {
   handleSearch(e:any):void,
   handleCategory(e:any):void,
@@ -17,23 +18,7 @@ export default function Filter(props:Props) {
         <div className="filter">
             <Collection>
                 <Search />
-                {/* <CollectionItem className="Categories">
-                    <Row>
-                        <Input 
-                            s={12} 
-                            type="select" 
-                            label="Category Type" 
-                            defaultValue="0" 
-                            onChange={props.handleCategory}
-                        >
-                            {
-                                props.categoryOptions.map((option) => {
-                                    return <option key={option} value={option}>{option}</option>
-                                })
-                            }
-                        </Input>
-                    </Row>
-                </CollectionItem> */}
+                <Categories />
                 {/* <CollectionItem className='variant'>
                     <Row onChange={props.handleVariant}>
                         {

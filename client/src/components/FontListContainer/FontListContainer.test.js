@@ -5,7 +5,7 @@ enzyme.configure({ adapter: new Adapter() });
 import {Provider} from 'react-redux'
 import FontListContainer from './FontListContainer';
 import FontList from '../FontList/FontList';
-import store from '../redux/store';
+import store from '../../redux/store';
 
 const wrapper = shallow(
     <Provider store = {store}>
