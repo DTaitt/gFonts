@@ -3,7 +3,7 @@ import React from 'react';
 import './Filter.css';
 
 import {Row, Input, Collection, CollectionItem} from 'react-materialize';
-
+import Search from './../Search/Search';
 type Props = {
   handleSearch(e:any):void,
   handleCategory(e:any):void,
@@ -16,11 +16,7 @@ export default function Filter(props:Props) {
     return (
         <div className="filter">
             <Collection>
-                <CollectionItem className="search">
-                    <Row>
-                        <Input s={6} label="Search" validate /*onChange={props.handleSearch}*/ />
-                    </Row>
-                </CollectionItem>
+                <Search />
                 {/* <CollectionItem className="Categories">
                     <Row>
                         <Input 
