@@ -4,6 +4,8 @@
   "private": true,
   "dependencies": {
     "axios": "^0.18.0",
+    "enzyme": "^3.3.0",
+    "enzyme-adapter-react-16": "^1.1.1",
     "flow": "^0.2.3",
     "node-sass-chokidar": "^1.3.0",
     "npm-run-all": "^4.1.3",
@@ -12,7 +14,8 @@
     "react-materialize": "^2.2.1",
     "react-redux": "^5.0.7",
     "react-scripts": "1.1.4",
-    "redux": "^4.0.0"
+    "redux": "^4.0.0",
+    "redux-thunk": "^2.3.0"
   },
   "scripts": {
     "build-css": "node-sass-chokidar src/ -o src/",
@@ -22,10 +25,16 @@
     "build-js": "react-scripts build",
     "build": "npm-run-all build-css build-js",
     "test": "react-scripts test --env=jsdom",
-    "eject": "react-scripts eject"
+    "eject": "react-scripts eject",
+    "prepush": "yarn flow && yarn test"
   },
   "proxy": "http://localhost:8000",
   "devDependencies": {
-    "flow-bin": "^0.73.0"
+    "eslint": "^4.19.1",
+    "eslint-config-airbnb-base": "^12.1.0",
+    "eslint-plugin-import": "^2.12.0",
+    "flow-bin": "^0.73.0",
+    "prettier-eslint": "^8.8.1",
+    "react-test-renderer": "^16.4.0"
   }
 }
