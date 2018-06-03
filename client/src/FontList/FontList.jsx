@@ -1,8 +1,7 @@
 // @flow
 import React from 'react';
 import './FontList.css';
-
-// import FontCardContainer from './../FontCardContainer';
+import FontContainer from '../FontContainer/FontContainer';
 
 type Props = {
     fontData: Object[],
@@ -14,16 +13,15 @@ export default function FontList(props: Props) {
             {
                 props.fontData.map((font) => {
                     return (
-                        // <FontCardContainer
-                        //     key={font.family}
-                        //     id={font.family}
-                        //     family={font.family}
-                        //     category={font.category}
-                        //     url={`https://fonts.google.com/specimen/${font.family}`}
-                        //     variants={font.variants}
-                        //     isInFav={font.isInFav}
-                        // />
-                        <p>Font</p>
+                        <FontContainer
+                            category={font.category}
+                            family={font.family}
+                            hrefFamily={font.hrefFamily}
+                            key={font.family}
+                            id={font.family}
+                            url={`https://fonts.google.com/specimen/${font.hrefFamily}`}
+                            variants={font.variants}
+                        />
                     )
                 })
             }
