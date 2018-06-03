@@ -3,7 +3,7 @@ import React, { Component } from 'react';
 import './App.css';
 
 import Header from './../Header/Header';
-import MainContainer from '../MainContainer/MainContainer'
+import Main from '../Main/Main';
 
 type Props = {};
 type State = {};
@@ -19,7 +19,7 @@ class App extends Component<Props, State> {
     return (
       <div className="App">
         <Header />
-        {/* <MainContainer /> */}
+        <Main />
       </div>
     );
   }

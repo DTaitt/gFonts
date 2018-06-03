@@ -1,68 +1,44 @@
-// @flow
-import React, { Fragment } from "react";
+import React, { Component } from 'react';
+import axios from 'axios';
+import {connect} from 'react-redux';
+import {initializeFontData} from './actions'
 
-import {store} from './../index';
-import FontList from '../FontList/FontList'
+type Props = {};
+type State = {};
 
-type Props = {}
-
-export default function FontListContainer(props: Props) {
-
-    let fontData = store.getState().fontData;
-    let searchValue = store.getState().searchValue;
-    let categoryValue = store.getState().categoryValue;
-    let variantValues = store.getState().variantValues;
-
-    function filterOnSearchQuery() {
-        (searchValue === '')
-            ? fontData
-            : fontData = fontData.filter((font) => {
-                return font.family.toLowerCase().indexOf(searchValue) !== -1;
-            })
-
+class FontListContainer extends Component<Props, State>{
+    componentDidMount() {
+        this.fetchFontsData();
     }
 
-    function filterOnCategoryValue() {
-        categoryValue === "view all"
-            ? fontData
-            : fontData = fontData.filter(font => {
-                return font.category === categoryValue;
-            });
-    }
-
-    function filterOnVariantValues() {
-        let unfilteredFontData = [];
-
-        //finds fonts that have a certain variant e.g. 600italic and adds it to unfilteredFontData
-        function addToUnfilteredFontData(variant: string) {
-            unfilteredFontData = [
-                ...unfilteredFontData,
-                ...fontData.filter(font => {
-                    return font.variants.indexOf(variant) !== -1;
-                })
-            ];
+    async fetchFontsData() {
+        try {
+            const res = await axios.get(
+                `https://www.googleapis.com/webfonts/v1/webfonts?sort=popularity&key=AIzaSyAOVSz0lHeFAs7ll5LO6HTADinYVxy1vt4`
+            );
+            this.props.initializeFontData(res.data.items)
+            console.log(this.props.fontData)
+        } catch (error) {
+            console.log(error)
         }
-
-        //https://stackoverflow.com/questions/9229645/remove-duplicate-values-from-js-array
-        //removes the duplicated values that might occur e.g a font having a 600italic variant AND a 700italic variant
-        function removeDuplicateFonts(value, index, self) {
-            return self.indexOf(value) === index;
-        }
-
-        variantValues.forEach(addToUnfilteredFontData);
-
-        fontData = unfilteredFontData.filter(removeDuplicateFonts);
-        console.log(fontData)
+        console.log('test')
     }
 
-    // only runs these functions when a query is sent
-    filterOnSearchQuery();
-    filterOnCategoryValue();
-    variantValues.length > 0 && filterOnVariantValues();
-
-    return (
-        <Fragment>
-            <FontList fontData = { fontData } />
-        </Fragment>
-    );
+    render() {
+        return (
+            <div></div>
+        );
+    }
 }
+
+const mapStateToProps = state => {
+    return {
+        fontData: state.fontData,
+    }
+}
+
+const mapDispatchToProps = ({
+    initializeFontData,
+})
+
+export default connect(mapStateToProps, mapDispatchToProps)(FontListContainer);
