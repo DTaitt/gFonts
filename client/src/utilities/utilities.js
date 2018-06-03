@@ -76,3 +76,26 @@ export const categoryOptions: string[] = [
   "handwriting",
   "monospace"
 ];
+
+export const variantOptions: string[] = [
+  'Thin',
+  'Thin Italic',
+  'Extra-Light',
+  'Extra-Light Italic',
+  'Light',
+  'Light Italic',
+  'Regular',
+  'Italic',
+  'Thin',
+  'Thin Italic',
+  'Medium',
+  'Medium Italic',
+  'Semi-Bold',
+  'Semi-Bold Italic',
+  'Bold',
+  'Bold Italic',
+  'Extra-Bold',
+  'Extra-Bold Italic',
+  'Black',
+  'Black Italic',
+];

@@ -3,8 +3,9 @@ import React from 'react';
 import './Filter.css';
 
 import {Row, Input, Collection, CollectionItem} from 'react-materialize';
-import Search from './../Search/Search';
-import Categories from './../Categories/Categories';
+import Search from '../Search/Search';
+import Categories from '../Categories/Categories';
+import Variants from '../Variants/Variants';
 type Props = {
   handleSearch(e:any):void,
   handleCategory(e:any):void,
@@ -19,23 +20,7 @@ export default function Filter(props:Props) {
             <Collection>
                 <Search />
                 <Categories />
-                {/* <CollectionItem className='variant'>
-                    <Row onChange={props.handleVariant}>
-                        {
-                            props.variantOptions.map((variant) => {
-                                return (
-                                    <Input 
-                                        key={variant.value} 
-                                        name={variant.value} 
-                                        type="checkbox" 
-                                        value={variant.value} 
-                                        label={variant.label} 
-                                    />
-                                )
-                            })
-                        }
-                    </Row>
-                </CollectionItem>  */}
+                <Variants/>
             </Collection>
         </div>
     )
