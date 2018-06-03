@@ -1,5 +1,4 @@
 //@flow
-
 type action = {
     type:string,
     payload:Object[],

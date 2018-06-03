@@ -7,13 +7,13 @@ import Header from './../Header/Header'
 
 enzyme.configure({ adapter: new Adapter() });
 
-const AppWrapper = shallow(<App />)
+const wrapper = shallow(<App />)
 
 describe("App", function() {
   it("should render <App /> without throwing an error", function() {
-    expect(AppWrapper.exists(<div className='App'></div>)).toBe(true);
+    expect(wrapper.exists(<div className='App'></div>)).toBe(true);
   });
   it("should render <Header /> without throwing an error", function () {
-    expect(AppWrapper.exists(<Header/>)).toBe(true);
+    expect(wrapper.exists(<Header/>)).toBe(true);
   });
 });
