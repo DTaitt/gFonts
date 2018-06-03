@@ -1,15 +1,15 @@
 //@flow
-export function formatFontNameForHref(font:Object) {
+export function formatFontNameForHref(font:Object):string {
     return font.family.slice().split(' ').join('+');
 }
 
-export function addFontNameHrefFormat(fontData: Object[]) {
-    return fontData.map(font => {
+export function addFontNameHrefFormat(fontData: Object[]):Object[] {
+    return fontData.map((font) => {
         return {...font, hrefFamily: formatFontNameForHref(font)}
     })
 }
 
-export function formatSingleVariant(variant:string) {
+export function formatSingleVariant(variant:string):string {
   switch(variant) {
     case '100':
       return 'Thin'
@@ -52,18 +52,18 @@ export function formatSingleVariant(variant:string) {
   }
 }
 
-export function formatVariants(variants:string[]) {
+export function formatVariants(variants:string[]):string[] {
   return variants.map(variant => {
     return formatSingleVariant(variant)
   })
 }
 
-export function renameFontVariants(fontData:Object[]) {
+export function renameFontVariants(fontData:Object[]):Object[] {
     return fontData.map(font => {
         return {...font, variants: formatVariants(font.variants)}
     })
 }
 
-export function formatFontData(fontData:Object[]) {
+export function formatFontData(fontData:Object[]):Object[] {
     return renameFontVariants(addFontNameHrefFormat(fontData))
 }
