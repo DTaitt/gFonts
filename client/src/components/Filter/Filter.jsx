@@ -2,7 +2,7 @@
 import React from 'react';
 import './Filter.css';
 
-import {Row, Input, Collection, CollectionItem} from 'react-materialize';
+import {Collection} from 'react-materialize';
 import Search from '../Search/Search';
 import Categories from '../Categories/Categories';
 import Variants from '../Variants/Variants';

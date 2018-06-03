@@ -1,6 +1,6 @@
 //@flow
 import React from 'react';
-import {Row, Input, Collection, CollectionItem} from 'react-materialize';
+import {Row, Input, CollectionItem} from 'react-materialize';
 import './Categories.css'
 import {categoryOptions} from './../../utilities/utilities';
 

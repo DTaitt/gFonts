@@ -86,8 +86,6 @@ export const variantOptions: string[] = [
   'Light Italic',
   'Regular',
   'Italic',
-  'Thin',
-  'Thin Italic',
   'Medium',
   'Medium Italic',
   'Semi-Bold',
