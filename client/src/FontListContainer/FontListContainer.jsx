@@ -3,6 +3,7 @@ import React, { Component } from 'react';
 import axios from 'axios';
 import {connect} from 'react-redux';
 import {initializeFontData} from './actions'
+import FontList from '../FontList/FontList';
 
 type Props = {
     fontData: Object[],
@@ -16,20 +17,18 @@ class FontListContainer extends Component<Props, State>{
     }
 
     async fetchFontsData() {
+        const url = `https://www.googleapis.com/webfonts/v1/webfonts?sort=popularity&key=AIzaSyAOVSz0lHeFAs7ll5LO6HTADinYVxy1vt4`;
         try {
-            const res = await axios.get(
-                `https://www.googleapis.com/webfonts/v1/webfonts?sort=popularity&key=AIzaSyAOVSz0lHeFAs7ll5LO6HTADinYVxy1vt4`
-            );
+            const res = await axios.get(url);
             this.props.initializeFontData(res.data.items)
         } catch (error) {
             console.log(error)
         }
-        console.log('test')
     }
 
     render() {
         return (
-            <div></div>
+            <FontList fontData = {this.props.fontData} />
         );
     }
 }
