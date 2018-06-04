@@ -1,10 +1,7 @@
 import React from 'react';
 import enzyme, { shallow } from "enzyme";
-import Adapter from "enzyme-adapter-react-16";
 
 import Main from './Main';
-
-enzyme.configure({ adapter: new Adapter() });
 
 const wrapper = shallow(<Main />)
 

@@ -1,11 +1,9 @@
 import React from 'react';
 import enzyme, { shallow } from "enzyme";
-import Adapter from "enzyme-adapter-react-16";
 
 import App from './App';
 import Header from './../Header/Header'
 
-enzyme.configure({ adapter: new Adapter() });
 
 const wrapper = shallow(<App />)
 
