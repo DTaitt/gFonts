@@ -2,7 +2,7 @@
 import React from 'react';
 import { Collapsible, CollapsibleItem, Card, Badge } from 'react-materialize';
 import './Sidebar.css';
-import Filter from '../Filter/Filter';
+import Filter from 'components/Filter/Filter';
 
 type Props = {}
 

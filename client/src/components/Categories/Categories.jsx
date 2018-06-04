@@ -2,7 +2,7 @@
 import React from 'react';
 import {Row, Input, CollectionItem} from 'react-materialize';
 import './Categories.css'
-import {categoryOptions} from './../../utilities/utilities';
+import {categoryOptions} from 'utilities/utilities';
 
 export default function Categories() {
     return(

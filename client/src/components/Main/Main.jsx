@@ -1,8 +1,8 @@
 //@flow
 import React from 'react';
 import './Main.css';
-import FontListContainer from '../FontListContainer/FontListContainer';
-import Sidebar from '../Sidebar/Sidebar';
+import FontListContainer from 'components/FontListContainer/FontListContainer';
+import Sidebar from 'components/Sidebar/Sidebar';
 
 type Props = {}
 

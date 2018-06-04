@@ -3,8 +3,8 @@ import enzyme, { shallow } from "enzyme";
 import {Provider} from 'react-redux'
 
 import FontListContainer from './FontListContainer';
-import FontList from '../FontList/FontList';
-import store from '../../redux/store';
+import FontList from 'components/FontList/FontList';
+import store from 'redux/store';
 
 const wrapper = shallow(
     <Provider store = {store}>

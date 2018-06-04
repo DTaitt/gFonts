@@ -1,6 +1,6 @@
 // @flow
 import React, { Component, Fragment } from "react";
-import Font from '../Font/Font';
+import Font from 'components/Font/Font';
 
 type Props = {
     category:string,

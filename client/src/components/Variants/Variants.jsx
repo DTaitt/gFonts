@@ -2,7 +2,7 @@
 import React from 'react';
 import {Row, Input, CollectionItem} from 'react-materialize';
 import './Variants.css';
-import {variantOptions} from '../../utilities/utilities';
+import {variantOptions} from 'utilities/utilities';
 
 export default function Variants() {
     

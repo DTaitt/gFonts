@@ -2,7 +2,7 @@ import React from 'react';
 import enzyme, { shallow } from "enzyme";
 
 import App from './App';
-import Header from './../Header/Header'
+import Header from 'components/Header/Header'
 
 
 const wrapper = shallow(<App />)

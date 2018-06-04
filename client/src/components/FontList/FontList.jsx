@@ -1,7 +1,7 @@
 // @flow
 import React from 'react';
 import './FontList.css';
-import FontContainer from '../FontContainer/FontContainer';
+import FontContainer from 'components/FontContainer/FontContainer';
 
 type Props = {
     fontData: Object[],

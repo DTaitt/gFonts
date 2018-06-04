@@ -3,8 +3,8 @@ import React, { Component } from 'react';
 import axios from 'axios';
 import {connect} from 'react-redux';
 import {initializeFontData} from './actions/actions'
-import FontList from '../FontList/FontList';
-import {formatFontData} from './../../utilities/utilities';
+import FontList from 'components/FontList/FontList';
+import {formatFontData} from 'utilities/utilities';
 
 type Props = {
     fontData: Object[],

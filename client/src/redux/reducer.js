@@ -1,5 +1,5 @@
 import { combineReducers } from 'redux';
-import {fontDataReducer} from '../components/FontListContainer/reducers/reducers';
+import {fontDataReducer} from 'components/FontListContainer/reducers/reducers';
 
 const rootReducer = combineReducers({
     fontData: fontDataReducer,

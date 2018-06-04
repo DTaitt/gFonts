@@ -2,9 +2,9 @@ import React from "react";
 import enzyme, { shallow } from "enzyme";
 
 import Filter from './Filter';
-import Search from '../Search/Search';
-import Categories from '../Categories/Categories';
-import Variants from '../Variants/Variants';
+import Search from 'components/Search/Search';
+import Categories from 'components/Categories/Categories';
+import Variants from 'components/Variants/Variants';
 
 const wrapper = shallow(<Filter />);
 
