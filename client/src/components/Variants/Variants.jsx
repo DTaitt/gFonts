@@ -5,24 +5,23 @@ import './Variants.css';
 import {variantOptions} from 'utilities/utilities';
 
 export default function Variants() {
-    
-    return(
-        <CollectionItem className='variant'>
-            <Row /*onChange={props.handleVariant}*/>
-                {
-                    variantOptions.map((variant) => {
-                        return (
-                            <Input 
-                                key={variant} 
-                                name={variant} 
-                                type="checkbox" 
-                                value={variant} 
-                                label={variant} 
-                            />
-                        )
-                    })
-                }
-            </Row>
-        </CollectionItem> 
-    )
+	return(
+		<CollectionItem className='variant'>
+			<Row /*onChange={props.handleVariant}*/>
+				{
+					variantOptions.map((variant) => {
+						return (
+							<Input 
+								key={variant} 
+								name={variant} 
+								type="checkbox" 
+								value={variant} 
+								label={variant} 
+							/>
+						);
+					})
+				}
+			</Row>
+		</CollectionItem> 
+	);
 }
