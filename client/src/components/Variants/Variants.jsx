@@ -2,14 +2,14 @@
 import React from 'react';
 import {Row, Input, CollectionItem} from 'react-materialize';
 import './Variants.css';
-import {variantOptions} from 'utilities/utilities';
+import {options} from 'utilities/utilities';
 
 export default function Variants() {
 	return(
 		<CollectionItem className='variant'>
 			<Row /*onChange={props.handleVariant}*/>
 				{
-					variantOptions.map((variant) => {
+					options.variants.map((variant) => {
 						return (
 							<Input 
 								key={variant} 

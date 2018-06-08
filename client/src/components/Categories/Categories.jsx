@@ -2,7 +2,7 @@
 import React from 'react';
 import {Row, Input, CollectionItem} from 'react-materialize';
 import './Categories.css';
-import {categoryOptions} from 'utilities/utilities';
+import {options} from 'utilities/utilities';
 
 export default function Categories() {
 	return(
@@ -16,7 +16,7 @@ export default function Categories() {
 					// onChange={props.handleCategory}
 				>
 					{
-						categoryOptions.map((option) => {
+						options.categories.map((option) => {
 							return <option key={option} value={option}>{option.toLocaleUpperCase()}</option>;
 						})
 					}

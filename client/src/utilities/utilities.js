@@ -1,4 +1,5 @@
 // @flow
+
 export function formatFontNameForHref(font: Object): string {
 	return font.family.slice().split(' ').join('+');
 }
@@ -91,3 +92,34 @@ export const variantOptions: string[] = [
 	'Black',
 	'Black Italic',
 ];
+
+export const options = {
+	variants: [
+		'Thin',
+		'Thin Italic',
+		'Extra-Light',
+		'Extra-Light Italic',
+		'Light',
+		'Light Italic',
+		'Regular',
+		'Italic',
+		'Medium',
+		'Medium Italic',
+		'Semi-Bold',
+		'Semi-Bold Italic',
+		'Bold',
+		'Bold Italic',
+		'Extra-Bold',
+		'Extra-Bold Italic',
+		'Black',
+		'Black Italic',
+	],
+	categories: [
+		'view all',
+		'sans-serif',
+		'serif',
+		'display',
+		'handwriting',
+		'monospace',
+	]
+};
