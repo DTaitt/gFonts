@@ -8,21 +8,21 @@ import Categories from 'components/Categories/Categories';
 import Variants from 'components/Variants/Variants';
 
 type Props = {
-  handleSearch(e:any):void,
-  handleCategory(e:any):void,
-  handleVariant(e:any):void,
+  handleSearch(e: any):void,
+  handleCategory(e: any):void,
+  handleVariant(e: any):void,
   categoryOptions: string[],
   variantOptions: Object[],
 };
 
-export default function Filter(props:Props) {
-    return (
-        <div className="filter">
-            <Collection>
-                <Search />
-                <Categories />
-                <Variants/>
-            </Collection>
-        </div>
-    )
+export default function Filter(props: Props) {
+	return (
+		<div className="filter">
+			<Collection>
+				<Search />
+				<Categories />
+				<Variants/>
+			</Collection>
+		</div>
+	);
 }
