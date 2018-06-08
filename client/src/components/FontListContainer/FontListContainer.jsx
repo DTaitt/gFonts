@@ -12,7 +12,7 @@ type Props = {
 };
 type State = {};
 
-class FontListContainer extends Component<Props, State>{
+export class FontListContainer extends Component<Props, State>{
 	componentDidMount() {
 		this.fetchFontsData();
 	}
