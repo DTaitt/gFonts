@@ -1,4 +1,6 @@
-import { formatFontNameForHref, addFontNameHrefFormat, formatSingleVariant, formatVariants, renameFontVariants, formatFontData } from './utilities';
+import { formatFontNameForHref, addFontNameHrefFormat, formatSingleVariant, formatVariants, renameFontVariants, formatFontData, setupWrapper } from './utilities';
+import React, {Component} from 'react';
+import App from 'components/App/App';
 
 describe('formatFontNameForHref', () => {
 	it('should return the family property with each string seperated by a plus sign', () => {
@@ -104,5 +106,37 @@ describe('formatFontData', () => {
 			},
 		];
 		expect(formatFontData(arrOfObjects)).toEqual(arrOfObjectsWithFormattedVariantsAndHrefFamily);
+	});
+});
+
+describe('setupWrapper', () => {
+	const initial = {
+		a:1,
+		b:2,
+		c:3
+	};
+	function TestComponent() {
+		return(
+			<div>
+				<p>I'm a test component</p>
+			</div>
+		);
+	}
+	it('should return initial as props when no override is given', () => {
+		const {props} = setupWrapper(<TestComponent {...initial} />, initial, null);
+		expect(props).toEqual(initial);
+	});
+	it('should update the props when an override is given', () => {
+		const override = {
+			a: 'a has been overriden',
+			c: 'c has been too!'
+		};
+		const newProps = {
+			a: 'a has been overriden',
+			b: 2,
+			c: 'c has been too!'
+		};
+		const {props} = setupWrapper(<TestComponent {...initial} />, initial, override);
+		expect(props).toEqual(newProps);
 	});
 });

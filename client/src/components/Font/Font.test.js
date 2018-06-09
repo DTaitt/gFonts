@@ -3,9 +3,10 @@ import React from 'react';
 import enzyme, {shallow} from 'enzyme';
 import {CardPanel} from 'react-materialize';
 import Font from './Font';
+import { setupWrapper } from 'utilities/utilities';
 
 
-const props = {
+const initialProps = {
 	category:'category',
 	family:'family',
 	hrefFamily:'hrefFamily',
@@ -13,11 +14,9 @@ const props = {
 	url:'url',
 	variants:['variant','second variant', 'third variant']
 };
-const wrapper = shallow(
-	<Font {...props} />
-);
 
-describe.only('Font',() => {
+describe('Font',() => {
+	const {wrapper, props} = setupWrapper(<Font {...initialProps} />, initialProps);
 	it('should render' ,() => {
     	expect(wrapper.exists(
     		<CardPanel 

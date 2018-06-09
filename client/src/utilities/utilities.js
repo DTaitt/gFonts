@@ -1,4 +1,6 @@
 // @flow
+import enzyme, {shallow} from 'enzyme';
+import { React } from 'react';
 
 export function formatFontNameForHref(font: Object): string {
 	return font.family.slice().split(' ').join('+');
@@ -123,3 +125,12 @@ export const options = {
 		'monospace',
 	]
 };
+
+export function setupWrapper(component: JSX.Element, initialProps: Object, propOverride: Object) {
+	let	props:Object = {...initialProps, ...propOverride};
+	const wrapper:enzyme.ShallowWrapper = shallow(component);
+	return {
+		wrapper,
+		props
+	};
+}
