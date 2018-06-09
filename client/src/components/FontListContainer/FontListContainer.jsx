@@ -44,4 +44,5 @@ const mapDispatchToProps = ({
 	initializeFontData,
 });
 
-export default connect(mapStateToProps, mapDispatchToProps)(FontListContainer);
+const ConnectedFontListContainer = connect(mapStateToProps, mapDispatchToProps)(FontListContainer);
+export default ConnectedFontListContainer;

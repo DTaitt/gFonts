@@ -1,7 +1,7 @@
 // @flow
 import React from 'react';
 import './FontList.css';
-import FontContainer from 'components/FontContainer/FontContainer';
+import ConnectedFontContainer from '../FontContainer/FontContainer';
 
 type Props = {
     fontData: Object[],
@@ -13,7 +13,7 @@ export default function FontList(props: Props) {
 			{
 				props.fontData.map((font) => {
 					return (
-						<FontContainer
+						<ConnectedFontContainer
 							category={font.category}
 							family={font.family}
 							hrefFamily={font.hrefFamily}

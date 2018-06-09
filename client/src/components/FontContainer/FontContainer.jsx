@@ -13,7 +13,7 @@ type Props = {
 
 type State = {}
 
-export default class FontContainer extends Component<Props, State> {
+export class FontContainer extends Component<Props, State> {
 	render() {
 		return (
 			<Fragment>
@@ -22,3 +22,6 @@ export default class FontContainer extends Component<Props, State> {
 		);
 	}
 }
+
+const ConnectedFontContainer = FontContainer;
+export default ConnectedFontContainer;
