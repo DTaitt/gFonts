@@ -17,7 +17,7 @@ export default function Font(props: Props){
 		<CardPanel 
 			className="font-card white black-text z-depth-2"
 		>
-			<div className="info">
+			<div className="font-info">
 				<a href={props.url} target='_blank' rel="noopener noreferrer">
 					<h1 className="family">{props.family}</h1>
 				</a>
@@ -34,7 +34,7 @@ export default function Font(props: Props){
 					</Collection>
 				</Dropdown>
 			</div>
-			<div className="interaction">
+			<div className="font-interaction">
 				<Button 
 					floating 
 					className='red' 

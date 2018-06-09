@@ -8,11 +8,11 @@ import Categories from 'components/Categories/Categories';
 import Variants from 'components/Variants/Variants';
 
 type Props = {
-  handleSearch(e: any):void,
-  handleCategory(e: any):void,
-  handleVariant(e: any):void,
-  categoryOptions: string[],
-  variantOptions: Object[],
+//   handleSearch(e: any):void,
+//   handleCategory(e: any):void,
+//   handleVariant(e: any):void,
+//   categoryOptions: string[],
+//   variantOptions: Object[],
 };
 
 export default function Filter(props: Props) {

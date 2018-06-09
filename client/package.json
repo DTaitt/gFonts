@@ -25,14 +25,13 @@
     "start": "npm-run-all -p watch-css start-js",
     "build-js": "react-scripts build",
     "build": "npm-run-all build-css build-js",
-    "test": "react-scripts test --env=jsdom",
+    "test": "react-scripts test --env=jsdom --verbose",
+    "test:only": "react-scripts test --env=jsdom --verbose",
+    "test:coverage": "react-scripts test --env=jsdom --verbose --coverage",
     "eject": "react-scripts eject",
-    "prepush": "yarn flow && yarn test",
-    "flow:start": "flow start",
-    "flow:coverage": "flow coverage",
-    "flow:check": "flow check",
-    "flow coverage": "flow coverage",
-    "lint:fix": "eslint --fix src/"
+    "prepush": "yarn flow && yarn test:coverage",
+    "lint:fix": "eslint --fix src/",
+    "flow": "flow"
   },
   "proxy": "http://localhost:8000",
   "devDependencies": {
