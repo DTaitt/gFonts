@@ -1,4 +1,3 @@
-// @flow
 import React from 'react';
 import enzyme, {shallow} from 'enzyme';
 import {CardPanel} from 'react-materialize';

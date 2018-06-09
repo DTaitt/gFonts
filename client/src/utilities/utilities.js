@@ -1,6 +1,7 @@
 // @flow
 import enzyme, {shallow} from 'enzyme';
-import { React } from 'react';
+import React from 'react';
+import type {Node} from 'react';
 
 export function formatFontNameForHref(font: Object): string {
 	return font.family.slice().split(' ').join('+');
@@ -126,7 +127,7 @@ export const options = {
 	]
 };
 
-export function setupWrapper(component: JSX.Element, initialProps: Object, propOverride: Object) {
+export function setupWrapper(component: Node, initialProps: Object, propOverride?: Object) {
 	let	props:Object = {...initialProps, ...propOverride};
 	const wrapper:enzyme.ShallowWrapper = shallow(component);
 	return {
