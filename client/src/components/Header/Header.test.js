@@ -3,17 +3,30 @@ import enzyme, { shallow } from 'enzyme';
 import { Navbar, Container } from 'react-materialize';
 
 import Header from './Header';
+import {setupWrapper} from 'utilities/utilities';
 
-const wrapper = shallow(<Header />);
+const {wrapper} = setupWrapper(<Header />);
+const renderables = [
+	{
+		name: 'itself',
+		node: <header />
+	},
+	{
+		name: 'a div with a class of \'my-container\'',
+		node: <div className="my-container" />
+	},
+	{
+		name: '<Navbar />',
+		node: <Navbar brand="Font Finder" />
+	}
+];
 
 describe('Header', () => {
-	it('should render <Header /> without throwing an error', () => {
-		expect(wrapper.exists(<header />)).toBe(true);
-	});
-	it('should render div with a class of \'my-container\' without throwing an error', () => {
-		expect(wrapper.exists(<div className="my-container" />)).toBe(true);
-	});
-	it('should render <Navbar /> without throwing an error', () => {
-		expect(wrapper.exists(<Navbar brand="Font Finder" />)).toBe(true);
+	describe('should render', () =>{
+		renderables.forEach(renderable => {
+			it(renderable.name , () => {
+				expect(wrapper.exists(renderable.node)).toBe(true);
+			});
+		});
 	});
 });

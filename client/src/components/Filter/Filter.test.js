@@ -1,24 +1,43 @@
 import React from 'react';
 import enzyme, { shallow } from 'enzyme';
+import {Collection} from 'react-materialize';
 
 import Filter from './Filter';
 import Search from 'components/Search/Search';
 import Categories from 'components/Categories/Categories';
 import Variants from 'components/Variants/Variants';
+import {setupWrapper} from 'utilities/utilities';
 
-const wrapper = shallow(<Filter />);
+const {wrapper} = setupWrapper(<Filter />);
+const renderables = [
+	{
+		name: 'itself',
+		node: <div className="filter" />
+	},
+	{
+		name: '<Collection />',
+		node: <Collection />
+	},
+	{
+		name: '<Search />',
+		node: <Search />
+	},
+	{
+		name: '<Categories />',
+		node: <Categories />
+	},
+	{
+		name: '<Variants />',
+		node: <Variants />
+	},
+];
 
 describe('Filter', () => {
-	it('should render <Filter /> without throwing an error', () => {
-		expect(wrapper.exists(<div className="filter" />)).toBe(true);
-	});
-	it('should render <Search /> without throwing an error', () => {
-		expect(wrapper.exists(Search)).toBe(true);
-	});
-	it('should render <Categories /> without throwing an error', () => {
-		expect(wrapper.exists(Categories)).toBe(true);
-	});
-	it('should render <Variants /> without throwing an error', () => {
-		expect(wrapper.exists(Variants)).toBe(true);
+	describe('should render', () =>{
+		renderables.forEach(renderable => {
+			it(renderable.name , () => {
+				expect(wrapper.exists(renderable.node)).toBe(true);
+			});
+		});
 	});
 });

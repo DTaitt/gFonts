@@ -14,23 +14,28 @@ const initialProps = {
 	variants:['variant','second variant', 'third variant']
 };
 
-describe('Font',() => {
-	const {wrapper, props} = setupWrapper(<Font {...initialProps} />, initialProps);
-	it('should render' ,() => {
-    	expect(wrapper.exists(
-    		<CardPanel 
-    			className="font-card white black-text z-depth-2"
-    		></CardPanel>
-    	)).toBe(true);
-	});
-	it('should render font information', () => {
-    	expect(wrapper.exists(
-    		<div className="font-info"></div>
-    	)).toBe(true);
-	});
-	it('should render font interaction', () => {
-		expect(wrapper.exists(
-			<div className="font-interaction"></div>
-    	)).toBe(true);
+const {wrapper} = setupWrapper(<Font {...initialProps} />, initialProps);
+const renderables = [
+	{
+		name: 'itself',
+		node: <CardPanel className="font-card white black-text z-depth-2" />
+	},
+	{
+		name: 'font information',
+		node: <div className="font-info" />
+	},
+	{
+		name: 'font interaction',
+		node: <div className="font-interaction" />
+	},
+];
+
+describe('Font', () => {
+	describe('should render', () =>{
+		renderables.forEach(renderable => {
+			it(renderable.name , () => {
+				expect(wrapper.exists(renderable.node)).toBe(true);
+			});
+		});
 	});
 });

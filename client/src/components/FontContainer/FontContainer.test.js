@@ -14,16 +14,24 @@ const initialProps = {
 	variants:['variant','second variant', 'third variant']
 };
 
+const {wrapper} = setupWrapper(<FontContainer {...initialProps} />, initialProps);
+const renderables = [
+	{
+		name: 'itself',
+		node: <Fragment></Fragment>
+	},
+	{
+		name: '<Font />',
+		node: <Font />
+	},
+];
+
 describe('FontContainer', () => {
-	const {wrapper, props} = setupWrapper(<FontContainer {...initialProps} />, initialProps);
-    
-	describe('should render', () => {
-		it('itself', () => {
-			expect(wrapper.exists(<Fragment></Fragment>)).toBe(true);
-		});
-		it('Font', () => {
-			expect(wrapper.exists(<Font />)).toBe(true);
+	describe('should render', () =>{
+		renderables.forEach(renderable => {
+			it(renderable.name , () => {
+				expect(wrapper.exists(renderable.node)).toBe(true);
+			});
 		});
 	});
 });
-

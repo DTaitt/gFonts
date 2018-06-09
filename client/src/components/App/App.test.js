@@ -3,18 +3,31 @@ import enzyme, { shallow } from 'enzyme';
 
 import App from './App';
 import Header from 'components/Header/Header';
-import Main from '../Main/Main';
+import Main from 'components/Main/Main';
+import {setupWrapper} from 'utilities/utilities';
 
-const wrapper = shallow(<App />);
+const {wrapper} = setupWrapper(<App />);
+const renderables = [
+	{
+		name: 'itself',
+		node: <div className="App" />
+	},
+	{
+		name: '<Header />',
+		node: <Header />
+	},
+	{
+		name: '<Main />',
+		node: <Main />
+	}
+];
 
 describe('App', () => {
-	it('should render', () => {
-		expect(wrapper.exists(<div className="App" />)).toBe(true);
-	});
-	it('should render <Header />', () => {
-		expect(wrapper.exists(<Header />)).toBe(true);
-	});
-	it('should render <Main />', () => {
-		expect(wrapper.exists(<Main />)).toBe(true);
+	describe('should render', () =>{
+		renderables.forEach(renderable => {
+			it(renderable.name , () => {
+				expect(wrapper.exists(renderable.node)).toBe(true);
+			});
+		});
 	});
 });

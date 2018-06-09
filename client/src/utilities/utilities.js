@@ -127,7 +127,7 @@ export const options = {
 	]
 };
 
-export function setupWrapper(component: Node, initialProps: Object, propOverride?: Object) {
+export function setupWrapper(component: Node, initialProps?: Object, propOverride?: Object) {
 	let	props:Object = {...initialProps, ...propOverride};
 	const wrapper:enzyme.ShallowWrapper = shallow(component);
 	return {
