@@ -17,7 +17,6 @@ export default function FontList(props: Props) {
 						<ConnectedFontContainer
 							category={font.category}
 							family={font.family}
-							urlFamily={font.urlFamily}
 							key={font.family}
 							id={font.family}
 							url={formatFontUrl(font.urlFamily)}

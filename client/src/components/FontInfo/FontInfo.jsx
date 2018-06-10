@@ -11,19 +11,19 @@ type Props = {
     variants: string[],
 }
 
-export default function FontInfo(props: Props) {
+export default function FontInfo({url, family, category, variants}: Props) {
 	return(
 		<div className="font info">
-			<a href={props.url} target='_blank' rel="noopener noreferrer" className="font url">
-				<h1 className="family">{props.family}</h1>
+			<a href={url} target='_blank' rel="noopener noreferrer" className="font url">
+				<h1 className="family">{family}</h1>
 			</a>
-			<p className="category">{props.category}</p>
+			<p className="category">{category}</p>
 			<Dropdown trigger={
-				<Button>{props.variants.length} Variant{props.variants.length > 1 && 's'}</Button>
+				<Button>{variants.length} Variant{variants.length > 1 && 's'}</Button>
 			}>
 				<Collection>
 					{
-						props.variants.map(variant => {
+						variants.map(variant => {
 							return <CollectionItem className='variant' key={variant}>{variant}</CollectionItem>;
 						})
 					}

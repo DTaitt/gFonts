@@ -1,19 +1,20 @@
 //@flow
 import React from 'react';
-import {CardPanel, Button, Modal, Dropdown, Collection, CollectionItem} from 'react-materialize';
+import {CardPanel, Button} from 'react-materialize';
 
 import './Font.css';
 import FontInfo from '../FontInfo/FontInfo';
+import AddToProjectModal from '../AddToProjectModal/AddToProjectModal';
+
 type Props = {
     category: string,
     family: string,
-    urlFamily: string,
     id: string,
     url: string,
     variants: string[],
 }
 
-export default function Font({category, family, urlFamily, id, url, variants}: Props){
+export default function Font({category, family, id, url, variants}: Props){
 	return(
 		<CardPanel 
 			className="font-card white black-text z-depth-2"
@@ -32,24 +33,11 @@ export default function Font({category, family, urlFamily, id, url, variants}: P
 					waves='light' 
 					icon='favorite'
 				/>
-				<Modal
-					header={family}
-					trigger={<Button>Add Style</Button>}
-					className='import-code'
-				>
-					<div className="html">
-						<h2>Add to HTML</h2>
-						<blockquote><pre><code>
-							{`<link href="https://fonts.googleapis.com/css?family=${urlFamily}" rel="stylesheet">`}
-						</code></pre></blockquote>
-					</div>
-					<div className="css">
-						<h2>Add to CSS</h2>
-						<blockquote><pre><code>
-							{`font-family: '${family}', ${category};`}
-						</code></pre></blockquote>
-					</div>                    
-				</Modal>
+				<AddToProjectModal 
+					category={category} 
+					family={family} 
+					url={url}
+				/>
 			</div>
 		</CardPanel>
 	);

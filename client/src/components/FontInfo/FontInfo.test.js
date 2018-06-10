@@ -2,8 +2,7 @@ import React from 'react';
 import enzyme, {shallow} from 'enzyme';
 import FontInfo from './FontInfo';
 import {setupWrapper} from 'utilities/utilities';
-import {Dropdown, Collection, CollectionItem} from 'react-materialize';
-import Button from 'react-materialize/lib/Button';
+import {Dropdown, Collection, CollectionItem, Button} from 'react-materialize';
 
 const initialProps = {
 	url: 'url',

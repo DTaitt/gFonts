@@ -5,7 +5,6 @@ import Font from 'components/Font/Font';
 type Props = {
     category: string,
     family: string,
-    urlFamily: string,
     id: string,
     url: string,
     variants: string[],
