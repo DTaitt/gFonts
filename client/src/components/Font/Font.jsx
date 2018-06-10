@@ -6,7 +6,7 @@ import './Font.css';
 type Props = {
     category: string,
     family: string,
-    hrefFamily: string,
+    urlFamily: string,
     id: string,
     url: string,
     variants: string[],
@@ -49,7 +49,7 @@ export default function Font(props: Props){
 					<div className="html">
 						<h2>Add to HTML</h2>
 						<blockquote><pre><code>
-							{`<link href="https://fonts.googleapis.com/css?family=${props.hrefFamily}" rel="stylesheet">`}
+							{`<link href="https://fonts.googleapis.com/css?family=${props.urlFamily}" rel="stylesheet">`}
 						</code></pre></blockquote>
 					</div>
 					<div className="css">

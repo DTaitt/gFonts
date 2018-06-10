@@ -8,7 +8,7 @@ import { setupWrapper } from 'utilities/utilities';
 const initialProps = {
 	category:'category',
 	family:'family',
-	hrefFamily:'hrefFamily',
+	urlFamily:'urlFamily',
 	id:'id',
 	url:'url',
 	variants:['variant','second variant', 'third variant']

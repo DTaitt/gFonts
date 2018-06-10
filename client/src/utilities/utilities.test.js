@@ -1,4 +1,4 @@
-import { formatFontNameForHref, addFontNameHrefFormat, formatSingleVariant, formatVariants, renameFontVariants, formatFontData, setupWrapper } from './utilities';
+import { formatFontNameForHref, addFontNameHrefFormat, formatSingleVariant, formatVariants, renameFontVariants, formatFontData, setupWrapper , formatFontUrl} from './utilities';
 import React, {Component} from 'react';
 import App from 'components/App/App';
 
@@ -32,11 +32,11 @@ describe('addFontNameHrefFormat', () => {
 		const arrOfObjectsWithHref = [
 			{
 				family: 'a string with multiple words',
-				hrefFamily: 'a+string+with+multiple+words',
+				urlFamily: 'a+string+with+multiple+words',
 			},
 			{
 				family: 'another string with multiple words',
-				hrefFamily: 'another+string+with+multiple+words',
+				urlFamily: 'another+string+with+multiple+words',
 			},
 		];
 		expect(addFontNameHrefFormat(arrOfObjects)).toEqual(arrOfObjectsWithHref);
@@ -93,19 +93,19 @@ describe('formatFontData', () => {
 				family: 'another string with multiple words',
 			},
 		];
-		const arrOfObjectsWithFormattedVariantsAndHrefFamily = [
+		const arrOfObjectsWithFormattedVariantsAndurlFamily = [
 			{
 				variants: ['Extra-Light Italic', 'Regular', 'Extra Bold'],
 				family: 'a string with multiple words',
-				hrefFamily: 'a+string+with+multiple+words',
+				urlFamily: 'a+string+with+multiple+words',
 			},
 			{
 				variants: ['Extra-Light', 'Italic', 'Bold Italic'],
 				family: 'another string with multiple words',
-				hrefFamily: 'another+string+with+multiple+words',
+				urlFamily: 'another+string+with+multiple+words',
 			},
 		];
-		expect(formatFontData(arrOfObjects)).toEqual(arrOfObjectsWithFormattedVariantsAndHrefFamily);
+		expect(formatFontData(arrOfObjects)).toEqual(arrOfObjectsWithFormattedVariantsAndurlFamily);
 	});
 });
 
@@ -138,5 +138,14 @@ describe('setupWrapper', () => {
 		};
 		const {props} = setupWrapper(<TestComponent {...initial} />, initial, override);
 		expect(props).toEqual(newProps);
+	});
+});
+
+describe('formatFontUrl', () => {
+	it('should return the correct font link when font is one word', () => {
+		expect(formatFontUrl('font')).toEqual('https://fonts.google.com/specimen/font');
+	});
+	it('should return the correct font link when font is more than one word', () => {
+		expect(formatFontUrl('this+is+another+font')).toEqual('https://fonts.google.com/specimen/this+is+another+font');
 	});
 });

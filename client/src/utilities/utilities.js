@@ -8,7 +8,7 @@ export function formatFontNameForHref(font: Object): string {
 }
 
 export function addFontNameHrefFormat(fontData: Object[]): Object[] {
-	return fontData.map(font => ({ ...font, hrefFamily: formatFontNameForHref(font) }));
+	return fontData.map(font => ({ ...font, urlFamily: formatFontNameForHref(font) }));
 }
 
 export function formatSingleVariant(variant: string): string {
@@ -134,4 +134,8 @@ export function setupWrapper(component: Node, initialProps?: Object, propOverrid
 		wrapper,
 		props
 	};
+}
+
+export function formatFontUrl(urlFamily: string) {
+	return `https://fonts.google.com/specimen/${urlFamily}`;
 }
