@@ -22,7 +22,7 @@ const renderables = [
 	},
 	{
 		name: 'font information',
-		node: <div className="font-info" />
+		node: <div className="font info" />
 	},
 	{
 		name: 'font interaction',
