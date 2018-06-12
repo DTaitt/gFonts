@@ -49,4 +49,7 @@ describe('FontInfo', () => {
 			});
 		});
 	});
+	it('should render the correct number of <CollectionItem />\'s', () => {
+		expect(wrapper.find(CollectionItem).length).toEqual(initialProps.variants.length);
+	});
 });
