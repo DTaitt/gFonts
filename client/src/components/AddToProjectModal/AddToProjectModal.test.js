@@ -10,7 +10,7 @@ const initialProps = {
 	category: 'category',
 };
 
-const {wrapper, props} = setupWrapper(<AddToProjectModal {...initialProps} />, initialProps);
+let {wrapper, props} = setupWrapper(AddToProjectModal, initialProps);
 const renderables = [
 	{
 		name: 'itself (modal trigger)',

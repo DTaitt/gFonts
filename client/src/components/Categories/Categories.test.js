@@ -5,7 +5,7 @@ import { CollectionItem } from 'react-materialize';
 import Categories from './Categories';
 import {setupWrapper} from 'utilities/utilities';
 
-const {wrapper} = setupWrapper(<Categories />);
+let {wrapper} = setupWrapper(Categories);
 const renderables = [
 	{
 		name: 'itself',

@@ -6,7 +6,7 @@ import Sidebar from './Sidebar';
 import {setupWrapper} from 'utilities/utilities';
 import Filter from 'components/Filter/Filter';
 
-const {wrapper} = setupWrapper(<Sidebar />);
+let {wrapper} = setupWrapper(Sidebar);
 const renderables = [
 	{
 		name: 'itself',

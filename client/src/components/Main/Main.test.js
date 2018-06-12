@@ -4,7 +4,7 @@ import enzyme, { shallow } from 'enzyme';
 import Main from './Main';
 import {setupWrapper} from 'utilities/utilities';
 
-const {wrapper} = setupWrapper(<Main />);
+let {wrapper} = setupWrapper(Main);
 const renderables = [
 	{
 		name: 'itself',

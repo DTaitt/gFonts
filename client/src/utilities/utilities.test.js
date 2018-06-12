@@ -123,7 +123,7 @@ describe('setupWrapper', () => {
 		);
 	}
 	it('should return initial as props when no override is given', () => {
-		const {props} = setupWrapper(<TestComponent {...initial} />, initial, null);
+		const {props} = setupWrapper(TestComponent, initial, null);
 		expect(props).toEqual(initial);
 	});
 	it('should update the props when an override is given', () => {
@@ -136,7 +136,7 @@ describe('setupWrapper', () => {
 			b: 2,
 			c: 'c has been too!'
 		};
-		const {props} = setupWrapper(<TestComponent {...initial} />, initial, override);
+		const {props} = setupWrapper(TestComponent, initial, override);
 		expect(props).toEqual(newProps);
 	});
 });

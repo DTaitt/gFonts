@@ -37,7 +37,7 @@ const initialProps = {
 	]
 };
 
-const {wrapper} = setupWrapper(<FontList {...initialProps} />, initialProps);
+let {wrapper} = setupWrapper(FontList, initialProps);
 const renderables = [
 	{
 		name: 'itself',

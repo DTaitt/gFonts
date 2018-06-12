@@ -6,7 +6,7 @@ import Header from 'components/Header/Header';
 import Main from 'components/Main/Main';
 import {setupWrapper} from 'utilities/utilities';
 
-const {wrapper} = setupWrapper(<App />);
+let {wrapper} = setupWrapper(App);
 const renderables = [
 	{
 		name: 'itself',

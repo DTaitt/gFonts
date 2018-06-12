@@ -14,7 +14,7 @@ const initialProps = {
 	variants:['variant','second variant', 'third variant']
 };
 
-const {wrapper} = setupWrapper(<FontContainer {...initialProps} />, initialProps);
+let {wrapper} = setupWrapper(FontContainer, initialProps);
 const renderables = [
 	{
 		name: 'itself',

@@ -5,7 +5,7 @@ import { Navbar, Container } from 'react-materialize';
 import Header from './Header';
 import {setupWrapper} from 'utilities/utilities';
 
-const {wrapper} = setupWrapper(<Header />);
+let {wrapper} = setupWrapper(Header);
 const renderables = [
 	{
 		name: 'itself',

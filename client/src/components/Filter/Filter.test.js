@@ -8,7 +8,7 @@ import Categories from 'components/Categories/Categories';
 import Variants from 'components/Variants/Variants';
 import {setupWrapper} from 'utilities/utilities';
 
-const {wrapper} = setupWrapper(<Filter />);
+let {wrapper} = setupWrapper(Filter);
 const renderables = [
 	{
 		name: 'itself',

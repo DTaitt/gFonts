@@ -5,7 +5,7 @@ import { CollectionItem } from 'react-materialize';
 import Variants from './Variants';
 import {setupWrapper} from 'utilities/utilities';
 
-const {wrapper} = setupWrapper(<Variants />);
+let {wrapper} = setupWrapper(Variants);
 const renderables = [
 	{
 		name: 'itself',
