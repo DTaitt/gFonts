@@ -1,8 +1,10 @@
 import React from 'react';
 import enzyme, {shallow} from 'enzyme';
-import {CardPanel} from 'react-materialize';
+import {CardPanel, Button} from 'react-materialize';
 import Font from './Font';
 import { setupWrapper } from 'utilities/utilities';
+import FontInfo from '../FontInfo/FontInfo';
+import AddToProjectModal from '../AddToProjectModal/AddToProjectModal';
 
 
 const initialProps = {
@@ -13,6 +15,7 @@ const initialProps = {
 	url:'url',
 	variants:['variant','second variant', 'third variant']
 };
+
 
 const {wrapper} = setupWrapper(<Font {...initialProps} />, initialProps);
 const renderables = [
@@ -30,11 +33,41 @@ const renderables = [
 	},
 ];
 
+const childComponents = [
+	{
+		name: '<FontInfo />',
+		node: FontInfo,
+		props: {
+			category:'category',
+			family:'family',
+			id:'id',
+			url:'url',
+			variants:['variant','second variant', 'third variant']
+		}
+	},
+	{
+		name: '<AddToProjectModal />',
+		node: AddToProjectModal,
+		props: {
+			category:'category',
+			family:'family',
+			url:'url',
+		}
+	},
+];
+
 describe('Font', () => {
 	describe('should render', () =>{
 		renderables.forEach(renderable => {
 			it(renderable.name , () => {
 				expect(wrapper.exists(renderable.node)).toBe(true);
+			});
+		});
+	});
+	describe('should pass correct props to', () =>{
+		childComponents.forEach(component => {
+			it(component.name , () => {
+				expect(wrapper.find(component.node).props()).toEqual(component.props);
 			});
 		});
 	});
