@@ -57,4 +57,7 @@ describe('FontList', () => {
 			});
 		});
 	});
+	it('should render the correct number of <ConnectedFontContainer />\'s', () => {
+		expect(wrapper.find(ConnectedFontContainer).length).toEqual(initialProps.fontData.length);
+	});
 });
