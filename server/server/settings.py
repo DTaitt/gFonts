@@ -39,6 +39,7 @@ INSTALLED_APPS = [
     'django.contrib.staticfiles',
     'rest_framework',
     'favorites.apps.FavoritesConfig',
+    'fonts.apps.FontsConfig',
 ]
 
 MIDDLEWARE = [
