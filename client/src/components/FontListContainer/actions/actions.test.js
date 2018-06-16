@@ -13,6 +13,6 @@ describe('initializeFontData', () => {
 	};
 
 	it('should return a function that dispatches an action', () => {
-		expect(initializeFontData(payload)).toEqual(expect.any(Function));
+		expect(initializeFontData(payload)).toEqual(action);
 	});
 });
