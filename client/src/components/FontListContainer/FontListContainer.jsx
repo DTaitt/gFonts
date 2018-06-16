@@ -18,9 +18,8 @@ export class FontListContainer extends Component<Props, State>{
 	}
 
 	async fetchFontsData() {
-		const url = 'https://www.googleapis.com/webfonts/v1/webfonts?sort=popularity&key=AIzaSyAOVSz0lHeFAs7ll5LO6HTADinYVxy1vt4';
 		try {
-			const res = await axios.get(url);
+			const res = await axios.get('/fonts');
 			this.props.initializeFontData(formatFontData(res.data.items.slice(0,24)));
 		} catch (error) {
 			console.log(error);
