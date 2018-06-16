@@ -5,7 +5,7 @@ import './Filter.css';
 import {Collection} from 'react-materialize';
 import Search from 'components/Search/Search';
 import Categories from 'components/Categories/Categories';
-import Variants from 'components/Variants/Variants';
+import VariantsFilter from 'components/VariantsFilter/VariantsFilter';
 
 type Props = {
 //   handleSearch(e: any):void,
@@ -21,7 +21,7 @@ export default function Filter(props: Props) {
 			<Collection>
 				<Search />
 				<Categories />
-				<Variants/>
+				<VariantsFilter/>
 			</Collection>
 		</div>
 	);
