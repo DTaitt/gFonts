@@ -2,10 +2,10 @@ import React from 'react';
 import enzyme, { shallow } from 'enzyme';
 import { CollectionItem } from 'react-materialize';
 
-import Variants from './Variants';
+import VariantsFilter from './VariantsFilter';
 import {setupWrapper} from 'utilities/utilities';
 
-let {wrapper} = setupWrapper(Variants);
+let {wrapper} = setupWrapper(VariantsFilter);
 const renderables = [
 	{
 		name: 'itself',
@@ -13,7 +13,7 @@ const renderables = [
 	},
 ];
 
-describe('Variants', () => {
+describe('VariantsFilter', () => {
 	describe('should render', () =>{
 		renderables.forEach(renderable => {
 			it(renderable.name , () => {

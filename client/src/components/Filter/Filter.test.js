@@ -5,7 +5,7 @@ import {Collection} from 'react-materialize';
 import Filter from './Filter';
 import Search from 'components/Search/Search';
 import Categories from 'components/Categories/Categories';
-import Variants from 'components/Variants/Variants';
+import VariantsFilter from 'components/VariantsFilter/VariantsFilter';
 import {setupWrapper} from 'utilities/utilities';
 
 let {wrapper} = setupWrapper(Filter);
@@ -27,8 +27,8 @@ const renderables = [
 		node: <Categories />
 	},
 	{
-		name: '<Variants />',
-		node: <Variants />
+		name: '<VariantsFilter />',
+		node: <VariantsFilter />
 	},
 ];
 
