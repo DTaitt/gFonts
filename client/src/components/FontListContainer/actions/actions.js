@@ -11,3 +11,12 @@ export function initializeFontData(fontData: Object[]) {
 		payload: fontData,
 	});
 }
+
+export function updateSearchValue(value: string){
+	return ({
+		type: 'UPDATE_SEARCH_VALUE',
+		payload: value,
+	});
+	console.log(value);
+	
+}

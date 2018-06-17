@@ -6,6 +6,7 @@ import {Collection} from 'react-materialize';
 import Search from 'components/Search/Search';
 import Categories from 'components/Categories/Categories';
 import VariantsFilter from 'components/VariantsFilter/VariantsFilter';
+import ConnectedSearchContainer from '../SearchContainer/SearchContainer';
 
 type Props = {
 //   handleSearch(e: any):void,
@@ -19,7 +20,7 @@ export default function Filter(props: Props) {
 	return (
 		<div className="filter">
 			<Collection>
-				<Search />
+				<ConnectedSearchContainer />
 				<Categories />
 				<VariantsFilter/>
 			</Collection>
