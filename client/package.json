@@ -15,6 +15,7 @@
     "react-redux": "^5.0.7",
     "react-scripts": "1.1.4",
     "redux": "^4.0.0",
+    "redux-mock-store": "^1.5.1",
     "redux-thunk": "^2.3.0"
   },
   "scripts": {
@@ -24,17 +25,34 @@
     "start": "npm-run-all -p watch-css start-js",
     "build-js": "react-scripts build",
     "build": "npm-run-all build-css build-js",
-    "test": "react-scripts test --env=jsdom",
+    "test": "react-scripts test --env=jsdom --verbose",
+    "test:only": "react-scripts test --env=jsdom --verbose",
+    "test:coverage": "react-scripts test --env=jsdom --verbose --coverage",
     "eject": "react-scripts eject",
-    "prepush": "yarn flow && yarn test"
+    "prepush": "yarn flow && yarn test:coverage",
+    "lint:fix": "eslint --fix src/",
+    "flow": "flow"
   },
   "proxy": "http://localhost:8000",
   "devDependencies": {
+    "babel-eslint": "^8.2.3",
+    "babel-preset-flow": "^6.23.0",
     "eslint": "^4.19.1",
-    "eslint-config-airbnb-base": "^12.1.0",
+    "eslint-plugin-flowtype": "^2.49.3",
     "eslint-plugin-import": "^2.12.0",
+    "eslint-plugin-jsx-a11y": "^6.0.3",
+    "eslint-plugin-react": "^7.9.1",
     "flow-bin": "^0.73.0",
     "prettier-eslint": "^8.8.1",
     "react-test-renderer": "^16.4.0"
+  },
+  "jest": {
+    "collectCoverageFrom": [
+      "**/*.{js,jsx}",
+      "!**/redux/**",
+      "!**/coverage/**",
+      "!**/src/index.js**",
+      "!**/src/registerServiceWorker.js**"
+    ]
   }
 }

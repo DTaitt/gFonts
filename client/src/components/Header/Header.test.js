@@ -1,21 +1,32 @@
-import React from "react";
-import enzyme, { shallow } from "enzyme";
-import Adapter from "enzyme-adapter-react-16";
-import { Navbar, Container } from "react-materialize";
-enzyme.configure({ adapter: new Adapter() });
+import React from 'react';
+import enzyme, { shallow } from 'enzyme';
+import { Navbar, Container } from 'react-materialize';
 
 import Header from './Header';
+import {setupWrapper} from 'utilities/utilities';
 
-const wrapper = shallow(<Header />);
+let {wrapper} = setupWrapper(Header);
+const renderables = [
+	{
+		name: 'itself',
+		node: <header />
+	},
+	{
+		name: 'a div with a class of \'my-container\'',
+		node: <div className="my-container" />
+	},
+	{
+		name: '<Navbar />',
+		node: <Navbar brand="Font Finder" />
+	}
+];
 
-describe("Header", function () {
-    it("should render <Header /> without throwing an error", function () {
-        expect(wrapper.exists(<header></header>)).toBe(true);
-    });
-    it("should render div with a class of 'my-container' without throwing an error", function () {
-        expect(wrapper.exists(<div className='my-container'></div>)).toBe(true);
-    });
-    it("should render <Navbar /> without throwing an error", function () {
-        expect(wrapper.exists(<Navbar brand='Font Finder' />)).toBe(true);
-    });
+describe('Header', () => {
+	describe('should render', () =>{
+		renderables.forEach(renderable => {
+			it(renderable.name , () => {
+				expect(wrapper.exists(renderable.node)).toBe(true);
+			});
+		});
+	});
 });

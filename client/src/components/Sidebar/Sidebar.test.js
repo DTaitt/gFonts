@@ -1,21 +1,45 @@
-import React from "react";
-import enzyme, { shallow } from "enzyme";
-import Adapter from "enzyme-adapter-react-16";
-import { Collapsible, CollapsibleItem, Card, Badge } from "react-materialize";
-enzyme.configure({ adapter: new Adapter() });
+import React from 'react';
+import enzyme, { shallow } from 'enzyme';
+import { Collapsible, CollapsibleItem, Card, Badge } from 'react-materialize';
 
 import Sidebar from './Sidebar';
+import {setupWrapper} from 'utilities/utilities';
+import Filter from 'components/Filter/Filter';
 
-const wrapper = shallow(<Sidebar />);
+let {wrapper} = setupWrapper(Sidebar);
+const renderables = [
+	{
+		name: 'itself',
+		node: <Card className="sidebar cyan darken-2" />
+	},
+	{
+		name: '<Collapsible /> that is an accordion',
+		node: <Collapsible accordion />
+	},
+	{
+		name: '<CollapsibleItem /> for filter',
+		node: <CollapsibleItem header='Filter' icon='search' />
+	},
+	{
+		name: '<Filter />',
+		node: <Filter />
+	},
+	{
+		name: '<Badge />',
+		node: <Badge />
+	},
+	{
+		name: '<CollapsibleItem /> for favorites',
+		node: <CollapsibleItem header='Favorites' icon='favorite' className='favorite' />
+	}
+];
 
-describe("Sidebar", function () {
-    it("should render <Sidebar /> without throwing an error", function () {
-        expect(wrapper.exists(<Card className='sidebar cyan darken-2'></Card>)).toBe(true);
-    });
-    // it("should render div with a class of 'my-container' without throwing an error", function () {
-    //     expect(wrapper.exists(<div className='my-container'></div>)).toBe(true);
-    // });
-    // it("should render <Navbar /> without throwing an error", function () {
-    //     expect(wrapper.exists(<Navbar brand='Font Finder' />)).toBe(true);
-    // });
+describe('Sidebar', () => {
+	describe('should render', () =>{
+		renderables.forEach(renderable => {
+			it(renderable.name , () => {
+				expect(wrapper.exists(renderable.node)).toBe(true);
+			});
+		});
+	});
 });

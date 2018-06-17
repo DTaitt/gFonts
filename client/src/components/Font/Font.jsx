@@ -1,65 +1,44 @@
 //@flow
 import React from 'react';
-import {CardPanel, Button, Modal, Dropdown, Collection, CollectionItem} from 'react-materialize';
+import {CardPanel, Button} from 'react-materialize';
 
 import './Font.css';
+import FontInfo from '../FontInfo/FontInfo';
+import AddToProjectModal from '../AddToProjectModal/AddToProjectModal';
+
 type Props = {
-    category:string,
-    family:string,
-    hrefFamily:string,
-    id:string,
-    url:string,
-    variants:string[],
+    category: string,
+    family: string,
+    id: string,
+    url: string,
+    variants: string[],
 }
 
-export default function Font(props:Props){
-    return(
-        <CardPanel 
-            className="font-card white black-text z-depth-2"
-        >
-            <div className="info">
-                <a href={props.url} target='_blank'>
-                    <h1 className="family">{props.family}</h1>
-                </a>
-                <p className="category">{props.category}</p>
-                <Dropdown trigger={
-                    <Button>{props.variants.length} Variant{props.variants.length > 1 && 's'}</Button>
-                }>
-                <Collection>
-                    {
-                        props.variants.map(variant => {
-                            return <CollectionItem className='variant' key={variant}>{variant}</CollectionItem>
-                        })
-                    }
-                </Collection>
-                </Dropdown>
-            </div>
-            <div className="interaction">
-                <Button 
-                    floating 
-                    className='red' 
-                    waves='light' 
-                    icon='favorite'
-                />
-                <Modal
-                    header={props.family}
-                    trigger={<Button>Add Style</Button>}
-                    className='import-code'
-                >
-                    <div className="html">
-                        <h2>Add to HTML</h2>
-                        <blockquote><pre><code>
-                            {`<link href="https://fonts.googleapis.com/css?family=${props.hrefFamily}" rel="stylesheet">`}
-                        </code></pre></blockquote>
-                    </div>
-                    <div className="css">
-                        <h2>Add to CSS</h2>
-                        <blockquote><pre><code>
-                            {`font-family: '${props.family}', ${props.category};`}
-                        </code></pre></blockquote>
-                    </div>                    
-                </Modal>
-            </div>
-        </CardPanel>
-    )
+export default function Font({category, family, id, url, variants}: Props){
+	return(
+		<CardPanel 
+			className="font-card white black-text z-depth-2"
+		>
+			<FontInfo 
+				category={category} 
+				family={family} 
+				id={id}
+				url={url}
+				variants={variants}
+			/>
+			<div className="font-interaction">
+				<Button 
+					floating 
+					className='red' 
+					waves='light' 
+					icon='favorite'
+				/>
+				<AddToProjectModal 
+					category={category} 
+					family={family} 
+					url={url}
+				/>
+			</div>
+		</CardPanel>
+	);
 }

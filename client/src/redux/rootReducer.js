@@ -4,8 +4,8 @@ import {searchQueryReducer} from '../components/SearchContainer/reducers/reducer
 
 
 const rootReducer = combineReducers({
-    fontData: fontDataReducer,
-    searchQuery: searchQueryReducer,
-})
+	fontData: fontDataReducer,
+	searchQuery: searchQueryReducer,
+});
 
 export default rootReducer;

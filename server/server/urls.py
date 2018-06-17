@@ -22,7 +22,11 @@ from favorites.views import FavoriteViewSet
 router = routers.DefaultRouter()
 router.register(r'favorites', FavoriteViewSet)
 
+from django.urls import path
+from fonts.views import index
+
 urlpatterns = [
+    path(r'fonts/', index, name='index'),
     url(r'^', include(router.urls)),
     url(r'^api-auth/', include('rest_framework.urls', namespace='rest_framework')),
 ]

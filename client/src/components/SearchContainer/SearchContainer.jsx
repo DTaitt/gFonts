@@ -1,38 +1,39 @@
 //@flow
-import React, { Component } from 'react';
+import React, {Component} from 'react';
 import {connect} from 'react-redux';
+import {updateSearchValue} from '../FontListContainer/actions/actions';
+import Search from 'components/Search/Search';
 
-import Search from '../Search/Search';
-import {updateSearchQuery} from './actions/action';
-
-type Props = {}
+type Props = {
+	searchValue: string,
+	updateSearchValue(searchValue: string):string
+}
 type State = {}
 
-class SearchContainer extends Component<Props, State>{
+export class SearchContainer extends Component<Props, State> {
 
-    handleSearch = this.handleSearch.bind(this);
+    handleSearch = this.handleSearch.bind(this)
 
-    handleSearch(e: any) {
-        const query = e.target.value.toLowerCase();
-        this.props.updateSearchQuery(query)
+    handleSearch(e: any){
+    	this.props.updateSearchValue(e.target.value.toLowerCase());
     }
 
     render() {
-        return (
-            <Search handleSearch={this.handleSearch} />
-        )
+    	return(
+    		<Search handleSearch={this.handleSearch} />
+    	);
     }
 }
 
 const mapStateToProps = state => {
-    return {
-        searchQuery: state.searchQuery,
-        fontData: state.fontData,
-    }
-}
+	return {
+		searchValue: state.searchValue,
+	};
+};
 
 const mapDispatchToProps = ({
-    updateSearchQuery,
-})
+	updateSearchValue,
+});
 
-export default connect(mapStateToProps, mapDispatchToProps)(SearchContainer);
+const ConnectedSearchContainer = connect(mapStateToProps, mapDispatchToProps)(SearchContainer);
+export default ConnectedSearchContainer;

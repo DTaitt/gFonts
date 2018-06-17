@@ -1,18 +1,27 @@
 import React from 'react';
-import enzyme, { shallow } from "enzyme";
-import Adapter from "enzyme-adapter-react-16";
+import enzyme, { shallow } from 'enzyme';
 
 import Main from './Main';
+import {setupWrapper} from 'utilities/utilities';
 
-enzyme.configure({ adapter: new Adapter() });
+let {wrapper} = setupWrapper(Main);
+const renderables = [
+	{
+		name: 'itself',
+		node: <main />
+	},
+	{
+		name: 'a div with a class of \'my-container\'',
+		node: <div className="my-container" />
+	},
+];
 
-const wrapper = shallow(<Main />)
-
-describe("Main", function() {
-  it("should render <Main /> without throwing an error", function() {
-    expect(wrapper.exists(<main></main>)).toBe(true);
-  });
-  it("should render div with a class of 'my-container' without throwing an error", function () {
-    expect(wrapper.exists(<div className='my-container'></div>)).toBe(true);
-  });
+describe('Main', () => {
+	describe('should render', () =>{
+		renderables.forEach(renderable => {
+			it(renderable.name , () => {
+				expect(wrapper.exists(renderable.node)).toBe(true);
+			});
+		});
+	});
 });

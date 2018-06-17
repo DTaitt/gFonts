@@ -1,15 +1,24 @@
-import React from "react";
-import enzyme, { shallow } from "enzyme";
-import Adapter from "enzyme-adapter-react-16";
-import { CollectionItem } from "react-materialize";
-enzyme.configure({ adapter: new Adapter() });
+import React from 'react';
+import enzyme, { shallow } from 'enzyme';
+import { CollectionItem } from 'react-materialize';
 
 import Categories from './Categories';
+import {setupWrapper} from 'utilities/utilities';
 
-const wrapper = shallow(<Categories />);
+let {wrapper} = setupWrapper(Categories);
+const renderables = [
+	{
+		name: 'itself',
+		node: <CollectionItem className="categories" />
+	},
+];
 
-describe("Categories", function () {
-    it("should render <Categories /> without throwing an error", function () {
-        expect(wrapper.exists(<CollectionItem className="categories"></CollectionItem>)).toBe(true);
-    });
+describe('Categories', () => {
+	describe('should render', () =>{
+		renderables.forEach(renderable => {
+			it(renderable.name , () => {
+				expect(wrapper.exists(renderable.node)).toBe(true);
+			});
+		});
+	});
 });
