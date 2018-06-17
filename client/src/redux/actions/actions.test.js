@@ -1,4 +1,4 @@
-import { initializeFontData } from './actions';
+import { initializeFontData, updateSearchValue } from './actions';
 
 describe('initializeFontData', () => {
 	const payload = [
@@ -12,7 +12,18 @@ describe('initializeFontData', () => {
 		payload,
 	};
 
-	it('should return a function that dispatches an action', () => {
+	it('should return an object with type: INITIALIZE_FONT_DATA and a payload that is the input', () => {
 		expect(initializeFontData(payload)).toEqual(action);
+	});
+});
+
+describe('updateSearchValue', () => {
+	const payload = 'payload';
+	const action = {
+		type: 'UPDATE_SEARCH_VALUE',
+		payload,
+	};
+	it('should return an object with type: UPDATE_SEARCH_VALUE and payload that is the input', () => {
+		expect(updateSearchValue(payload)).toEqual(action);
 	});
 });

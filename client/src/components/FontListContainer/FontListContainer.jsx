@@ -27,7 +27,7 @@ export class FontListContainer extends Component<Props, State>{
 	}
 
 	render() {
-		console.log(this.props.searchValue);
+		console.log(this.props);
 		
 		return (
 			<FontList fontData = {this.props.fontData} />
