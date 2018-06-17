@@ -36,6 +36,7 @@ export class FontListContainer extends Component<Props, State>{
 const mapStateToProps = state => {
 	return {
 		fontData: state.fontData,
+		searchValue: state.searchValue
 	};
 };
 
