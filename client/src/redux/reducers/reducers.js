@@ -11,6 +11,10 @@ export function fontDataReducer(fontData: Object[] = [], action: action): Object
 			...fontData,
 			...action.payload,
 		];
+		// case 'UPDATE_FONTS_ON_FILTER':
+		// return fontData.filter(font => {
+		// 	return
+		// })
 	default:
 		return fontData;
 	}
@@ -22,5 +26,15 @@ export function searchReducer(searchValue: string = '', action: {type: string, p
 		return action.payload;
 	default:
 		return searchValue;
+	}
+}
+
+//@flow 
+export function searchQueryReducer(searchQuery = '', action) {
+	switch (action.type) {
+	case 'UPDATE_SEARCH_QUERY':
+		return action.payload;
+	default:
+		return searchQuery;
 	}
 }

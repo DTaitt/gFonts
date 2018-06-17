@@ -1,7 +1,7 @@
 //@flow
 import React, {Component} from 'react';
 import {connect} from 'react-redux';
-import {updateSearchValue} from '../FontListContainer/actions/actions';
+import {updateSearchValue} from 'redux/actions/actions';
 import Search from 'components/Search/Search';
 
 type Props = {
