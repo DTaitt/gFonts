@@ -3,7 +3,6 @@ import React from 'react';
 import './Filter.css';
 
 import {Collection} from 'react-materialize';
-import Search from 'components/Search/Search';
 import Categories from 'components/Categories/Categories';
 import VariantsFilter from 'components/VariantsFilter/VariantsFilter';
 import ConnectedSearchContainer from '../SearchContainer/SearchContainer';

@@ -2,7 +2,7 @@
 import React, {Component} from 'react';
 import {connect} from 'react-redux';
 import {updateSearchValue} from '../FontListContainer/actions/actions';
-import {Search} from '../Search/Search';
+import Search from 'components/Search/Search';
 
 type Props = {
 	searchValue: string,
@@ -13,12 +13,12 @@ type State = {}
 export class SearchContainer extends Component<Props, State> {
 
     handleSearch = this.handleSearch.bind(this)
-    handleSearch(e){
+
+    handleSearch(e: any){
     	this.props.updateSearchValue(e.target.value.toLowerCase());
-        
     }
+
     render() {
-    	console.log(this.props.searchValue);
     	return(
     		<Search handleSearch={this.handleSearch} />
     	);

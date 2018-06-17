@@ -17,6 +17,4 @@ export function updateSearchValue(value: string){
 		type: 'UPDATE_SEARCH_VALUE',
 		payload: value,
 	});
-	console.log(value);
-	
 }

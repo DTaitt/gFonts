@@ -10,7 +10,7 @@ type Props = {
 }
 type State = {}
 
-export function Search(props: Props){
+export default function Search(props: Props){
 	return(
 		<CollectionItem className="search">
 			<Row>
