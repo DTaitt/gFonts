@@ -1,7 +1,6 @@
 // @flow
 import enzyme, {shallow} from 'enzyme';
 import React from 'react';
-import type {Node} from 'react';
 
 export function formatFontNameForHref(font: Object): string {
 	return font.family.slice().split(' ').join('+');
@@ -96,7 +95,7 @@ export const variantOptions: string[] = [
 	'Black Italic',
 ];
 
-export const options = {
+export const fontOptions = {
 	variants: [
 		'Thin',
 		'Thin Italic',

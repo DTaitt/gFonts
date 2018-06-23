@@ -10,7 +10,7 @@ export default function Sidebar(props: Props){
 	return(
 		<Card className='sidebar cyan darken-2'>
 			<Collapsible accordion>
-				<CollapsibleItem header='Filter' icon='search'>
+				<CollapsibleItem header='Filter' icon='search' className='search'>
 					<Filter />
 				</CollapsibleItem>
 				<Badge>Num of Favs</Badge>

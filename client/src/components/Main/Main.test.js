@@ -3,6 +3,8 @@ import enzyme, { shallow } from 'enzyme';
 
 import Main from './Main';
 import {setupWrapper} from 'utilities/utilities';
+import ConnectedFontListContainer from 'components/FontListContainer/FontListContainer';
+import Sidebar from 'components/Sidebar/Sidebar';
 
 let {wrapper} = setupWrapper(Main);
 const renderables = [
@@ -13,6 +15,14 @@ const renderables = [
 	{
 		name: 'a div with a class of \'my-container\'',
 		node: <div className="my-container" />
+	},
+	{
+		name: '<ConnectedFontListContainer />',
+		node: <ConnectedFontListContainer />
+	},
+	{
+		name: '<Sidebar />',
+		node: <Sidebar />
 	},
 ];
 

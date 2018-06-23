@@ -3,7 +3,7 @@ import enzyme, { shallow } from 'enzyme';
 import {Collection} from 'react-materialize';
 
 import Filter from './Filter';
-import SearchContainer from 'components/SearchContainer/SearchContainer';
+import SearchFilterContainer from 'components/SearchFilterContainer/SearchFilterContainer';
 import Categories from 'components/Categories/Categories';
 import VariantsFilter from 'components/VariantsFilter/VariantsFilter';
 import {setupWrapper} from 'utilities/utilities';
@@ -19,8 +19,8 @@ const renderables = [
 		node: <Collection />
 	},
 	{
-		name: '<SearchContainer />',
-		node: <SearchContainer />
+		name: '<SearchFilterContainer />',
+		node: <SearchFilterContainer />
 	},
 	{
 		name: '<Categories />',

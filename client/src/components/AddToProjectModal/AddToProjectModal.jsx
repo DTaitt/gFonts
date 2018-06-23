@@ -11,24 +11,30 @@ type Props = {
 }
 
 export default function AddToProjectModal({category, family, url}: Props) {
+
+	function sectionCreator(language: string, code: string) {
+		return(
+			<div className={`${language}`}>
+				<h2>Add to {language.toUpperCase()}</h2>
+				<blockquote className={`${language}`}>
+					<pre>
+						<code>
+							{code}
+						</code>
+					</pre>
+				</blockquote>
+			</div>
+		);
+	}
+	
 	return(
 		<Modal
 			header={family}
 			trigger={<Button>Add Style</Button>}
 			className='import-code'
 		>
-			<div className="html">
-				<h2>Add to HTML</h2>
-				<blockquote className="html"><pre><code>
-					{`<link href="${url}" rel="stylesheet">`}
-				</code></pre></blockquote>
-			</div>
-			<div className="css">
-				<h2>Add to CSS</h2>
-				<blockquote className="css"><pre><code>
-					{`font-family: '${family}', ${category};`}
-				</code></pre></blockquote>
-			</div>                    
+			{ sectionCreator('html', `<link href="${url}" rel="stylesheet">`) }
+			{ sectionCreator('css', `font-family: '${family}', ${category};`) }
 		</Modal>
 	);
 }

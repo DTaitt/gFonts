@@ -1,23 +1,23 @@
 import React, {Fragment} from 'react';
 import enzyme from 'enzyme';
 
-import {SearchContainer} from './SearchContainer';
-import Search from 'components/Search/Search';
+import SearchFilter from 'components/SearchFilter/SearchFilter';
 import {setupWrapper} from 'utilities/utilities';
+import {SearchFilterContainer} from './SearchFilterContainer';
 
 const initialProps = {
 	updateSearchValue(){}
 };
 
-let {wrapper} = setupWrapper(SearchContainer, initialProps);
+let {wrapper} = setupWrapper(SearchFilterContainer, initialProps);
 const renderables = [
 	{
 		name: 'itself',
-		node: <Search />
+		node: <SearchFilter />
 	},
 ];
 
-describe('SearchContainer', () => {
+describe('<SearchFilterContainer />', () => {
 	describe('should render', () =>{
 		renderables.forEach(renderable => {
 			it(renderable.name , () => {

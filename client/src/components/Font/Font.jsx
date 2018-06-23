@@ -3,8 +3,8 @@ import React from 'react';
 import {CardPanel, Button} from 'react-materialize';
 
 import './Font.css';
-import FontInfo from '../FontInfo/FontInfo';
-import AddToProjectModal from '../AddToProjectModal/AddToProjectModal';
+import FontInfo from 'components/FontInfo/FontInfo';
+import AddToProjectModal from 'components/AddToProjectModal/AddToProjectModal';
 
 type Props = {
     category: string,

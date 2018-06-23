@@ -2,12 +2,12 @@ import React from 'react';
 import enzyme, { shallow } from 'enzyme';
 import { CollectionItem } from 'react-materialize';
 
-import Search from './Search';
+import SearchFilter from './SearchFilter';
 
-const wrapper = shallow(<Search />);
+const wrapper = shallow(<SearchFilter />);
 
-describe('Search', () => {
-	it('should render <Search /> without throwing an error', () => {
+describe('SearchFilter', () => {
+	it('should render <SearchFilter /> without throwing an error', () => {
 		expect(wrapper.exists(<CollectionItem className="search" />)).toBe(true);
 	});
 });

@@ -4,25 +4,28 @@ import { Provider } from 'react-redux';
 
 import {FontListContainer} from './FontListContainer';
 import FontList from 'components/FontList/FontList';
-import configureStore from 'redux-mock-store';
+import {setupWrapper} from 'utilities/utilities';
 
-const initialState = {fontData:[]};
-const mockStore = configureStore();
-let store;
-let wrapper;
+const initialProps = {
+	filterFontData: [
+		{
+			a: '1',
+			b: '2',
+			c: '3'
+		},
+		{
+			aa: '11',
+			bb: '22',
+			cc: '33'
+		},
+	]
+};
 
-beforeEach(() => {
-	store = mockStore(initialState);
-	wrapper = shallow(
-		<Provider store={store}>
-			<FontListContainer />
-		</Provider>
-	);
-});
+let {wrapper, props} = setupWrapper(FontListContainer, initialProps);
 
-describe.only('FontListContainer', () => {
-	it('should render FontList', () => {
-		expect(wrapper.exists(FontList)).toBe(true);
+describe('FontListContainer', () => {
+	it('should render <FontList />', () => {
+		expect(wrapper.exists(<FontList />)).toBe(true);
 	});
 	it('should call fetchFontsData', () => {
 		expect(wrapper.instance().fetchFontsData).toHaveBeenCalled;

@@ -21,10 +21,11 @@ export class FontListContainer extends Component<Props, State>{
 		try {
 			const {
 				data:{
-					items:fonts = {}
+					items = {}
 				}
 			} = await axios.get('/fonts');
-			this.props.initializeFontData(formatFontData(fonts.slice(0,24)));
+			const fonts = formatFontData(items.slice(0, 24));
+			this.props.initializeFontData(fonts);
 		} catch (error) {
 			console.log(error);
 		}
@@ -37,7 +38,7 @@ export class FontListContainer extends Component<Props, State>{
 	}
 }
 
-const mapStateToProps = state => {
+function mapStateToProps(state) {
 	return {
 		filterFontData: state.filterFontData
 	};

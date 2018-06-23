@@ -8,11 +8,11 @@ type Props = {
     fontData: Object[],
 };
 
-export default function FontList(props: Props) {
+export default function FontList({fontData}: Props) {
 	return (
 		<section className="card-display">
 			{
-				props.fontData.map((font) => {
+				fontData.map((font) => {
 					return (
 						<ConnectedFontContainer
 							category={font.category}

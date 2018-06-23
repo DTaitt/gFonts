@@ -5,21 +5,13 @@ import './Filter.css';
 import {Collection} from 'react-materialize';
 import Categories from 'components/Categories/Categories';
 import VariantsFilter from 'components/VariantsFilter/VariantsFilter';
-import ConnectedSearchContainer from '../SearchContainer/SearchContainer';
+import ConnectedSearchFilterContainer from '../SearchFilterContainer/SearchFilterContainer';
 
-type Props = {
-//   handleSearch(e: any):void,
-//   handleCategory(e: any):void,
-//   handleVariant(e: any):void,
-//   categoryOptions: string[],
-//   variantOptions: Object[],
-};
-
-export default function Filter(props: Props) {
+export default function Filter() {
 	return (
 		<div className="filter">
 			<Collection>
-				<ConnectedSearchContainer />
+				<ConnectedSearchFilterContainer />
 				<Categories />
 				<VariantsFilter/>
 			</Collection>

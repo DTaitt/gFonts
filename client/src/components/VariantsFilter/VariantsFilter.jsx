@@ -2,7 +2,7 @@
 import React from 'react';
 import {Row, Input, CollectionItem, Dropdown, Button, Collection} from 'react-materialize';
 import './VariantsFilter.css';
-import {options} from 'utilities/utilities';
+import {fontOptions} from 'utilities/utilities';
 
 export default function VariantsFilter() {
 	return(
@@ -13,7 +13,7 @@ export default function VariantsFilter() {
 				}>
 					<Collection>
 						{
-							options.variants.map(variant => {
+							fontOptions.variants.map(variant => {
 								return (
 									<CollectionItem className='variant' key={variant}>
 										<Input 
