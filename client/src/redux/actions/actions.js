@@ -1,6 +1,6 @@
 // @flow
 export function initializeFontData(fontData: Object[]) {
-	return (dispatch) => {
+	return (dispatch: Function) => {
 		dispatch({type: 'LOADING_FONT_DATA'});
 		dispatch({
 			type: 'INITIALIZE_FONT_DATA',
@@ -14,7 +14,7 @@ export function initializeFontData(fontData: Object[]) {
 }
 
 export function updateSearchValue(value: string){
-	return (dispatch, getState) => {
+	return (dispatch: Function, getState: Function) => {
 		dispatch({type: 'UPDATING'});
 		dispatch({
 			type: 'UPDATE_SEARCH_VALUE',

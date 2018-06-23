@@ -19,8 +19,12 @@ export class FontListContainer extends Component<Props, State>{
 
 	async fetchFontsData() {
 		try {
-			const {data:{items:res = {}}} = await axios.get('/fonts');
-			this.props.initializeFontData(formatFontData(res.slice(0,24)));
+			const {
+				data:{
+					items:fonts = {}
+				}
+			} = await axios.get('/fonts');
+			this.props.initializeFontData(formatFontData(fonts.slice(0,24)));
 		} catch (error) {
 			console.log(error);
 		}
@@ -35,8 +39,6 @@ export class FontListContainer extends Component<Props, State>{
 
 const mapStateToProps = state => {
 	return {
-		fontData: state.fontData,
-		searchValue: state.searchValue,
 		filterFontData: state.filterFontData
 	};
 };
