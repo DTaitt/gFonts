@@ -14,8 +14,8 @@ export class SearchContainer extends Component<Props, State> {
 
     handleSearch = this.handleSearch.bind(this)
 
-    handleSearch(e: any){
-    	this.props.updateSearchValue(e.target.value.toLowerCase());
+    handleSearch({target:{value}}){
+    	this.props.updateSearchValue(value.toLowerCase());
     }
 
     render() {
@@ -28,6 +28,7 @@ export class SearchContainer extends Component<Props, State> {
 const mapStateToProps = state => {
 	return {
 		searchValue: state.searchValue,
+		fontData: state.fontData
 	};
 };
 
