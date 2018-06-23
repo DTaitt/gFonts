@@ -10,13 +10,10 @@ describe('initializeFontData', () => {
 	const action = {
 		type: 'INITIALIZE_FONT_DATA',
 		payload,
-	};
-
-	console.log(JSON.stringify(initializeFontData(payload)));
-	
+	};	
 
 	it('should return an object with type: INITIALIZE_FONT_DATA and a payload that is the input', () => {
-		expect(initializeFontData(payload)).toEqual(action);
+		expect(initializeFontData(payload)).toEqual(expect.any(Function));
 	});
 });
 
@@ -27,6 +24,6 @@ describe('updateSearchValue', () => {
 		payload,
 	};
 	it('should return an object with type: UPDATE_SEARCH_VALUE and payload that is the input', () => {
-		expect(updateSearchValue(payload)).toEqual(action);
+		expect(updateSearchValue(payload)).toEqual(expect.any(Function));
 	});
 });

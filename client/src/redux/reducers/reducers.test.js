@@ -1,4 +1,4 @@
-import {fontDataReducer, searchReducer} from './reducers';
+import {fontDataReducer, searchReducer, filterFontDataReducer} from './reducers';
 
 describe('fontDataReducer', () => {
 	let payload = [
@@ -26,8 +26,7 @@ describe('fontDataReducer', () => {
 			variants: ['second', 'second', 'second']
 		},
 	];
-    
-    
+
 	describe('when type is INITIALIZE_FONT_DATA', () => {
 		const action = {
 			type: 'INITIALIZE_FONT_DATA',
@@ -37,11 +36,72 @@ describe('fontDataReducer', () => {
 			expect(fontDataReducer([], action)).toEqual(payload);
 		});
 	});
+
+	describe('when type is not found', () => {
+		const action = {
+			type: 'testing testing', 
+			payload
+		};
+		it('should return an empty array', () => {
+			expect(fontDataReducer([], action)).toEqual([]);
+		});
+	});
+});
+
+describe('filterFontDataReducer', () => {
+	let payload = [
+		{ 
+			category: 'first',
+			family: 'first',
+			variants: ['first', 'first', 'first']
+		},
+		{ 
+			category: 'second',
+			family: 'second',
+			variants: ['second', 'second', 'second']
+		},
+	];
+    
+	const initial = [
+		{ 
+			category: 'first',
+			family: 'first',
+			variants: ['first', 'first', 'first']
+		},
+		{ 
+			category: 'second',
+			family: 'second',
+			variants: ['second', 'second', 'second']
+		},
+	];
+
+	describe('when type is INITIALIZE_FILTER_FONT_DATA', () => {
+		const action = {
+			type: 'INITIALIZE_FILTER_FONT_DATA',
+			payload
+		};
+		it('should return an array equal to the action payload', () => {
+			expect(filterFontDataReducer([], action)).toEqual(payload);
+		});
+	});
+
 	describe('when type is UPDATE_FONTS_ON_FILTER', () => {
-		let payload = 'fir';
+		const initial = [
+			{ 
+				category: 'first',
+				family: 'first',
+				variants: ['first', 'first', 'first']
+			},
+			{ 
+				category: 'second',
+				family: 'second',
+				variants: ['second', 'second', 'second']
+			},
+		];
 		const action = {
 			type: 'UPDATE_FONTS_ON_FILTER',
-			payload
+			payload: 'fir',
+			fontData: initial,
 		};
 		const expected = [
 			{ 
@@ -51,7 +111,7 @@ describe('fontDataReducer', () => {
 			},
 		];
 		it('should return an array where the payload appears in the objects category', () => {
-			expect(fontDataReducer(initial, action)).toEqual(expected);
+			expect(filterFontDataReducer([], action)).toEqual(expected);
 		});
 	});
 	describe('when type is not found', () => {
@@ -60,7 +120,7 @@ describe('fontDataReducer', () => {
 			payload
 		};
 		it('should return an empty array', () => {
-			expect(fontDataReducer([], action)).toEqual([]);
+			expect(filterFontDataReducer([], action)).toEqual([]);
 		});
 	});
 });

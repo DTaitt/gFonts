@@ -11,10 +11,6 @@ export function fontDataReducer(fontData: Object[] = [], action: action): Object
 			...fontData,
 			...action.payload,
 		];
-	// case 'UPDATE_FONTS_ON_FILTER':
-	// 	return fontData.filter(font => {
-	// 		return font.family.toLowerCase().indexOf(action.payload) !== -1;
-	// 	});
 	default:
 		return fontData;
 	}
