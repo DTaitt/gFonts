@@ -1,4 +1,4 @@
-import { initializeFontData, updateSearchValue } from './actions';
+import { initializeFontData, updateSearchValue, updateFontsOnFilter } from './actions';
 
 describe('initializeFontData', () => {
 	const payload = [
@@ -11,6 +11,9 @@ describe('initializeFontData', () => {
 		type: 'INITIALIZE_FONT_DATA',
 		payload,
 	};
+
+	console.log(JSON.stringify(initializeFontData(payload)));
+	
 
 	it('should return an object with type: INITIALIZE_FONT_DATA and a payload that is the input', () => {
 		expect(initializeFontData(payload)).toEqual(action);

@@ -7,7 +7,7 @@ import FontList from 'components/FontList/FontList';
 import {formatFontData} from 'utilities/utilities';
 
 type Props = {
-    fontData: Object[],
+    filterFontData: Object[],
     initializeFontData(Object[]):Object[],
 };
 type State = {};
@@ -27,10 +27,8 @@ export class FontListContainer extends Component<Props, State>{
 	}
 
 	render() {
-		console.log(this.props);
-		
 		return (
-			<FontList fontData = {this.props.fontData} />
+			<FontList fontData = {this.props.filterFontData} />
 		);
 	}
 }
@@ -38,7 +36,8 @@ export class FontListContainer extends Component<Props, State>{
 const mapStateToProps = state => {
 	return {
 		fontData: state.fontData,
-		searchValue: state.searchValue
+		searchValue: state.searchValue,
+		filterFontData: state.filterFontData
 	};
 };
 

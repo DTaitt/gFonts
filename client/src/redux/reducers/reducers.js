@@ -11,12 +11,29 @@ export function fontDataReducer(fontData: Object[] = [], action: action): Object
 			...fontData,
 			...action.payload,
 		];
-		// case 'UPDATE_FONTS_ON_FILTER':
-		// return fontData.filter(font => {
-		// 	return
-		// })
+	// case 'UPDATE_FONTS_ON_FILTER':
+	// 	return fontData.filter(font => {
+	// 		return font.family.toLowerCase().indexOf(action.payload) !== -1;
+	// 	});
 	default:
 		return fontData;
+	}
+}
+
+export function filterFontDataReducer(filterFontData: Object[] = [], action: action): Object[] {
+	switch (action.type) {
+	case 'INITIALIZE_FILTER_FONT_DATA':
+		return [
+			...filterFontData,
+			...action.payload,
+		];
+	case 'UPDATE_FONTS_ON_FILTER':
+		const {fontData, payload} = action;
+		return fontData.filter(font => {
+			return font.family.toLowerCase().indexOf(payload) !== -1;
+		});
+	default:
+		return filterFontData;
 	}
 }
 
