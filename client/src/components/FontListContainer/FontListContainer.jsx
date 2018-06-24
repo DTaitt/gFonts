@@ -24,7 +24,7 @@ export class FontListContainer extends Component<Props, State>{
 					items = {}
 				}
 			} = await axios.get('/fonts');
-			const fonts = formatFontData(items.slice(0, 24));
+			const fonts = formatFontData(items.slice(0, 36));
 			this.props.initializeFontData(fonts);
 		} catch (error) {
 			console.log(error);

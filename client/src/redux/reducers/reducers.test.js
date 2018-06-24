@@ -85,7 +85,7 @@ describe('filterFontDataReducer', () => {
 		});
 	});
 
-	describe('when type is UPDATE_FONTS_ON_FILTER', () => {
+	describe('when type is UPDATE_FONTS_ON_SEARCH_FILTER', () => {
 		const initial = [
 			{ 
 				category: 'first',
@@ -99,7 +99,7 @@ describe('filterFontDataReducer', () => {
 			},
 		];
 		const action = {
-			type: 'UPDATE_FONTS_ON_FILTER',
+			type: 'UPDATE_FONTS_ON_SEARCH_FILTER',
 			payload: 'fir',
 			fontData: initial,
 		};

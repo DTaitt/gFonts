@@ -1,10 +1,10 @@
 //@flow
 import React from 'react';
 import {Row, Input, CollectionItem} from 'react-materialize';
-import './Categories.css';
+import './CategoryFilter.css';
 import {fontOptions} from 'utilities/utilities';
 
-export default function Categories() {
+export default function CategoryFilter(props) {
 	return(
 		<CollectionItem className="categories">
 			<Row>
@@ -13,11 +13,18 @@ export default function Categories() {
 					type="select" 
 					label="Category Type" 
 					defaultValue="0" 
-					// onChange={props.handleCategory}
+					onChange={props.handleCategory}
 				>
 					{
 						fontOptions.categories.map((option) => {
-							return <option key={option} value={option}>{option.toLocaleUpperCase()}</option>;
+							return (
+								<option 
+									key={option} 
+									value={option}
+								>
+									{option.toLocaleUpperCase()}
+								</option>
+							);
 						})
 					}
 				</Input>

@@ -23,10 +23,19 @@ export function filterFontDataReducer(filterFontData: Object[] = [], action: act
 			...filterFontData,
 			...action.payload,
 		];
-	case 'UPDATE_FONTS_ON_FILTER':
-		const {fontData, payload} = action;
+	case 'UPDATE_FONTS_ON_SEARCH_FILTER':
+		let {fontData, payload} = action;
 		return fontData.filter(font => {
 			return font.family.toLowerCase().indexOf(payload) !== -1;
+		});
+	case 'UPDATE_FONTS_ON_CATEGORY_VALUE':
+		// let {fontData, payload} = action;
+		return action.fontData.filter(font => {
+			if (action.payload === 'view all') {
+				return action.fontData;
+			} else {
+				return font.category === action.payload;
+			}
 		});
 	default:
 		return filterFontData;
@@ -39,5 +48,14 @@ export function searchReducer(searchValue: string = '', action: {type: string, p
 		return action.payload;
 	default:
 		return searchValue;
+	}
+}
+
+export function categoryReducer(categoryValue: string = 'view all', action: {type: string, payload: string}) {
+	switch (action.type) {
+	case 'UPDATE_CATEGORY_VALUE':
+		return action.payload;
+	default:
+		return categoryValue;
 	}
 }

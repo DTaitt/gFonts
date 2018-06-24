@@ -2,10 +2,10 @@ import React from 'react';
 import enzyme, { shallow } from 'enzyme';
 import { CollectionItem } from 'react-materialize';
 
-import Categories from './Categories';
+import CategoryFilter from './CategoryFilter';
 import {setupWrapper} from 'utilities/utilities';
 
-let {wrapper} = setupWrapper(Categories);
+let {wrapper} = setupWrapper(CategoryFilter);
 const renderables = [
 	{
 		name: 'itself',
@@ -13,7 +13,7 @@ const renderables = [
 	},
 ];
 
-describe('Categories', () => {
+describe('<CategoryFilter />', () => {
 	describe('should render', () =>{
 		renderables.forEach(renderable => {
 			it(renderable.name , () => {
