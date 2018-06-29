@@ -1,9 +1,8 @@
 //@flow
 import React, {Component} from 'react';
 import {connect} from 'react-redux';
-// import {updateSearchValue} from 'redux/actions/actions';
 import CategoryFilter from 'components/CategoryFilter/CategoryFilter';
-import {updateCategoryValue} from '../../redux/actions/actions';
+import {updateCategoryValue} from 'redux/actions/actions';
 
 type Props = {
 	updateCategoryValue(categoryValue: string):any
@@ -14,7 +13,8 @@ export class CategoryFilterContainer extends Component<Props, State> {
 
     handleCategory = this.handleCategory.bind(this)
 
-    handleCategory({target:{value:categoryValue}}: Object){
+    handleCategory(e: Object){
+    	const categoryValue = e.target.value;
     	this.props.updateCategoryValue(categoryValue);
     }
 

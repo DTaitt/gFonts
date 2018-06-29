@@ -26,7 +26,6 @@ export function updateSearchValue(value: string){
 			payload: searchValue,
 			fontData
 		});
-		console.log(getState());
 	};
 }
 
@@ -43,6 +42,5 @@ export function updateCategoryValue(value: string) {
 			payload: categoryValue,
 			fontData
 		});
-		console.log(getState());
 	};
 }

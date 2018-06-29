@@ -4,7 +4,11 @@ import {Row, Input, CollectionItem} from 'react-materialize';
 import './CategoryFilter.css';
 import {fontOptions} from 'utilities/utilities';
 
-export default function CategoryFilter(props) {
+type Props = {
+	handleCategory():void,
+}
+
+export default function CategoryFilter({handleCategory}: Props) {
 	return(
 		<CollectionItem className="categories">
 			<Row>
@@ -13,7 +17,7 @@ export default function CategoryFilter(props) {
 					type="select" 
 					label="Category Type" 
 					defaultValue="0" 
-					onChange={props.handleCategory}
+					onChange={handleCategory}
 				>
 					{
 						fontOptions.categories.map((option) => {

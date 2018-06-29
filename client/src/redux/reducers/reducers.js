@@ -29,7 +29,6 @@ export function filterFontDataReducer(filterFontData: Object[] = [], action: act
 			return font.family.toLowerCase().indexOf(payload) !== -1;
 		});
 	case 'UPDATE_FONTS_ON_CATEGORY_VALUE':
-		// let {fontData, payload} = action;
 		return action.fontData.filter(font => {
 			if (action.payload === 'view all') {
 				return action.fontData;
