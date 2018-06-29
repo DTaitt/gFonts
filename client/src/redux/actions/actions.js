@@ -1,16 +1,24 @@
 // @flow
 import axios from 'axios';
+import {formatFontData, url} from 'utilities/utilities';
 
 export function initializeFontData(fontData: Object[]) {
-	return (dispatch: Function) => {
+	return async (dispatch: Function) => {
 		dispatch({type: 'LOADING_FONT_DATA'});
+		let fonts;
+		try {
+			const res = await axios.get(url.fonts);
+			fonts = formatFontData(res.data.items.slice(0, 36));
+		} catch (error) {
+			console.log(error);
+		}
 		dispatch({
 			type: 'INITIALIZE_FONT_DATA',
-			payload: fontData,
+			payload: fonts,
 		});
 		dispatch({
 			type: 'INITIALIZE_FILTER_FONT_DATA',
-			payload: fontData,
+			payload: fonts,
 		});
 	};
 }
@@ -64,6 +72,6 @@ export function addFavorite(font) {
 			type: 'ADD_FAV_TO_FAV_SECTION',
 			payload: font,
 		});
-		await axios.post('/favorites/?format=json', font);
+		await axios.post(url.fav, font);
 	};
 }

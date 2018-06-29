@@ -153,3 +153,8 @@ export function modalSectionCreator(language: string, code: string) {
 		</div>
 	);
 }
+
+export const url = {
+	fonts: '/fonts',
+	fav: '/favorites/?format=json',
+};
