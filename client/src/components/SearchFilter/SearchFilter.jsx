@@ -7,11 +7,11 @@ type Props = {
 	handleSearch(e: any):void
 }
 
-export default function SearchFilter(props: Props){
+export default function SearchFilter({handleSearch}: Props){
 	return(
 		<CollectionItem className="search">
 			<Row>
-				<Input s={6} label="Search" validate onChange={props.handleSearch} />
+				<Input s={6} label="Search" validate onChange={handleSearch} />
 			</Row>
 		</CollectionItem>
 	);
