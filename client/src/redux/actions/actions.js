@@ -1,4 +1,6 @@
 // @flow
+import axios from 'axios';
+
 export function initializeFontData(fontData: Object[]) {
 	return (dispatch: Function) => {
 		dispatch({type: 'LOADING_FONT_DATA'});
@@ -9,6 +11,16 @@ export function initializeFontData(fontData: Object[]) {
 		dispatch({
 			type: 'INITIALIZE_FILTER_FONT_DATA',
 			payload: fontData,
+		});
+	};
+}
+
+export function initializeFavData(favData: Object[]) {
+	return (dispatch: Function, getState) => {
+		dispatch({type: 'LOADING_FAV_DATA'});
+		dispatch({
+			type: 'INITIALIZE_FAV_DATA',
+			payload: favData,
 		});
 	};
 }
@@ -42,5 +54,16 @@ export function updateCategoryValue(value: string) {
 			payload: categoryValue,
 			fontData
 		});
+	};
+}
+
+export function addFavorite(font) {
+	return async (dispatch: Function, getState) => {
+		dispatch({type: 'ADDING_FAVORITE'});
+		dispatch({
+			type: 'ADD_FAV_TO_FAV_SECTION',
+			payload: font,
+		});
+		await axios.post('/favorites/?format=json', font);
 	};
 }

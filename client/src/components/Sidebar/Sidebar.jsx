@@ -3,6 +3,7 @@ import React from 'react';
 import { Collapsible, CollapsibleItem, Card, Badge } from 'react-materialize';
 import './Sidebar.css';
 import Filter from 'components/Filter/Filter';
+import ConnectedFavSectionContainer from 'components/FavSectionContainer/FavSectionContainer';
 
 type Props = {}
 
@@ -15,7 +16,7 @@ export default function Sidebar(props: Props){
 				</CollapsibleItem>
 				<Badge>Num of Favs</Badge>
 				<CollapsibleItem header='Favorites' icon='favorite' className='favorite'>
-					<p>FavCardContainer</p>
+					<ConnectedFavSectionContainer />
 				</CollapsibleItem>
 			</Collapsible>
 		</Card>  

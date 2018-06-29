@@ -11,10 +11,11 @@ type Props = {
     family: string,
     id: string,
     url: string,
-    variants: string[],
+	variants: string[],
+	addFavorite(): void,
 }
 
-export default function Font({category, family, id, url, variants}: Props){
+export default function Font({category, family, id, url, variants, addFavorite}: Props){
 	return(
 		<CardPanel 
 			className="font-card white black-text z-depth-2"
@@ -32,6 +33,7 @@ export default function Font({category, family, id, url, variants}: Props){
 					className='red' 
 					waves='light' 
 					icon='favorite'
+					onClick={() => {addFavorite({category, family, id, url, variants, addFavorite});}}
 				/>
 				<AddToProjectModal 
 					category={category} 

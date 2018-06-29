@@ -16,6 +16,23 @@ export function fontDataReducer(fontData: Object[] = [], action: action): Object
 	}
 }
 
+export function favDataReducer(favData: Object[] = [], action: action): Object[] {
+	switch (action.type) {
+	case 'INITIALIZE_FAV_DATA':
+		return [
+			...favData,
+			...action.payload,
+		];
+	case 'ADD_FAV_TO_FAV_SECTION':
+		return [
+			...favData,
+			action.payload
+		];
+	default:
+		return favData;
+	}
+}
+
 export function filterFontDataReducer(filterFontData: Object[] = [], action: action): Object[] {
 	switch (action.type) {
 	case 'INITIALIZE_FILTER_FONT_DATA':
