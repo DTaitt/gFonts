@@ -138,3 +138,18 @@ export function setupWrapper(Component: any, initialProps?: Object, propOverride
 export function formatFontUrl(urlFamily: string) {
 	return `https://fonts.google.com/specimen/${urlFamily}`;
 }
+
+export function modalSectionCreator(language: string, code: string) {
+	return(
+		<div className={`${language}`}>
+			<h2>{`Add to ${language.toUpperCase()}`}</h2>
+			<blockquote className={`${language}`}>
+				<pre>
+					<code>
+						{code}
+					</code>
+				</pre>
+			</blockquote>
+		</div>
+	);
+}

@@ -1,4 +1,4 @@
-import { formatFontNameForHref, addFontNameHrefFormat, formatSingleVariant, formatVariants, renameFontVariants, formatFontData, setupWrapper , formatFontUrl} from './utilities';
+import { formatFontNameForHref, addFontNameHrefFormat, formatSingleVariant, formatVariants, renameFontVariants, formatFontData, setupWrapper , formatFontUrl, modalSectionCreator} from './utilities';
 import React, {Component} from 'react';
 import App from 'components/App/App';
 
@@ -147,5 +147,22 @@ describe('formatFontUrl', () => {
 	});
 	it('should return the correct font link when font is more than one word', () => {
 		expect(formatFontUrl('this+is+another+font')).toEqual('https://fonts.google.com/specimen/this+is+another+font');
+	});
+});
+
+describe('modalSectionCreator', () => {
+	it('should return the modal section with the correct language and code', () => {
+		const result = <div className="html">
+			<h2>Add to HTML</h2>
+			<blockquote className="html">
+				<pre>
+					<code>
+					&lt;link href="https://fonts.google.com/specimen/Open+Sans" rel="stylesheet"&gt;
+					</code>
+				</pre>
+			</blockquote>
+		</div>;
+		const url='https://fonts.google.com/specimen/Open+Sans';
+		expect(modalSectionCreator('html', `<link href="${url}" rel="stylesheet">`)).toEqual(result);
 	});
 });
