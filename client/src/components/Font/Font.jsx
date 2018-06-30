@@ -33,7 +33,7 @@ export default function Font({category, family, id, url, variants, addFavorite}:
 					className='red' 
 					waves='light' 
 					icon='favorite'
-					onClick={() => {addFavorite({category, family, id, url, variants, addFavorite});}}
+					onClick={() => {addFavorite({category, family, url});}}
 				/>
 				<AddToProjectModal 
 					category={category} 

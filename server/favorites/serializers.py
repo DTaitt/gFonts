@@ -5,3 +5,4 @@ class FavoriteSerializer(serializers.ModelSerializer):
     class Meta:
         model = Favorite
         fields = ('id', 'family', 'category', 'url')
+        lookup_field = 'family'
