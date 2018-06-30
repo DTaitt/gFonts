@@ -5,6 +5,7 @@ import { Provider } from 'react-redux';
 import {FontListContainer} from './FontListContainer';
 import FontList from 'components/FontList/FontList';
 import {setupWrapper} from 'utilities/utilities';
+import {initializeFontData} from 'redux/actions/actions';
 
 const initialProps = {
 	filterFontData: [
@@ -18,7 +19,8 @@ const initialProps = {
 			bb: '22',
 			cc: '33'
 		},
-	]
+	],
+	initializeFontData,
 };
 
 let {wrapper, props} = setupWrapper(FontListContainer, initialProps);
@@ -27,7 +29,10 @@ describe('FontListContainer', () => {
 	it('should render <FontList />', () => {
 		expect(wrapper.exists(<FontList />)).toBe(true);
 	});
-	it('should call fetchFontsData', () => {
-		expect(wrapper.instance().fetchFontsData).toHaveBeenCalled;
+	it('should call initializeFontData', () => {
+		expect(wrapper.instance().initializeFontData).toHaveBeenCalled;
+	});
+	it('should pass correct props to <FontList />', () => {
+		expect(wrapper.find(FontList).props().fontData).toEqual(props.filterFontData);
 	});
 });

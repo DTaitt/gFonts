@@ -24,8 +24,8 @@ const renderables = [
 		node: <CardPanel className="font-card white black-text z-depth-2" />
 	},
 	{
-		name: 'font information',
-		node: <div className="font info" />
+		name: '<FontInfo />',
+		node: <FontInfo />
 	},
 	{
 		name: 'font interaction',

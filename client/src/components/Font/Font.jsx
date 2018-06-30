@@ -5,7 +5,7 @@ import {CardPanel, Button} from 'react-materialize';
 import './Font.css';
 import FontInfo from 'components/FontInfo/FontInfo';
 import AddToProjectModal from 'components/AddToProjectModal/AddToProjectModal';
-import {formatFontNameForHref} from '../../utilities/utilities';
+import {formatFontNameForHref} from 'utilities/utilities';
 
 type Props = {
     category: string,
@@ -13,7 +13,7 @@ type Props = {
     id: string,
     url: string,
 	variants: string[],
-	addFavorite(): void,
+	addFavorite(fav: Object): void,
 }
 
 export default function Font({category, family, id, url, variants, addFavorite}: Props){

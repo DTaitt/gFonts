@@ -1,5 +1,5 @@
 // @flow
-import React, { Component } from 'react';
+import React from 'react';
 import FavItem from 'components/FavItem/FavItem';
 import {deleteFavorite} from 'redux/actions/actions';
 import {connect} from 'react-redux';
@@ -11,12 +11,8 @@ type Props = {
     deleteFavorite():void,
 }
 
-class FavItemContainer extends Component<Props, State> {
-	render() { 
-		return (
-			<FavItem {...this.props} deleteFavorite = {this.props.deleteFavorite} />
-		);
-	}
+function FavItemContainer(props: Props) {
+	return <FavItem {...props} deleteFavorite = {props.deleteFavorite} />;
 }
 
 const mapDispatchToProps = ({

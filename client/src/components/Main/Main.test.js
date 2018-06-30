@@ -4,7 +4,7 @@ import enzyme, { shallow } from 'enzyme';
 import Main from './Main';
 import {setupWrapper} from 'utilities/utilities';
 import ConnectedFontListContainer from 'components/FontListContainer/FontListContainer';
-import Sidebar from 'components/Sidebar/Sidebar';
+import ConnectedSidebar from 'components/Sidebar/Sidebar';
 
 let {wrapper} = setupWrapper(Main);
 const renderables = [
@@ -21,8 +21,8 @@ const renderables = [
 		node: <ConnectedFontListContainer />
 	},
 	{
-		name: '<Sidebar />',
-		node: <Sidebar />
+		name: '<ConnectedSidebar />',
+		node: <ConnectedSidebar />
 	},
 ];
 

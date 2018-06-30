@@ -5,7 +5,7 @@ import './CategoryFilter.css';
 import {fontOptions} from 'utilities/utilities';
 
 type Props = {
-	handleCategory():void,
+	handleCategory(e: Object):void,
 }
 
 export default function CategoryFilter({handleCategory}: Props) {

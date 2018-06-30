@@ -17,9 +17,7 @@ class FavSectionContainer extends Component<Props, State> {
 	}
 
 	render() {
-		return (
-			<FavSection favData = { this.props.favData } />
-		);
+		return <FavSection favData = { this.props.favData } />;
 	}
 }
 

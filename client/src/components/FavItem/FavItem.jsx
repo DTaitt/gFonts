@@ -7,7 +7,7 @@ type Props = {
 	family: string,
 	category: string,
 	url: string,
-	deleteFavorite():void,
+	deleteFavorite(hrefFamily: string):void,
 }
 
 export default function FavItem({family, category, url, deleteFavorite}: Props) {

@@ -1,5 +1,5 @@
 // @flow
-import React, { Component, Fragment } from 'react';
+import React from 'react';
 import Font from 'components/Font/Font';
 import {addFavorite} from 'redux/actions/actions';
 import {connect} from 'react-redux';
@@ -13,16 +13,10 @@ type Props = {
 	addFavorite(): void,
 }
 
-type State = {}
-
-export class FontContainer extends Component<Props, State> {
-	render() {
-		return (
-			<Fragment>
-				<Font {...this.props} addFavorite={this.props.addFavorite} />
-			</Fragment>
-		);
-	}
+function FontContainer(props: Props) {
+	return (
+		<Font {...props} addFavorite={props.addFavorite} />
+	);
 }
 
 const mapDispatchToProps = ({

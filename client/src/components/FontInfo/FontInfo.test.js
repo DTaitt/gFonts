@@ -52,4 +52,19 @@ describe('FontInfo', () => {
 	it('should render the correct number of <CollectionItem />\'s', () => {
 		expect(wrapper.find(CollectionItem).length).toEqual(initialProps.variants.length);
 	});
+	it('should have correct link', () => {
+		expect(wrapper.find('.font.url').html()).toBe(
+			'<a href="url" target="_blank" rel="noopener noreferrer" class="font url"><h1 class="family">family</h1></a>'
+		);
+	});
+	it('should have correct family', () => {
+		expect(wrapper.find('.family').html()).toBe(
+			'<h1 class="family">family</h1>'
+		);
+	});
+	it('should have correct category', () => {
+		expect(wrapper.find('.category').html()).toBe(
+			'<p class="category">category</p>'
+		);
+	});
 });

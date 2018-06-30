@@ -1,7 +1,7 @@
 import React, {Fragment} from 'react';
 import enzyme from 'enzyme';
 
-import FontContainer from './FontContainer';
+import ConnectedFontContainer from './FontContainer';
 import Font from 'components/Font/Font';
 import {setupWrapper} from 'utilities/utilities';
 
@@ -14,24 +14,10 @@ const initialProps = {
 	variants:['variant','second variant', 'third variant']
 };
 
-let {wrapper} = setupWrapper(FontContainer, initialProps);
-const renderables = [
-	{
-		name: 'itself',
-		node: <Fragment></Fragment>
-	},
-	{
-		name: '<Font />',
-		node: <Font />
-	},
-];
+let {wrapper, props} = setupWrapper(ConnectedFontContainer, initialProps);
 
 describe('FontContainer', () => {
-	describe('should render', () =>{
-		renderables.forEach(renderable => {
-			it(renderable.name , () => {
-				expect(wrapper.exists(renderable.node)).toBe(true);
-			});
-		});
+	it('should render <Font />', () => {
+		expect(wrapper.exists(<Font />)).toBe(true);
 	});
 });

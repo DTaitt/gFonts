@@ -11,8 +11,6 @@ const initialProps = {
 		{
 			category:'category',
 			family:'family',
-			urlFamily:'urlFamily',
-			key:'family',
 			id:'family',
 			url:formatFontUrl('urlFamily'),
 			variants:[
@@ -24,8 +22,6 @@ const initialProps = {
 		{
 			category:'category 2',
 			family:'family 2',
-			urlFamily:'urlFamily 2',
-			key:'family 2',
 			id:'family 2',
 			url:`${formatFontUrl('urlFamily')} 2`,
 			variants:[
@@ -37,7 +33,7 @@ const initialProps = {
 	]
 };
 
-let {wrapper} = setupWrapper(FontList, initialProps);
+let {wrapper, props} = setupWrapper(FontList, initialProps);
 const renderables = [
 	{
 		name: 'itself',
@@ -59,5 +55,8 @@ describe('FontList', () => {
 	});
 	it('should render the correct number of <ConnectedFontContainer />\'s', () => {
 		expect(wrapper.find(ConnectedFontContainer).length).toEqual(initialProps.fontData.length);
+	});
+	it('should pass the correct props to <ConnectedFontContainer />', () => {
+		expect(wrapper.find(ConnectedFontContainer).at(0).props()).toEqual(props.fontData[0]);
 	});
 });

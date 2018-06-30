@@ -6,7 +6,7 @@ import FontList from 'components/FontList/FontList';
 
 type Props = {
     filterFontData: Object[],
-    initializeFontData(Object[]):Object[],
+    initializeFontData():Object[],
 };
 type State = {};
 

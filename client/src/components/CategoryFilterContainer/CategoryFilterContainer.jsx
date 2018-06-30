@@ -1,5 +1,5 @@
 //@flow
-import React, {Component} from 'react';
+import React from 'react';
 import {connect} from 'react-redux';
 import CategoryFilter from 'components/CategoryFilter/CategoryFilter';
 import {updateCategoryValue} from 'redux/actions/actions';
@@ -7,22 +7,15 @@ import {updateCategoryValue} from 'redux/actions/actions';
 type Props = {
 	updateCategoryValue(categoryValue: string):any
 }
-type State = {}
 
-export class CategoryFilterContainer extends Component<Props, State> {
+export function CategoryFilterContainer(props: Props) {
 
-    handleCategory = this.handleCategory.bind(this)
-
-    handleCategory(e: Object){
+	function handleCategory(e: Object){
     	const categoryValue = e.target.value;
-    	this.props.updateCategoryValue(categoryValue);
-    }
+    	props.updateCategoryValue(categoryValue);
+	}
 
-    render() {
-    	return(
-    		<CategoryFilter handleCategory={this.handleCategory} />
-    	);
-    }
+	return <CategoryFilter handleCategory={handleCategory} />;
 }
 
 const mapDispatchToProps = ({

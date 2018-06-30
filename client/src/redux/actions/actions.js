@@ -24,7 +24,7 @@ export function initializeFontData() {
 }
 
 export function initializeFavData() {
-	return async (dispatch: Function, getState) => {
+	return async (dispatch: Function, getState: Function) => {
 		dispatch({type: 'LOADING_FAV_DATA'});
 		let favorites;
 		try {
@@ -72,8 +72,8 @@ export function updateCategoryValue(value: string) {
 	};
 }
 
-export function addFavorite(font) {
-	return async (dispatch: Function, getState) => {
+export function addFavorite(font: Object) {
+	return async (dispatch: Function, getState: Function) => {
 		dispatch({type: 'ADDING_FAVORITE'});
 		dispatch({
 			type: 'ADD_FAV_TO_FAV_SECTION',
@@ -83,8 +83,8 @@ export function addFavorite(font) {
 	};
 }
 
-export function deleteFavorite(hrefFamily) {
-	return async (dispatch: Function, getState) => {
+export function deleteFavorite(hrefFamily: string) {
+	return async (dispatch: Function, getState: Function) => {
 		dispatch({type: 'DELETING_FAVORITE'});
 		dispatch({
 			type: 'DELETE_FAV_FROM_FAV_SECTION',

@@ -1,5 +1,5 @@
 //@flow
-import React, {Component} from 'react';
+import React from 'react';
 import {connect} from 'react-redux';
 import {updateSearchValue} from 'redux/actions/actions';
 import SearchFilter from 'components/SearchFilter/SearchFilter';
@@ -7,21 +7,15 @@ import SearchFilter from 'components/SearchFilter/SearchFilter';
 type Props = {
 	updateSearchValue(searchValue: string):string
 }
-type State = {}
 
-export class SearchFilterContainer extends Component<Props, State> {
+export function SearchFilterContainer(props: Props) {
 
-    handleSearch = this.handleSearch.bind(this)
+	function handleSearch(e: Object){
+		const searchValue = e.target.value;
+    	props.updateSearchValue(searchValue.toLowerCase());
+	}
 
-    handleSearch({target:{value:searchValue}}: Object){
-    	this.props.updateSearchValue(searchValue.toLowerCase());
-    }
-
-    render() {
-    	return(
-    		<SearchFilter handleSearch={this.handleSearch} />
-    	);
-    }
+	return <SearchFilter handleSearch={handleSearch} />;
 }
 
 const mapDispatchToProps = ({
