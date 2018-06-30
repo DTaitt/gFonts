@@ -1,13 +1,13 @@
 // @flow
 import axios from 'axios';
-import {formatFontData, url} from 'utilities/utilities';
+import {formatFontData, urlPath} from 'utilities/utilities';
 
-export function initializeFontData(fontData: Object[]) {
+export function initializeFontData() {
 	return async (dispatch: Function) => {
 		dispatch({type: 'LOADING_FONT_DATA'});
 		let fonts;
 		try {
-			const res = await axios.get(url.fonts);
+			const res = await axios.get(urlPath.font);
 			fonts = formatFontData(res.data.items.slice(0, 36));
 		} catch (error) {
 			console.log(error);
@@ -23,12 +23,19 @@ export function initializeFontData(fontData: Object[]) {
 	};
 }
 
-export function initializeFavData(favData: Object[]) {
-	return (dispatch: Function, getState) => {
+export function initializeFavData() {
+	return async (dispatch: Function, getState) => {
 		dispatch({type: 'LOADING_FAV_DATA'});
+		let favorites;
+		try {
+			const res = await axios.get(urlPath.fav);
+			favorites = res.data;
+		} catch (error) {
+			console.log(error);
+		}
 		dispatch({
 			type: 'INITIALIZE_FAV_DATA',
-			payload: favData,
+			payload: favorites,
 		});
 	};
 }
@@ -72,6 +79,21 @@ export function addFavorite(font) {
 			type: 'ADD_FAV_TO_FAV_SECTION',
 			payload: font,
 		});
-		await axios.post(url.fav, font);
+		await axios.post(urlPath.fav, font);
+	};
+}
+
+export function deleteFavorite(hrefFamily) {
+	return async (dispatch: Function, getState) => {
+		dispatch({type: 'DELETING_FAVORITE'});
+		dispatch({
+			type: 'DELETE_FAV_FROM_FAV_SECTION',
+			payload: hrefFamily,
+		});
+		try {
+			await axios.delete(`${urlPath.fav}${hrefFamily}`);
+		} catch(err) {
+			console.log(err);
+		}
 	};
 }

@@ -28,6 +28,10 @@ export function favDataReducer(favData: Object[] = [], action: action): Object[]
 			...favData,
 			action.payload
 		];
+	case 'DELETE_FAV_FROM_FAV_SECTION':
+		return favData.filter(fav => {
+			return fav.hrefFamily !== action.payload;
+		});
 	default:
 		return favData;
 	}

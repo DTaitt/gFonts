@@ -154,7 +154,7 @@ export function modalSectionCreator(language: string, code: string) {
 	);
 }
 
-export const url = {
-	fonts: '/fonts',
-	fav: '/favorites/?format=json',
+export const urlPath = {
+	font: '/fonts',
+	fav: '/favorites/',
 };

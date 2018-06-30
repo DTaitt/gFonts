@@ -1,23 +1,24 @@
 // @flow
-import React, { Component } from 'react';
+import React from 'react';
 import './FavItem.css';
+import {formatFontNameForHref} from 'utilities/utilities';
 
 type Props = {
 	family: string,
 	category: string,
 	url: string,
+	deleteFavorite():void,
 }
 
-class FavItem extends Component<Props, State> {
-	render() { 
-		return ( 
-			<div className='fav-item'>
-				<p>{this.props.family}</p>
-				<p>{this.props.category}</p>
-				<p>{this.props.url}</p>
-			</div>
-		);
-	}
+export default function FavItem({family, category, url, deleteFavorite}: Props) {
+	return ( 
+		<div 
+			className='fav-item'
+			onClick={() => {deleteFavorite(formatFontNameForHref({family}));}}
+		>
+			<p>{family}</p>
+			<p>{category}</p>
+			<p>{url}</p>
+		</div>
+	);
 }
- 
-export default FavItem;

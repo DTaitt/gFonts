@@ -1,6 +1,6 @@
 //@flow
 import React from 'react';
-import FavItem from '../FavItem/FavItem';
+import ConnectedFavItemContainer from 'components/FavItemContainer/FavItemContainer';
 
 type Props = {
 	favData: Object[],
@@ -12,8 +12,8 @@ export default function FavSection(props: Props) {
 			{
 				props.favData.map(fav => {
 					return(
-						<FavItem 
-							key = {fav.id}
+						<ConnectedFavItemContainer 
+							key = {fav.family}
 							{...fav}
 						/>
 					);

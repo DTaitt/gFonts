@@ -5,6 +5,7 @@ import {CardPanel, Button} from 'react-materialize';
 import './Font.css';
 import FontInfo from 'components/FontInfo/FontInfo';
 import AddToProjectModal from 'components/AddToProjectModal/AddToProjectModal';
+import {formatFontNameForHref} from '../../utilities/utilities';
 
 type Props = {
     category: string,
@@ -33,7 +34,14 @@ export default function Font({category, family, id, url, variants, addFavorite}:
 					className='red' 
 					waves='light' 
 					icon='favorite'
-					onClick={() => {addFavorite({category, family, url});}}
+					onClick={() => {
+						addFavorite({
+							category, 
+							family, 
+							url, 
+							hrefFamily: formatFontNameForHref({family})
+						});
+					}}
 				/>
 				<AddToProjectModal 
 					category={category} 
