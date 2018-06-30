@@ -4,4 +4,5 @@ from favorites.models import Favorite
 class FavoriteSerializer(serializers.ModelSerializer):
     class Meta:
         model = Favorite
-        fields = ('id', 'family', 'category', 'url')
+        fields = ('id', 'family', 'hrefFamily', 'category', 'url')
+        lookup_field = 'hrefFamily'

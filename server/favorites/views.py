@@ -9,4 +9,5 @@ class FavoriteViewSet(viewsets.ModelViewSet):
     """
     queryset = Favorite.objects.all()
     serializer_class = FavoriteSerializer
+    lookup_field = 'hrefFamily'
     
