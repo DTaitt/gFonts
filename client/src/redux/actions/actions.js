@@ -9,17 +9,20 @@ export function initializeFontData() {
 		try {
 			const res = await axios.get(urlPath.font);
 			fonts = formatFontData(res.data.items.slice(0, 36));
+			dispatch({
+				type: 'INITIALIZE_FONT_DATA',
+				payload: fonts,
+			});
+			dispatch({
+				type: 'INITIALIZE_FILTER_FONT_DATA',
+				payload: fonts,
+			});
 		} catch (error) {
 			console.log(error);
+			dispatch({
+				type: 'FAILED_FONT_INITIALIZATION'
+			});
 		}
-		dispatch({
-			type: 'INITIALIZE_FONT_DATA',
-			payload: fonts,
-		});
-		dispatch({
-			type: 'INITIALIZE_FILTER_FONT_DATA',
-			payload: fonts,
-		});
 	};
 }
 
@@ -30,13 +33,16 @@ export function initializeFavData() {
 		try {
 			const res = await axios.get(urlPath.fav);
 			favorites = res.data;
+			dispatch({
+				type: 'INITIALIZE_FAV_DATA',
+				payload: favorites,
+			});
 		} catch (error) {
 			console.log(error);
+			dispatch({
+				type: 'FAILED_FAV_INITIALIZATION'
+			});
 		}
-		dispatch({
-			type: 'INITIALIZE_FAV_DATA',
-			payload: favorites,
-		});
 	};
 }
 
@@ -75,25 +81,37 @@ export function updateCategoryValue(value: string) {
 export function addFavorite(font: Object) {
 	return async (dispatch: Function, getState: Function) => {
 		dispatch({type: 'ADDING_FAVORITE'});
-		dispatch({
-			type: 'ADD_FAV_TO_FAV_SECTION',
-			payload: font,
-		});
-		await axios.post(urlPath.fav, font);
+		try {
+			const res = await axios.post(urlPath.fav, font);
+			console.log(res);
+			dispatch({
+				type: 'ADD_FAV_TO_FAV_SECTION',
+				payload: font,
+			});
+		} catch (error) {
+			console.log(error);
+			dispatch({
+				type: 'FAILED_ADD_FAV'
+			});
+		}
 	};
 }
 
 export function deleteFavorite(hrefFamily: string) {
 	return async (dispatch: Function, getState: Function) => {
 		dispatch({type: 'DELETING_FAVORITE'});
-		dispatch({
-			type: 'DELETE_FAV_FROM_FAV_SECTION',
-			payload: hrefFamily,
-		});
 		try {
-			await axios.delete(`${urlPath.fav}${hrefFamily}`);
-		} catch(err) {
-			console.log(err);
+			const res = await axios.delete(`${urlPath.fav}${hrefFamily}`);
+			console.log(res);
+			dispatch({
+				type: 'DELETE_FAV_FROM_FAV_SECTION',
+				payload: hrefFamily,
+			});
+		} catch(error) {
+			console.log(error);
+			dispatch({
+				type: 'FAILED_DELETE_FAV'
+			});
 		}
 	};
 }
