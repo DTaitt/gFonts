@@ -82,8 +82,7 @@ export function addFavorite(font: Object) {
 	return async (dispatch: Function, getState: Function) => {
 		dispatch({type: 'ADDING_FAVORITE'});
 		try {
-			const res = await axios.post(urlPath.fav, font);
-			console.log(res);
+			await axios.post(urlPath.fav, font);
 			dispatch({
 				type: 'ADD_FAV_TO_FAV_SECTION',
 				payload: font,
@@ -101,8 +100,7 @@ export function deleteFavorite(hrefFamily: string) {
 	return async (dispatch: Function, getState: Function) => {
 		dispatch({type: 'DELETING_FAVORITE'});
 		try {
-			const res = await axios.delete(`${urlPath.fav}${hrefFamily}`);
-			console.log(res);
+			await axios.delete(`${urlPath.fav}${hrefFamily}`);
 			dispatch({
 				type: 'DELETE_FAV_FROM_FAV_SECTION',
 				payload: hrefFamily,
