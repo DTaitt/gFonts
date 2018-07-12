@@ -17,7 +17,7 @@ const renderables = [
 	},
 	{
 		name: '<Navbar />',
-		node: <Navbar brand="Font Finder" />
+		node: <Navbar brand="gFonts" />
 	}
 ];
 

@@ -8,7 +8,7 @@ export default function Header() {
 	return (
 		<header>
 			<div className="my-container">
-				<Navbar brand="Font Finder" />
+				<Navbar brand="gFonts" />
 			</div>
 		</header>
 	);
