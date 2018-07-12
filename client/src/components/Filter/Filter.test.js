@@ -4,8 +4,6 @@ import {Collection} from 'react-materialize';
 
 import Filter from './Filter';
 import SearchFilterContainer from 'components/SearchFilterContainer/SearchFilterContainer';
-import CategoryFilter from 'components/CategoryFilter/CategoryFilter';
-import VariantsFilter from 'components/VariantsFilter/VariantsFilter';
 import {createWrapper} from 'utilities/utilities';
 
 let {wrapper} = createWrapper(Filter);
@@ -21,14 +19,6 @@ const renderables = [
 	{
 		name: '<SearchFilterContainer />',
 		node: <SearchFilterContainer />
-	},
-	{
-		name: '<CategoryFilter />',
-		node: <CategoryFilter />
-	},
-	{
-		name: '<VariantsFilter />',
-		node: <VariantsFilter />
 	},
 ];
 
