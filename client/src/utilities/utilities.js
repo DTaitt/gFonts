@@ -126,7 +126,7 @@ export const fontOptions = {
 	]
 };
 
-export function setupWrapper(Component: any, initialProps?: Object, propOverride?: Object) {
+export function createWrapper(Component: any, initialProps?: Object, propOverride?: Object) {
 	let	props:Object = {...initialProps, ...propOverride};
 	const wrapper:enzyme.ShallowWrapper = shallow(<Component {...props} />);
 	return {

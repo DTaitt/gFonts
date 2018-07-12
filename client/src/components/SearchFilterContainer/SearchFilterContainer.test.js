@@ -2,14 +2,14 @@ import React, {Fragment} from 'react';
 import enzyme from 'enzyme';
 
 import SearchFilter from 'components/SearchFilter/SearchFilter';
-import {setupWrapper} from 'utilities/utilities';
+import {createWrapper} from 'utilities/utilities';
 import {SearchFilterContainer} from './SearchFilterContainer';
 
 const initialProps = {
 	updateSearchValue(){}
 };
 
-let {wrapper} = setupWrapper(SearchFilterContainer, initialProps);
+let {wrapper} = createWrapper(SearchFilterContainer, initialProps);
 const renderables = [
 	{
 		name: 'itself',

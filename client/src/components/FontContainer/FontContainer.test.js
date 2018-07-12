@@ -3,7 +3,7 @@ import enzyme from 'enzyme';
 
 import ConnectedFontContainer from './FontContainer';
 import Font from 'components/Font/Font';
-import {setupWrapper} from 'utilities/utilities';
+import {createWrapper} from 'utilities/utilities';
 
 const initialProps = {
 	category:'category',
@@ -14,7 +14,7 @@ const initialProps = {
 	variants:['variant','second variant', 'third variant']
 };
 
-let {wrapper, props} = setupWrapper(ConnectedFontContainer, initialProps);
+let {wrapper, props} = createWrapper(ConnectedFontContainer, initialProps);
 
 describe('FontContainer', () => {
 	it('should render <Font />', () => {

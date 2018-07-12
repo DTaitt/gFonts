@@ -2,7 +2,7 @@ import React from 'react';
 import enzyme, {shallow} from 'enzyme';
 import {CardPanel, Button} from 'react-materialize';
 import Font from './Font';
-import { setupWrapper } from 'utilities/utilities';
+import { createWrapper } from 'utilities/utilities';
 import FontInfo from '../FontInfo/FontInfo';
 import AddToProjectModal from '../AddToProjectModal/AddToProjectModal';
 
@@ -17,7 +17,7 @@ const initialProps = {
 };
 
 
-let {wrapper} = setupWrapper(Font, initialProps);
+let {wrapper} = createWrapper(Font, initialProps);
 const renderables = [
 	{
 		name: 'itself',

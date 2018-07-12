@@ -2,11 +2,11 @@ import React from 'react';
 import enzyme, { shallow } from 'enzyme';
 
 import Main from './Main';
-import {setupWrapper} from 'utilities/utilities';
+import {createWrapper} from 'utilities/utilities';
 import ConnectedFontListContainer from 'components/FontListContainer/FontListContainer';
 import ConnectedSidebar from 'components/Sidebar/Sidebar';
 
-let {wrapper} = setupWrapper(Main);
+let {wrapper} = createWrapper(Main);
 const renderables = [
 	{
 		name: 'itself',

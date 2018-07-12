@@ -3,9 +3,9 @@ import enzyme, { shallow } from 'enzyme';
 import { Navbar, Container } from 'react-materialize';
 
 import Header from './Header';
-import {setupWrapper} from 'utilities/utilities';
+import {createWrapper} from 'utilities/utilities';
 
-let {wrapper} = setupWrapper(Header);
+let {wrapper} = createWrapper(Header);
 const renderables = [
 	{
 		name: 'itself',

@@ -6,9 +6,9 @@ import Filter from './Filter';
 import SearchFilterContainer from 'components/SearchFilterContainer/SearchFilterContainer';
 import CategoryFilter from 'components/CategoryFilter/CategoryFilter';
 import VariantsFilter from 'components/VariantsFilter/VariantsFilter';
-import {setupWrapper} from 'utilities/utilities';
+import {createWrapper} from 'utilities/utilities';
 
-let {wrapper} = setupWrapper(Filter);
+let {wrapper} = createWrapper(Filter);
 const renderables = [
 	{
 		name: 'itself',

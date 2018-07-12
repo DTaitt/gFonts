@@ -4,9 +4,9 @@ import enzyme, { shallow } from 'enzyme';
 import App from './App';
 import Header from 'components/Header/Header';
 import Main from 'components/Main/Main';
-import {setupWrapper} from 'utilities/utilities';
+import {createWrapper} from 'utilities/utilities';
 
-let {wrapper} = setupWrapper(App);
+let {wrapper} = createWrapper(App);
 const renderables = [
 	{
 		name: 'itself',

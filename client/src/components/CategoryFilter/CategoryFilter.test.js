@@ -3,9 +3,9 @@ import enzyme, { shallow } from 'enzyme';
 import { CollectionItem } from 'react-materialize';
 
 import CategoryFilter from './CategoryFilter';
-import {setupWrapper} from 'utilities/utilities';
+import {createWrapper} from 'utilities/utilities';
 
-let {wrapper} = setupWrapper(CategoryFilter);
+let {wrapper} = createWrapper(CategoryFilter);
 const renderables = [
 	{
 		name: 'itself',

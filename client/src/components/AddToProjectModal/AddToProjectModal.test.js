@@ -2,7 +2,7 @@ import React from 'react';
 import enzyme, {shallow} from 'enzyme';
 import AddToProjectModal from './AddToProjectModal';
 import {Modal,Button} from 'react-materialize';
-import {setupWrapper} from 'utilities/utilities';
+import {createWrapper} from 'utilities/utilities';
 
 const initialProps = {
 	urlFamily: 'urlFamily',
@@ -10,7 +10,7 @@ const initialProps = {
 	category: 'category',
 };
 
-let {wrapper, props} = setupWrapper(AddToProjectModal, initialProps);
+let {wrapper, props} = createWrapper(AddToProjectModal, initialProps);
 const renderables = [
 	{
 		name: 'itself (modal trigger)',

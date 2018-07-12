@@ -3,7 +3,7 @@ import enzyme, {shallow, mount} from 'enzyme';
 
 import FontList from './FontList';
 import ConnectedFontContainer from 'components/FontContainer/FontContainer';
-import {formatFontUrl, setupWrapper} from 'utilities/utilities';
+import {formatFontUrl, createWrapper} from 'utilities/utilities';
 import FontContainer from 'components/FontContainer/FontContainer';
 
 const initialProps = {
@@ -33,7 +33,7 @@ const initialProps = {
 	]
 };
 
-let {wrapper, props} = setupWrapper(FontList, initialProps);
+let {wrapper, props} = createWrapper(FontList, initialProps);
 const renderables = [
 	{
 		name: 'itself',

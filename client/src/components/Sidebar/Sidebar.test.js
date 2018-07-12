@@ -3,10 +3,10 @@ import enzyme, { shallow } from 'enzyme';
 import { Collapsible, CollapsibleItem, Card, Badge } from 'react-materialize';
 
 import Sidebar from './Sidebar';
-import {setupWrapper} from 'utilities/utilities';
+import {createWrapper} from 'utilities/utilities';
 import Filter from 'components/Filter/Filter';
 
-let {wrapper} = setupWrapper(Sidebar);
+let {wrapper} = createWrapper(Sidebar);
 const renderables = [
 	{
 		name: 'itself',

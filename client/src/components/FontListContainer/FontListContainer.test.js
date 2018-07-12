@@ -4,7 +4,7 @@ import { Provider } from 'react-redux';
 
 import {FontListContainer} from './FontListContainer';
 import FontList from 'components/FontList/FontList';
-import {setupWrapper} from 'utilities/utilities';
+import {createWrapper} from 'utilities/utilities';
 import {initializeFontData} from 'redux/actions/actions';
 
 const initialProps = {
@@ -23,7 +23,7 @@ const initialProps = {
 	initializeFontData,
 };
 
-let {wrapper, props} = setupWrapper(FontListContainer, initialProps);
+let {wrapper, props} = createWrapper(FontListContainer, initialProps);
 
 describe('FontListContainer', () => {
 	it('should render <FontList />', () => {

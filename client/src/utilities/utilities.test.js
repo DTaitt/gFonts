@@ -1,4 +1,4 @@
-import { formatFontNameForHref, addFontNameHrefFormat, formatSingleVariant, formatVariants, renameFontVariants, formatFontData, setupWrapper , formatFontUrl, modalSectionCreator} from './utilities';
+import { formatFontNameForHref, addFontNameHrefFormat, formatSingleVariant, formatVariants, renameFontVariants, formatFontData, createWrapper , formatFontUrl, modalSectionCreator} from './utilities';
 import React, {Component} from 'react';
 import App from 'components/App/App';
 
@@ -109,7 +109,7 @@ describe('formatFontData', () => {
 	});
 });
 
-describe('setupWrapper', () => {
+describe('createWrapper', () => {
 	const initial = {
 		a:1,
 		b:2,
@@ -123,7 +123,7 @@ describe('setupWrapper', () => {
 		);
 	}
 	it('should return initial as props when no override is given', () => {
-		const {props} = setupWrapper(TestComponent, initial, null);
+		const {props} = createWrapper(TestComponent, initial, null);
 		expect(props).toEqual(initial);
 	});
 	it('should update the props when an override is given', () => {
@@ -136,7 +136,7 @@ describe('setupWrapper', () => {
 			b: 2,
 			c: 'c has been too!'
 		};
-		const {props} = setupWrapper(TestComponent, initial, override);
+		const {props} = createWrapper(TestComponent, initial, override);
 		expect(props).toEqual(newProps);
 	});
 });

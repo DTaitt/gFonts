@@ -1,7 +1,7 @@
 import React from 'react';
 import enzyme, {shallow} from 'enzyme';
 import FontInfo from './FontInfo';
-import {setupWrapper} from 'utilities/utilities';
+import {createWrapper} from 'utilities/utilities';
 import {Dropdown, Collection, CollectionItem, Button} from 'react-materialize';
 
 const initialProps = {
@@ -15,7 +15,7 @@ const initialProps = {
 	]
 };
 
-let {wrapper, props} = setupWrapper(FontInfo, initialProps);
+let {wrapper, props} = createWrapper(FontInfo, initialProps);
 const renderables = [
 	{
 		name: 'itself',
