@@ -8,7 +8,7 @@ export function initializeFontData() {
 		let fonts;
 		try {
 			const res = await axios.get(urlPath.font);
-			fonts = formatFontData(res.data.items.slice(0, 36));
+			fonts = formatFontData(res.data.items);
 			dispatch({
 				type: 'INITIALIZE_FONT_DATA',
 				payload: fonts,
@@ -78,20 +78,46 @@ export function updateCategoryValue(value: string) {
 	};
 }
 
+async function deleteFavoriteRequest(dispatch, hrefFamily) {
+	dispatch({type: 'DELETING_FAVORITE'});
+	try {
+		await axios.delete(`${urlPath.fav}${hrefFamily}`);
+		dispatch({
+			type: 'DELETE_FAV_FROM_FAV_SECTION',
+			payload: hrefFamily,
+		});
+	} catch(error) {
+		console.log(error);
+		dispatch({
+			type: 'FAILED_DELETE_FAV'
+		});
+	}
+}
+
 export function addFavorite(font: Object) {
 	return async (dispatch: Function, getState: Function) => {
 		dispatch({type: 'ADDING_FAVORITE'});
-		try {
-			await axios.post(urlPath.fav, font);
-			dispatch({
-				type: 'ADD_FAV_TO_FAV_SECTION',
-				payload: font,
-			});
-		} catch (error) {
-			console.log(error);
-			dispatch({
-				type: 'FAILED_ADD_FAV'
-			});
+		const { favData } = getState();
+		let isInFav = null;
+		for(let i = 0; i < favData.length; i ++) {
+			isInFav = favData[i].hrefFamily === font.hrefFamily ? true : false;
+			if (isInFav) { break; }
+		}
+		if (!isInFav) {
+			try {
+				await axios.post(urlPath.fav, font);
+				dispatch({
+					type: 'ADD_FAV_TO_FAV_SECTION',
+					payload: font,
+				});
+			} catch (error) {
+				console.log(error);
+				dispatch({
+					type: 'FAILED_ADD_FAV'
+				});
+			}
+		} else if (isInFav) {
+			deleteFavoriteRequest(dispatch, font.hrefFamily);
 		}
 	};
 }
@@ -99,17 +125,6 @@ export function addFavorite(font: Object) {
 export function deleteFavorite(hrefFamily: string) {
 	return async (dispatch: Function, getState: Function) => {
 		dispatch({type: 'DELETING_FAVORITE'});
-		try {
-			await axios.delete(`${urlPath.fav}${hrefFamily}`);
-			dispatch({
-				type: 'DELETE_FAV_FROM_FAV_SECTION',
-				payload: hrefFamily,
-			});
-		} catch(error) {
-			console.log(error);
-			dispatch({
-				type: 'FAILED_DELETE_FAV'
-			});
-		}
+		deleteFavoriteRequest(dispatch, hrefFamily);
 	};
 }

@@ -10,7 +10,7 @@ type Props = {
 
 export default function FontList({fontData}: Props) {
 	return (
-		<section className="card-display">
+		<section className="card-display font-list">
 			{
 				fontData.map((font) => {
 					return (

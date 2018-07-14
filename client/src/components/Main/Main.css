@@ -3,11 +3,12 @@ main {
   margin-top: 7vh;
   padding: 0;
   background: #4dd0e1;
-  padding-top: 1vh; }
+  padding-top: 1vh;
+  min-height: 95vh; }
   main div.my-container {
     width: 100%;
     display: flex;
-    padding: 0 3vw;
+    padding: 10px;
     margin: 0; }
     main div.my-container div.progress {
       margin-top: 2vh;
