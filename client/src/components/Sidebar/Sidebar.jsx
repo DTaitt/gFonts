@@ -3,34 +3,31 @@ import React from 'react';
 import { Collapsible, CollapsibleItem, Card, Badge } from 'react-materialize';
 import './Sidebar.css';
 import Filter from 'components/Filter/Filter';
-import ConnectedFavSectionContainer from 'components/FavSectionContainer/FavSectionContainer';
+import Favorites from 'components/Favorites/Favorites';
 import {connect} from 'react-redux';
 
 type Props = {
-	favData: Object[]
+	favorites: Object[]
 }
 
-function Sidebar({favData}: Props){
+const Sidebar = (props: Props) => {
 	return(
 		<Card className='sidebar cyan darken-2'>
 			<Collapsible accordion>
 				<CollapsibleItem header='Filter' icon='search' className='search'>
 					<Filter />
 				</CollapsibleItem>
-				<Badge>{favData.length}</Badge>
+				<Badge>{props.favorites.length}</Badge>
 				<CollapsibleItem header='Favorites' icon='favorite' className='favorite'>
-					<ConnectedFavSectionContainer />
+					<Favorites />
 				</CollapsibleItem>
 			</Collapsible>
 		</Card>  
 	);
 }
 
-function mapStateToProps(state) {
-	return {
-		favData: state.favData,
-	};
-}
+const mapStateToProps = (state) => ({
+	favorites: state.favorites
+})
 
-const ConnectedSidebar = connect(mapStateToProps)(Sidebar);
-export default ConnectedSidebar;
+export default connect(mapStateToProps)(Sidebar);

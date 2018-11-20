@@ -1,30 +1,49 @@
-// @flow
-import React from 'react';
-import './FontList.css';
-import ConnectedFontContainer from 'components/FontContainer/FontContainer';
-import { formatFontUrl } from 'utilities/utilities';
+//@flow
+import React, { PureComponent } from 'react';
+import { connect } from 'react-redux';
+import {initializeFontData} from 'redux/actions/actions';
+import Font from 'components/Font/Font';
+import { createFontsUrl, seperateByPlus } from '../../utilities/utilities';
 
 type Props = {
-    fontData: Object[],
+    filteredFonts: Object[],
+    initializeFontData():Object[],
 };
+type State = {};
 
-export default function FontList({fontData}: Props) {
-	return (
-		<section className="card-display font-list">
-			{
-				fontData.map((font) => {
-					return (
-						<ConnectedFontContainer
-							category={font.category}
-							family={font.family}
-							key={font.family}
-							id={font.family}
-							url={formatFontUrl(font.urlFamily)}
-							variants={font.variants}
-						/>
-					);
-				})
-			}
-		</section>
-	);
+export class FontList extends PureComponent<Props, State>{
+	componentDidMount() {
+		this.props.initializeFontData();
+	}
+
+	render() {
+		return (
+			<section className="font-list">
+				{
+					this.props.fonts.map((font) => {
+						return (
+							<Font
+								category={font.category}
+								family={font.family}
+								key={font.family}
+								id={font.family}
+								url={createFontsUrl(seperateByPlus(font.family))}
+								variants={font.variants}
+							/>
+						);
+					})
+				}
+			</section>
+		);
+	}
 }
+
+const mapStateToProps = (state) => ({
+	fonts: state.filteredFonts
+})
+
+const mapDispatchToProps = ({
+	initializeFontData,
+});
+
+export default FontList = connect(mapStateToProps, mapDispatchToProps)(FontList);

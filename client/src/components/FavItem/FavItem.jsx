@@ -1,37 +1,43 @@
 // @flow
 import React from 'react';
-import './FavItem.css';
-import {formatFontNameForHref} from 'utilities/utilities';
-import {Button} from 'react-materialize';
+import {deleteFavorite} from 'redux/actions/actions';
+import {connect} from 'react-redux';
 import AddToProjectModal from '../AddToProjectModal/AddToProjectModal';
-
+import {Button} from 'react-materialize';
 
 type Props = {
 	family: string,
 	category: string,
-	url: string,
-	deleteFavorite(hrefFamily: string):void,
+    url: string,
+    deleteFavorite():void,
 }
 
-export default function FavItem({family, category, url, deleteFavorite}: Props) {
-	return ( 
+const FavItem = (props: Props) => {
+	return(
 		<div 
 			className='fav-item'
 		>
-			<a href={url} target='_blank' rel="noopener noreferrer">{family}</a>
-			<p>{category}</p>
+			<a href={props.url} target='_blank' rel="noopener noreferrer">{props.family}</a>
+			<p>{props.category}</p>
 			<Button 
 				floating 
 				className='red' 
 				waves='light' 
 				icon='remove'
-				onClick={() => {deleteFavorite(formatFontNameForHref({family}));}}
+				onClick={() => {deleteFavorite({family:props.family});}}
 			/>
 			<AddToProjectModal 
-				category={category} 
-				family={family} 
-				url={url}
+				category={props.category} 
+				family={props.family} 
+				url={props.url}
 			/>
 		</div>
-	);
+	)
 }
+
+const mapDispatchToProps = ({
+	deleteFavorite,
+});
+
+export default connect(null, mapDispatchToProps)(FavItem);
+

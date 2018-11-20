@@ -1,16 +1,18 @@
 // @flow
-import React from 'react';
+import React, { memo } from 'react';
 import './Filter.css';
 
 import {Collection} from 'react-materialize';
-import ConnectedSearchFilterContainer from '../SearchFilterContainer/SearchFilterContainer';
+import Search from '../Search/Search';
 
-export default function Filter() {
+const Filter = memo(() => {
 	return (
 		<div className="filter">
 			<Collection>
-				<ConnectedSearchFilterContainer />
+				<Search  />
 			</Collection>
 		</div>
 	);
-}
+})
+
+export default Filter

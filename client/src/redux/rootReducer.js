@@ -8,11 +8,11 @@ import {
 } from 'redux/reducers/reducers';
 
 const rootReducer = combineReducers({
-	fontData: fontDataReducer,
-	favData: favDataReducer,
+	fonts: fontDataReducer,
+	favorites: favDataReducer,
 	searchValue: searchReducer,
 	categoryValue: categoryReducer,
-	filterFontData: filterFontDataReducer
+	filteredFonts: filterFontDataReducer
 });
 
 export default rootReducer;

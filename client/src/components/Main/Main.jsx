@@ -1,18 +1,18 @@
 //@flow
-import React from 'react';
+import React, { memo } from 'react';
 import './Main.css';
-import ConnectedSidebar from 'components/Sidebar/Sidebar';
-import ConnectedFontListContainer from '../FontListContainer/FontListContainer';
+import Sidebar from 'components/Sidebar/Sidebar';
+import FontList from 'components/FontList/FontList';
 
 type Props = {}
 
-export default function Main(props: Props) {
-	return (
+const Main = (props:Props) => {
+	return(
 		<main>
-			<div className="my-container">
-				<ConnectedFontListContainer />
-				<ConnectedSidebar />
-			</div>
+			<FontList />
+			<Sidebar />
 		</main>
-	);
+	)
 }
+
+export default Main;

@@ -1,15 +1,15 @@
 //@flow
-import React from 'react';
+import React, { memo } from 'react';
 import './Header.css';
 
 import { Navbar } from 'react-materialize';
 
-export default function Header() {
-	return (
-		<header>
-			<div className="my-container">
-				<Navbar brand="gFonts" />
-			</div>
+const Header = () => {
+	return(
+		<header className='header'>
+			<Navbar brand='gFonts' />
 		</header>
-	);
+	)
 }
+
+export default Header;

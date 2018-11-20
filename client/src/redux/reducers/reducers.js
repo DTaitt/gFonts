@@ -1,68 +1,44 @@
 // @flow
-type action = {
-    type: string,
-    payload: Object[],
-}
-
-export function fontDataReducer(fontData: Object[] = [], action: action): Object[] {
+export const fontDataReducer = (fonts = [], action) => {
 	switch (action.type) {
 	case 'INITIALIZE_FONT_DATA':
-		return [
-			...fontData,
-			...action.payload,
-		];
+		return [ ...fonts, ...action.payload ];
 	default:
-		return fontData;
+		return fonts;
 	}
 }
 
-export function favDataReducer(favData: Object[] = [], action: action): Object[] {
+export const favDataReducer = (favorites = [], action) => {
 	switch (action.type) {
 	case 'INITIALIZE_FAV_DATA':
-		return [
-			...favData,
-			...action.payload,
-		];
+		return [ ...favorites, ...action.payload ];
 	case 'ADD_FAV_TO_FAV_SECTION':
-		return [
-			...favData,
-			action.payload
-		];
+		return [ ...favorites, action.payload ];
 	case 'DELETE_FAV_FROM_FAV_SECTION':
-		return favData.filter(fav => {
-			return fav.hrefFamily !== action.payload;
-		});
+		return favorites.filter(fav => fav.hrefFamily !== action.payload);
 	default:
-		return favData;
+		return favorites;
 	}
 }
 
-export function filterFontDataReducer(filterFontData: Object[] = [], action: action): Object[] {
+export const filterFontDataReducer = (filteredFonts = [], action) => {
 	switch (action.type) {
 	case 'INITIALIZE_FILTER_FONT_DATA':
-		return [
-			...filterFontData,
-			...action.payload,
-		];
+		return [ ...filteredFonts, ...action.payload ];
 	case 'UPDATE_FONTS_ON_SEARCH_FILTER':
-		let {fontData, payload} = action;
-		return fontData.filter(font => {
-			return font.family.toLowerCase().indexOf(payload) !== -1;
-		});
+		const byMatchingTitle = (font) => font.family.toLowerCase().indexOf(action.payload) !== -1
+		return action.fonts.filter(byMatchingTitle)
 	case 'UPDATE_FONTS_ON_CATEGORY_VALUE':
-		return action.fontData.filter(font => {
-			if (action.payload === 'view all') {
-				return action.fontData;
-			} else {
-				return font.category === action.payload;
-			}
-		});
+		const filterIfNotOnDefault = (font) => action.payload === 'view all' 
+			? action.fonts 
+			: font.category === action.payload
+		return action.fonts.filter(filterIfNotOnDefault);
 	default:
-		return filterFontData;
+		return filteredFonts;
 	}
 }
 
-export function searchReducer(searchValue: string = '', action: {type: string, payload: string}) {
+export const searchReducer = (searchValue = '', action) => {
 	switch (action.type) {
 	case 'UPDATE_SEARCH_VALUE':
 		return action.payload;
@@ -71,7 +47,7 @@ export function searchReducer(searchValue: string = '', action: {type: string, p
 	}
 }
 
-export function categoryReducer(categoryValue: string = 'view all', action: {type: string, payload: string}) {
+export const categoryReducer = (categoryValue = 'view all', action) => {
 	switch (action.type) {
 	case 'UPDATE_CATEGORY_VALUE':
 		return action.payload;

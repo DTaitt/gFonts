@@ -1,11 +1,10 @@
-//@flow
+// @flow
 import React from 'react';
+import {addFavorite} from 'redux/actions/actions';
+import {connect} from 'react-redux';
 import {CardPanel, Button} from 'react-materialize';
-
-import './Font.css';
 import FontInfo from 'components/FontInfo/FontInfo';
 import AddToProjectModal from 'components/AddToProjectModal/AddToProjectModal';
-import {formatFontNameForHref} from 'utilities/utilities';
 
 type Props = {
     category: string,
@@ -13,20 +12,20 @@ type Props = {
     id: string,
     url: string,
 	variants: string[],
-	addFavorite(fav: Object): void,
+	addFavorite(): void,
 }
 
-export default function Font({category, family, id, url, variants, addFavorite}: Props){
-	return(
+const Font = (props: Props) => {
+	return (
 		<CardPanel 
 			className="font-card white black-text z-depth-2"
 		>
 			<FontInfo 
-				category={category} 
-				family={family} 
-				id={id}
-				url={url}
-				variants={variants}
+				category={props.category} 
+				family={props.family} 
+				id={props.id}
+				url={props.url}
+				variants={props.variants}
 			/>
 			<div className="font-interaction">
 				<Button 
@@ -36,19 +35,25 @@ export default function Font({category, family, id, url, variants, addFavorite}:
 					icon='favorite'
 					onClick={() => {
 						addFavorite({
-							category, 
-							family, 
-							url, 
-							hrefFamily: formatFontNameForHref({family})
+							category: props.category, 
+							family:props.family, 
+							url:props.url, 
+							// hrefFamily: formatFontNameForHref({family: props.family})
 						});
 					}}
 				/>
 				<AddToProjectModal 
-					category={category} 
-					family={family} 
-					url={url}
+					category={props.category} 
+					family={props.family} 
+					url={props.url}
 				/>
 			</div>
 		</CardPanel>
-	);
+	)
 }
+
+const mapDispatchToProps = ({
+	addFavorite,
+});
+
+export default connect(null, mapDispatchToProps)(Font);

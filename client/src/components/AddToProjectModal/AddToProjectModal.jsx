@@ -1,8 +1,8 @@
 // @flow
-import React from 'react';
+import React, { memo } from 'react';
 import {Button, Modal} from 'react-materialize';
-import {modalSectionCreator} from 'utilities/utilities';
 import './AddToProjectModal.css';
+import ModalSection from '../ModalSection/ModalSection';
 
 type Props = {
     category: string,
@@ -10,15 +10,17 @@ type Props = {
     url: string,
 }
 
-export default function AddToProjectModal({category, family, url}: Props) {
+const AddToProjectModal = memo((props: Props) => {
 	return(
 		<Modal
-			header={family}
+			header={props.family}
 			trigger={<Button>Add Style</Button>}
 			className='import-code'
 		>
-			{ modalSectionCreator('html', `<link href="${url}" rel="stylesheet">`) }
-			{ modalSectionCreator('css', `font-family: '${family}', ${category};`) }
+			<ModalSection language='html' code={`<link href="${props.url}" rel="stylesheet">`} />
+			<ModalSection language='css' code={`font-family: '${props.family}', ${props.category};`} />
 		</Modal>
 	);
-}
+})
+
+export default AddToProjectModal

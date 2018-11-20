@@ -1,5 +1,5 @@
 // @flow
-import React from 'react';
+import React, { memo } from 'react';
 import {Button, Dropdown, Collection, CollectionItem} from 'react-materialize';
 
 import './FontInfo.css';
@@ -11,24 +11,34 @@ type Props = {
     variants: string[],
 }
 
-export default function FontInfo({url, family, category, variants}: Props) {
+const FontInfo = memo((props: Props) => {
 	return(
-		<div className="font info">
-			<a href={url} target='_blank' rel="noopener noreferrer" className="font url">
-				<h1 className="family">{family}</h1>
+		<div className='font-info'>
+			<a 
+				href={props.url}
+				target='_blank'
+				rel="noopener noreferrer"
+				className="font-info__link"
+			>
+				<h2>{props.family}</h2>
 			</a>
-			<p className="category">{category}</p>
+			<p>{props.category}</p>
 			<Dropdown trigger={
-				<Button>{variants.length} Variant{variants.length > 1 && 's'}</Button>
+				<Button>{props.variants.length} Variant{props.variants.length > 1 && 's'}</Button>
 			}>
 				<Collection>
 					{
-						variants.map(variant => {
-							return <CollectionItem className='variant' key={variant}>{variant}</CollectionItem>;
-						})
+						props.variants.map(variant => 
+							(<CollectionItem 
+								className='variant' 
+								key={variant}>
+								{variant}
+							</CollectionItem>))
 					}
 				</Collection>
 			</Dropdown>
 		</div>
-	);
-}
+	)
+})
+
+export default FontInfo
