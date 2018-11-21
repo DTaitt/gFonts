@@ -1,11 +1,9 @@
 import { combineReducers } from 'redux';
-import {
-	fontDataReducer, 
-	searchReducer, 
-	filterFontDataReducer, 
-	categoryReducer,
-	favDataReducer
-} from 'redux/reducers/reducers';
+import { fontDataReducer } from 'redux/state/fonts/reducers'
+import { favDataReducer } from 'redux/state/favorites/reducers'
+import { searchReducer } from 'redux/state/searchValue/reducers'
+import { categoryReducer } from 'redux/state/categoryValue/reducers'
+import { filterFontDataReducer } from 'redux/state/filteredFonts/reducers'
 
 const rootReducer = combineReducers({
 	fonts: fontDataReducer,

@@ -1,7 +1,7 @@
 // @flow
 import React, { Fragment, PureComponent } from 'react';
 import {connect} from 'react-redux';
-import {initializeFavData} from 'redux/actions/actions';
+import {initializeFavData} from 'redux/state/favorites/actions';
 import FavItem from '../FavItem/FavItem';
 
 type Props = {

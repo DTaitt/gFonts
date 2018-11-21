@@ -11,7 +11,7 @@ type Props = {
     variants: string[],
 }
 
-const FontInfo = memo((props: Props) => {
+const FontInfo = (props: Props) => {
 	return(
 		<div className='font-info'>
 			<a 
@@ -39,6 +39,6 @@ const FontInfo = memo((props: Props) => {
 			</Dropdown>
 		</div>
 	)
-})
+}
 
 export default FontInfo

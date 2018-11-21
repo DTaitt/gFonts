@@ -1,9 +1,10 @@
 // @flow
 import React from 'react';
-import {deleteFavorite} from 'redux/actions/actions';
 import {connect} from 'react-redux';
-import AddToProjectModal from '../AddToProjectModal/AddToProjectModal';
 import {Button} from 'react-materialize';
+
+import { deleteFavorite } from 'redux/state/favorites/actions'
+import AddToProjectModal from '../AddToProjectModal/AddToProjectModal';
 
 type Props = {
 	family: string,

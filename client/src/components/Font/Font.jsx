@@ -1,6 +1,6 @@
 // @flow
 import React from 'react';
-import {addFavorite} from 'redux/actions/actions';
+import {addFavorite} from 'redux/state/favorites/actions';
 import {connect} from 'react-redux';
 import {CardPanel, Button} from 'react-materialize';
 import FontInfo from 'components/FontInfo/FontInfo';

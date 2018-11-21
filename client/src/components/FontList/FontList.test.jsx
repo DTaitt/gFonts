@@ -5,13 +5,17 @@ import { FontList as DumbFontList } from './FontList'
 import { Provider } from 'react-redux';
 import store from './../../redux/store'
 
-const _wrapper = shallow(
+const wrapper = shallow(
 	<Provider store={store}>
 		<FontList />
 	</Provider>
 )
 
-const wrapper = _wrapper.dive({context: {store}}).dive()
+// const wrapper = _wrapper.dive({context: {store}}).dive()
+
+beforeEach(() => {
+
+})
 
 describe('<FontList />', () => {
 	describe('it should render', () => {
@@ -23,6 +27,10 @@ describe('<FontList />', () => {
 		})
 	})
 	it('should have props', () => {
-		expect(wrapper.dive().props()).toBe('4')
+		const FL = wrapper.find(FontList).dive({ context: { store } })
+		FL.instance().componentDidMount()
+		expect(FL.props()).toBe({test:'test'})
 	})
+	// console.log(store.getState())
+	// console.log(wrapper.find(FontList).dive({ context: { store } }).props())
 })

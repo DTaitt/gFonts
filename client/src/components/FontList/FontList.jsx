@@ -1,7 +1,7 @@
 //@flow
 import React, { PureComponent } from 'react';
 import { connect } from 'react-redux';
-import {initializeFontData} from 'redux/actions/actions';
+import {initializeFontData} from 'redux/state/fonts/actions';
 import Font from 'components/Font/Font';
 import { createFontsUrl, seperateByPlus } from '../../utilities/utilities';
 
