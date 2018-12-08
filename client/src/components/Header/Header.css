@@ -1,16 +1,7 @@
-header {
-  height: 80px;
-  margin-bottom: 0;
-  padding: 0;
-  display: flex;
-  align-items: center;
+.header {
+  height: 50px;
+  bottom: 50px;
   position: fixed;
-  top: 0;
-  background: #0097a7;
-  width: 100%;
-  z-index: 99999999; }
-  header div.my-container {
-    padding: 0 3vw; }
-    header div.my-container h1 {
-      padding: 0 5px;
-      color: white; }
+  z-index: 2147483647; }
+  .header .brand-logo {
+    font-size: 22px; }

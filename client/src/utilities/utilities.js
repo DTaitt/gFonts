@@ -62,6 +62,7 @@ export const renameFontVariants = (fonts) => {
 			...font, 
 			variants: font.variants.map(variantNumericsToKeywords) 
 		}))
+		// fonts.map(font => font.variants = font.variants.map(variantNumericsToKeywords))
 	)
 }
 

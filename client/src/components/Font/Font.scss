@@ -1,0 +1,16 @@
+.font-card {
+    position: relative;
+    height: 240px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    .font-interaction {
+        display:flex;
+        flex-direction: row-reverse;
+        justify-content: space-around;
+
+    }
+    .btn {
+        min-width: 130px;
+    }
+}

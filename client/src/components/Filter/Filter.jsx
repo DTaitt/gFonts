@@ -8,9 +8,9 @@ import Search from '../Search/Search';
 const Filter = memo(() => {
 	return (
 		<div className="filter">
-			<Collection>
+			{/* <Collection> */}
 				<Search  />
-			</Collection>
+			{/* </Collection> */}
 		</div>
 	);
 })

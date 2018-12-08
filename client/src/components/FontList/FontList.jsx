@@ -4,14 +4,9 @@ import { connect } from 'react-redux';
 import {initializeFontData} from 'redux/state/fonts/actions';
 import Font from 'components/Font/Font';
 import { createFontsUrl, seperateByPlus } from '../../utilities/utilities';
+import './FontList.css'
 
-type Props = {
-    filteredFonts: Object[],
-    initializeFontData():Object[],
-};
-type State = {};
-
-export class FontList extends PureComponent<Props, State>{
+export class FontList extends PureComponent {
 	componentDidMount() {
 		this.props.initializeFontData();
 	}
@@ -20,18 +15,16 @@ export class FontList extends PureComponent<Props, State>{
 		return (
 			<section className="font-list">
 				{
-					this.props.fonts.map((font) => {
-						return (
-							<Font
-								category={font.category}
-								family={font.family}
-								key={font.family}
-								id={font.family}
-								url={createFontsUrl(seperateByPlus(font.family))}
-								variants={font.variants}
-							/>
-						);
-					})
+					this.props.fonts.map((font) => (
+						<Font
+							category={font.category}
+							family={font.family}
+							key={font.family}
+							id={font.family}
+							url={createFontsUrl(seperateByPlus(font.family))}
+							variants={font.variants}
+						/>
+					))
 				}
 			</section>
 		);
@@ -46,4 +39,4 @@ const mapDispatchToProps = ({
 	initializeFontData,
 });
 
-export default FontList = connect(mapStateToProps, mapDispatchToProps)(FontList);
+export default connect(mapStateToProps, mapDispatchToProps)(FontList);

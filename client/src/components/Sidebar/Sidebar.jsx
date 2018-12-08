@@ -12,13 +12,13 @@ type Props = {
 
 const Sidebar = (props: Props) => {
 	return(
-		<Card className='sidebar cyan darken-2'>
+		<Card className='menu green darken-2'>
 			<Collapsible accordion>
-				<CollapsibleItem header='Filter' icon='search' className='search'>
+				<CollapsibleItem header='Filter' icon='search' className='menu-item'>
 					<Filter />
 				</CollapsibleItem>
 				<Badge>{props.favorites.length}</Badge>
-				<CollapsibleItem header='Favorites' icon='favorite' className='favorite'>
+				<CollapsibleItem header='Favorites' icon='favorite' className='menu-item'>
 					<Favorites />
 				</CollapsibleItem>
 			</Collapsible>

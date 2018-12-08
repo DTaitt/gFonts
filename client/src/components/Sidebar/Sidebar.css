@@ -1,2 +1,9 @@
-.sidebar {
-  flex: 2; }
+.menu {
+  margin: 0;
+  height: 100%; }
+  .menu .collapsible-header {
+    border: 1px solid white; }
+  .menu .collapsible-body {
+    width: 100%; }
+  .menu .collection-item .row {
+    margin: 0; }

@@ -1,3 +1,30 @@
-.category {
-    text-transform: capitalize;
+@import './../../styles/variables.scss';
+@import './../../styles/pipes.scss';
+
+.font-info {
+    &__link {
+        font-size: $font-size-md;
+        margin: 0;
+        color: black;
+        display: inline-block;
+    }
+    &__category {
+        font-size: $font-size-sm;
+    }
+    &__dropdown-btn {
+        font-size: $font-size-sm;
+        position: absolute;
+        top: 0;
+        right: 0;
+    }
+    .collection {
+        margin: 0;
+        .collection-item {
+            padding: 10px;
+            margin: 0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+    }
 }
