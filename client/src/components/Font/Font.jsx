@@ -1,10 +1,11 @@
 // @flow
 import React from 'react';
-import {addFavorite} from 'redux/state/favorites/actions';
-import {connect} from 'react-redux';
-import {CardPanel, Button} from 'react-materialize';
+import { CardPanel, Button } from 'react-materialize';
+import { connect } from 'react-redux';
+import _pipe from 'lodash.flow'
+import { addFavorite } from 'redux/state/favorites/actions';
 import FontInfo from 'components/FontInfo/FontInfo';
-import Modal from 'components/Modal/Modal';
+import { separateByPlus, createHtmlLink, createCssStyle, copyToClipboard } from 'utilities/utilities';
 import './Font.css'
 
 const Font = (props) => (
@@ -19,15 +20,15 @@ const Font = (props) => (
 			variants={props.variants}
 		/>
 		<div className="font__interaction">
+			<div className="font__interaction__code">
+				<Button onClick={() => _pipe(separateByPlus, createHtmlLink, copyToClipboard)(props.family)}>Copy HTML</Button>
+				<Button onClick={() => _pipe(createCssStyle, copyToClipboard)(props.family)}>Copy CSS</Button>
+			</div>
 			<Button 
 				className='font__interaction__btn red' 
 				waves='light' 
+				floating
 				icon='favorite'
-			/>
-			<Modal 
-				category={props.category} 
-				family={props.family} 
-				url={props.url}
 			/>
 		</div>
 	</CardPanel>
