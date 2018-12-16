@@ -4,5 +4,5 @@
 ._capitalize {
   text-transform: capitalize; }
 
-.modal-content {
-  font-size: 12px !important; }
+.modal-content h2, .modal-content h4 {
+  font-size: 22px; }

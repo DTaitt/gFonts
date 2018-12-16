@@ -1,10 +1,7 @@
 // @flow
-import enzyme, {shallow} from 'enzyme';
-import React from 'react';
+export const separateByPlus = (text) => text.split(' ').join('+')
 
-export const seperateByPlus = (text:string) => text.split(' ').join('+')
-
-const variantNumerics: string[] = [
+const variantNumerics = [
 	'100',
 	'100italic',
 	'200',
@@ -25,7 +22,7 @@ const variantNumerics: string[] = [
 	'900italic'
 ]
 
-const variantKeywords: string[] = [
+const variantKeywords = [
 	'Thin',
 	'Thin Italic',
 	'Extra-Light',
@@ -62,11 +59,10 @@ export const renameFontVariants = (fonts) => {
 			...font, 
 			variants: font.variants.map(variantNumericsToKeywords) 
 		}))
-		// fonts.map(font => font.variants = font.variants.map(variantNumericsToKeywords))
 	)
 }
 
-export const createFontsUrl = (family: string) => `https://fonts.google.com/specimen/${family}`
+export const prefixWithUrlRoute = (family) => `https://fonts.google.com/specimen/${family}`
 
 export const URLPATH = {
 	FONTS: '/api/fonts',

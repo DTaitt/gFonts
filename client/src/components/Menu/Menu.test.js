@@ -2,15 +2,15 @@ import React from 'react';
 import enzyme, { shallow } from 'enzyme';
 import { Collapsible, CollapsibleItem, Card, Badge } from 'react-materialize';
 
-import Sidebar from './Sidebar';
+import Menu from './Menu';
 import {createWrapper} from 'utilities/utilities';
 import Filter from 'components/Filter/Filter';
 
-let {wrapper} = createWrapper(Sidebar);
+let {wrapper} = createWrapper(Menu);
 const renderables = [
 	{
 		name: 'itself',
-		node: <Card className="sidebar cyan darken-2" />
+		node: <Card className="Menu cyan darken-2" />
 	},
 	{
 		name: '<Collapsible /> that is an accordion',
@@ -34,7 +34,7 @@ const renderables = [
 	}
 ];
 
-describe('Sidebar', () => {
+describe('Menu', () => {
 	describe('should render', () =>{
 		renderables.forEach(renderable => {
 			it(renderable.name , () => {

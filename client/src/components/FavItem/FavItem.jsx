@@ -1,19 +1,11 @@
 // @flow
 import React from 'react';
-import {connect} from 'react-redux';
-import {Button} from 'react-materialize';
-
+import { connect } from 'react-redux';
+import { Button } from 'react-materialize';
 import { deleteFavorite } from 'redux/state/favorites/actions'
-import AddToProjectModal from '../AddToProjectModal/AddToProjectModal';
+import Modal from 'components/Modal/Modal';
 
-type Props = {
-	family: string,
-	category: string,
-    url: string,
-    deleteFavorite():void,
-}
-
-const FavItem = (props: Props) => {
+const FavItem = (props) => {
 	return(
 		<div 
 			className='fav-item'
@@ -27,7 +19,7 @@ const FavItem = (props: Props) => {
 				icon='remove'
 				onClick={() => {deleteFavorite({family:props.family});}}
 			/>
-			<AddToProjectModal 
+			<Modal 
 				category={props.category} 
 				family={props.family} 
 				url={props.url}
@@ -36,9 +28,7 @@ const FavItem = (props: Props) => {
 	)
 }
 
-const mapDispatchToProps = ({
-	deleteFavorite,
-});
+const mapDispatchToProps = ({ deleteFavorite });
 
 export default connect(null, mapDispatchToProps)(FavItem);
 

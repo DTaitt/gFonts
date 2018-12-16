@@ -1,42 +1,37 @@
 //@flow
-import React, { PureComponent } from 'react';
+import React, { useEffect } from 'react';
+import _flow from 'lodash.flow';
 import { connect } from 'react-redux';
-import {initializeFontData} from 'redux/state/fonts/actions';
+import { initializeFontData } from 'redux/state/fonts/actions';
+import { prefixWithUrlRoute, separateByPlus } from 'utilities/utilities';
 import Font from 'components/Font/Font';
-import { createFontsUrl, seperateByPlus } from '../../utilities/utilities';
+
 import './FontList.css'
 
-export class FontList extends PureComponent {
-	componentDidMount() {
-		this.props.initializeFontData();
-	}
+const FontList = (props) => {
+	useEffect(() => {
+		props.initializeFontData();
+	},[])
 
-	render() {
-		return (
-			<section className="font-list">
-				{
-					this.props.fonts.map((font) => (
-						<Font
-							category={font.category}
-							family={font.family}
-							key={font.family}
-							id={font.family}
-							url={createFontsUrl(seperateByPlus(font.family))}
-							variants={font.variants}
-						/>
-					))
-				}
-			</section>
-		);
-	}
+	return(
+		<section className="font-list">
+			{
+				props.fonts.map((font) => (
+					<Font
+						category={font.category}
+						family={font.family}
+						key={font.family}
+						id={font.family}
+						url={_flow(separateByPlus, prefixWithUrlRoute)(font.family)}
+						variants={font.variants}
+					/>
+				))
+			}
+		</section>
+	)
 }
 
-const mapStateToProps = (state) => ({
-	fonts: state.filteredFonts
-})
-
-const mapDispatchToProps = ({
-	initializeFontData,
-});
+const mapStateToProps = (state) => ({ fonts: state.filteredFonts })
+const mapDispatchToProps = ({ initializeFontData });
 
 export default connect(mapStateToProps, mapDispatchToProps)(FontList);

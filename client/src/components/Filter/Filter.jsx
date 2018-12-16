@@ -1,16 +1,14 @@
 // @flow
 import React, { memo } from 'react';
-import './Filter.css';
-
-import {Collection} from 'react-materialize';
-import Search from '../Search/Search';
+import { Collection } from 'react-materialize';
+import Search from 'components/Search/Search';
 
 const Filter = memo(() => {
 	return (
 		<div className="filter">
-			{/* <Collection> */}
+			<Collection>
 				<Search  />
-			{/* </Collection> */}
+			</Collection>
 		</div>
 	);
 })

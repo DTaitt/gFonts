@@ -1,7 +1,0 @@
-.header {
-  height: 50px;
-  bottom: 50px;
-  position: fixed;
-  z-index: 2147483647; }
-  .header .brand-logo {
-    font-size: 22px; }

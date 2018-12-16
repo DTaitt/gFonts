@@ -1,16 +1,23 @@
-.font-card {
+.font {
     position: relative;
     height: 240px;
     display: flex;
     flex-direction: column;
     justify-content: space-around;
-    .font-interaction {
+    &__interaction {
         display:flex;
-        flex-direction: row-reverse;
         justify-content: space-around;
+        &__btn {
+            min-width: 130px;
+        }
+    }
+}
 
+@media only screen and (min-width: 426px) {
+
+    .font-card {
+        flex: 1;
+        margin: 20px;
     }
-    .btn {
-        min-width: 130px;
-    }
+
 }

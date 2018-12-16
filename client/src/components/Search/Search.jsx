@@ -1,19 +1,14 @@
 //@flow
 import React from 'react';
-import {connect} from 'react-redux';
-import {updateSearchValue} from 'redux/state/searchValue/actions';
-import {Row, Input, CollectionItem} from 'react-materialize';
+import { connect} from 'react-redux';
+import { Row, Input, CollectionItem } from 'react-materialize';
+import { updateSearchValue } from 'redux/state/searchValue/actions';
 
-type Props = {
-	updateSearchValue(searchValue: string):string
-}
-
-const Search = (props: Props) => {
+const Search = (props) => {
 	return (
 		<CollectionItem className="search">
 			<Row>
 				<Input 
-					s={6} 
 					label="Search" 
 					validate 
 					onChange={(e) => { 
@@ -24,8 +19,6 @@ const Search = (props: Props) => {
 	)
 }
 
-const mapDispatchToProps = ({
-	updateSearchValue,
-});
+const mapDispatchToProps = ({ updateSearchValue });
 
 export default connect(null, mapDispatchToProps)(Search);
