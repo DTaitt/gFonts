@@ -4,12 +4,12 @@ import {addFavorite} from 'redux/state/favorites/actions';
 import {connect} from 'react-redux';
 import {CardPanel, Button} from 'react-materialize';
 import FontInfo from 'components/FontInfo/FontInfo';
-import AddToProjectModal from 'components/AddToProjectModal/AddToProjectModal';
+import Modal from 'components/Modal/Modal';
 import './Font.css'
 
 const Font = (props) => (
 	<CardPanel 
-		className="font-card white black-text z-depth-2"
+		className="font white black-text z-depth-2"
 	>
 		<FontInfo 
 			category={props.category} 
@@ -18,22 +18,13 @@ const Font = (props) => (
 			url={props.url}
 			variants={props.variants}
 		/>
-		<div className="font-interaction">
+		<div className="font__interaction">
 			<Button 
-				// floating 
-				className='red' 
+				className='font__interaction__btn red' 
 				waves='light' 
 				icon='favorite'
-				onClick={() => {
-					addFavorite({
-						category: props.category, 
-						family:props.family, 
-						url:props.url, 
-						// hrefFamily: formatFontNameForHref({family: props.family})
-					});
-				}}
 			/>
-			<AddToProjectModal 
+			<Modal 
 				category={props.category} 
 				family={props.family} 
 				url={props.url}
@@ -42,8 +33,6 @@ const Font = (props) => (
 	</CardPanel>
 )
 
-const mapDispatchToProps = ({
-	addFavorite,
-});
+const mapDispatchToProps = ({ addFavorite });
 
 export default connect(null, mapDispatchToProps)(Font);

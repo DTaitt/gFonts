@@ -1,2 +1,9 @@
 .font-list {
   margin: auto; }
+
+@media only screen and (min-width: 426px) {
+  .font-list {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+    flex-wrap: wrap; } }

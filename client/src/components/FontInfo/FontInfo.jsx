@@ -15,7 +15,9 @@ const FontInfo = memo((props) => (
 		</a>
 		<p className='font-info__category _uppercase'>{props.category}</p>
 		<Dropdown trigger={
-			<Button className='font-info__dropdown-btn'>{props.variants.length} Variant{props.variants.length > 1 && 's'}</Button>
+			<Button 
+				className='font-info__dropdown-btn'
+			>{props.variants.length} Variant{props.variants.length > 1 && 's'}</Button>
 		}>
 			<Collection>
 				{

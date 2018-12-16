@@ -6,7 +6,7 @@ export const initializeFontData = () => async (dispatch) => {
     dispatch({type: 'LOADING_FONT_DATA'});
     try {
         const { data: { items } } = await axios.get(URLPATH.FONTS);
-        const fonts = renameFontVariants(items);
+        const fonts = renameFontVariants(items).slice(0, 33);
         dispatch({
             type: 'INITIALIZE_FONT_DATA',
             payload: fonts,

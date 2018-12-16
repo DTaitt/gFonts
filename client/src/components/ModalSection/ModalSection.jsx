@@ -1,6 +1,8 @@
 import React, { memo } from 'react'
 
-const ModalSection = memo((props:Props) => {
+import './ModalSection.css'
+
+const ModalSection = memo((props) => {
     return(
         <div className={`${props.language}`}>
 			<h2>{`Add to ${props.language.toUpperCase()}`}</h2>

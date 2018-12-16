@@ -1,8 +1,8 @@
 // @flow
 import axios from 'axios';
-import { renameFontVariants , URLPATH} from 'utilities/utilities';
+import { URLPATH } from 'utilities/utilities';
 
-export const initializeFavData = () => async (dispatch, getState) => {
+export const initializeFavData = () => async (dispatch) => {
 	dispatch({type: 'LOADING_FAV_DATA'});
 	try {
 		const { data: { favorites }} = await axios.get(URLPATH.FAVORITES);
