@@ -10,11 +10,14 @@
 - Redux
 - Redux Thunk
 - ES6+
+- Axios
+- Lodash
 
 #### Styled With
 
 - SCSS/SASS
 - Materialize
+- BEM
 
 #### Tested With
 
@@ -31,9 +34,7 @@
 
 ### Tech Stack
 
-- Python 
-- Django
-- Django REST Framework
+- Node/Express
 - Google Fonts API
 
 ## Project Description
