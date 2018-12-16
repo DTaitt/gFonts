@@ -1,9 +1,10 @@
 .font {
   position: relative;
-  height: 240px;
+  height: 280px;
   display: flex;
   flex-direction: column;
-  justify-content: space-around; }
+  justify-content: space-around;
+  padding-top: 40px; }
   .font__interaction {
     display: flex;
     flex-direction: column;
