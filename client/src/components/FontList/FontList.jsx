@@ -1,6 +1,6 @@
 //@flow
 import React, { useEffect } from 'react';
-import _flow from 'lodash.flow';
+import _pipe from 'lodash.flow';
 import { connect } from 'react-redux';
 import { initializeFontData } from 'redux/state/fonts/actions';
 import { prefixWithUrlRoute, separateByPlus } from 'utilities/utilities';
@@ -22,7 +22,7 @@ const FontList = (props) => {
 						family={font.family}
 						key={font.family}
 						id={font.family}
-						url={_flow(separateByPlus, prefixWithUrlRoute)(font.family)}
+						url={_pipe(separateByPlus, prefixWithUrlRoute)(font.family)}
 						variants={font.variants}
 					/>
 				))
