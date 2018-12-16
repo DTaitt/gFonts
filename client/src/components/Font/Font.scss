@@ -1,9 +1,10 @@
 .font {
     position: relative;
-    height: 240px;
+    height: 280px;
     display: flex;
     flex-direction: column;
     justify-content: space-around;
+    padding-top: 40px;
     &__interaction {
         display:flex;
         flex-direction: column;
@@ -27,13 +28,4 @@
         }
         
     }
-}
-
-@media only screen and (min-width: 426px) {
-
-    // .font-card {
-    //     flex: 1;
-    //     margin: 20px;
-    // }
-
 }

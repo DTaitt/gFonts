@@ -11,9 +11,7 @@ const Search = (props) => {
 				<Input 
 					label="Search" 
 					validate 
-					onChange={(e) => { 
-						props.updateSearchValue(e.target.value.toLowerCase())} 
-					} />
+					onChange={(e) => props.updateSearchValue(e.target.value.toLowerCase())}/>
 			</Row>
 		</CollectionItem>
 	)
