@@ -11,6 +11,7 @@ import './Font.css'
 const Font = memo((props) => (
 		<CardPanel 
 			className="font white black-text z-depth-2"
+			style={{fontFamily: `${props.family}, ${props.category}`}}
 		>
 			<FontInfo 
 				category={props.category} 
@@ -21,7 +22,7 @@ const Font = memo((props) => (
 			/>
 			<div className="font__interaction">
 				<div className="font__interaction__code">
-					<Button onClick={() => _pipe(separateByPlus, createHtmlLink, copyToClipboard)(props.family)}>Copy HTML</Button>
+					<Button onClick={() => _pipe(separateByPlus, createHtmlLink, copyToClipboard)(props.family, props.category)}>Copy HTML</Button>
 					<Button onClick={() => _pipe(createCssStyle, copyToClipboard)(props.family)}>Copy CSS</Button>
 				</div>
 				<Button 
