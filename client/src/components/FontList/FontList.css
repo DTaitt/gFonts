@@ -1,9 +1,8 @@
-.font-list, .font-list > div {
-  margin: auto;
-  padding: 0 10px; }
+.font-list > div {
+  margin: auto; }
 
 @media only screen and (min-width: 426px) {
-  .font-list, .font-list > div {
+  .font-list > div {
     display: flex;
     flex-direction: row;
     justify-content: space-around;
