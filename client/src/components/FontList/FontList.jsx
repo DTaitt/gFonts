@@ -1,9 +1,10 @@
 //@flow
-import React, { memo, useEffect, useState } from 'react';
+import React, { memo, useEffect } from 'react';
 import { connect } from 'react-redux';
 import InfiniteScroll from 'react-infinite-scroller'
 import _pipe from 'lodash.flow'
 import { initializeFontData } from 'redux/state/fonts/actions';
+import { renderAdditionalFonts } from 'redux/state/renderedFonts/actions'
 import Font from 'components/Font/Font';
 import { separateByPlus, prefixWithUrlRoute } from 'utilities/utilities'
 
@@ -11,34 +12,18 @@ import './FontList.css'
 
 const FontList = memo((props) => {
 
-	useEffect(() => props.initializeFontData(), [])
-
-	const [ startIndex, setStartIndex ] = useState(0)
-
-	const [ fonts, setFonts ] = useState([])
-
-	const loadMoreFonts = (numOfFonts) => {
-		const endIndex = startIndex + numOfFonts;
-		const newFonts = props.fonts.slice(startIndex, endIndex)
-		setFonts([...fonts, ...newFonts])
-		setStartIndex(startIndex + numOfFonts)
-	}
-
-	useEffect(() => {
-		const hasNotLoadedAllFonts = fonts.length !== props.fonts.length
-		hasNotLoadedAllFonts && loadMoreFonts(12) 
-	}, [props.fonts])
+	useEffect(() => { props.initializeFontData() }, [])
 
 	return(
 		<section className="font-list">
             <InfiniteScroll
 				pageStart={0}
-				loadMore={loadMoreFonts}
+				loadMore={props.renderAdditionalFonts}
 				threshold={500}
-				hasMore={fonts.length !== props.fonts.length}
+				hasMore={props.fonts.length > props.renderedFonts.length}
                 loader={null}>
                 {
-					fonts.map((font) => (
+					props.renderedFonts.map((font) => (
 						<Font
 							category={font.category}
 							family={font.family}
@@ -54,7 +39,11 @@ const FontList = memo((props) => {
 	)
 })
 
-const mapStateToProps = (state) => ({ fonts: state.filteredFonts })
-const mapDispatchToProps = ({ initializeFontData });
+const mapStateToProps = (state) => ({
+	fonts: state.filteredFonts,
+	renderedFonts: state.renderedFonts
+})
+
+const mapDispatchToProps = ({ initializeFontData, renderAdditionalFonts });
 
 export default connect(mapStateToProps, mapDispatchToProps)(FontList);
