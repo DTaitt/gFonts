@@ -7,7 +7,7 @@ const Helm = (props) => (
     <Helmet>
         <title>gFonts</title>
         {
-            props.fonts.map((font) => (
+            props.renderedFonts.map((font) => (
                 <style key={font.family}>
                     {`@import url('https://fonts.googleapis.com/css?family=${separateByPlus(font.family)}');`}
                 </style>
@@ -16,6 +16,6 @@ const Helm = (props) => (
     </Helmet>
 )
 
-const mapStateToProps = (state) => ({ fonts: state.fonts })
+const mapStateToProps = (state) => ({ renderedFonts: state.renderedFonts })
 
 export default connect(mapStateToProps)(Helm)
