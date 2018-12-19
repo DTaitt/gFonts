@@ -71,7 +71,7 @@ export const URLPATH = {
 
 export const createHtmlLink = (family) => `<link href="https://fonts.googleapis.com/css?family=${family}" rel="stylesheet">`
 
-export const createCssStyle = (family) => `font-family: '${family}', sans-serif;`
+export const createCssStyle = (family, category) => `font-family: '${family}', ${category};`
 
 // https://hackernoon.com/copying-text-to-clipboard-with-javascript-df4d4988697f
 export const copyToClipboard = str => {

@@ -1,10 +1,22 @@
 .font {
   position: relative;
-  height: 280px;
+  height: 340px;
   display: flex;
+  flex: 1;
+  margin: 5px 1px;
   flex-direction: column;
   justify-content: space-around;
-  padding-top: 40px; }
+  padding-top: 40px;
+  color: white; }
+  .font__pangram {
+    margin: 5px 0;
+    border-left: 5px solid grey;
+    padding: 0 10px;
+    word-wrap: break-word; }
+    .font__pangram p {
+      line-height: 1.5em;
+      margin: 2px 0;
+      font-size: 16px; }
   .font__interaction {
     display: flex;
     flex-direction: column;
@@ -23,3 +35,7 @@
       display: flex;
       justify-content: center;
       align-items: center; }
+
+@media only screen and (min-width: 768px) {
+  .font {
+    margin: 10px; } }
