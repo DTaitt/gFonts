@@ -1,6 +1,6 @@
-// @flow
+import { URLPATH, renameFontVariants } from 'utilities/utilities';
+
 import axios from 'axios';
-import { renameFontVariants , URLPATH } from 'utilities/utilities';
 
 export const initializeFontData = () => async (dispatch) => {
     dispatch({type: 'LOADING_FONT_DATA'});

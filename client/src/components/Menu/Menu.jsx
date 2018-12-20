@@ -1,18 +1,18 @@
-// @flow
+import './Menu.css';
+
+import {
+	Badge,
+	Button,
+	Card,
+	Collapsible,
+	CollapsibleItem,
+	SideNav,
+} from 'react-materialize';
+
+import Favorites from 'components/Favorites/Favorites';
+import Filter from 'components/Filter/Filter';
 import React from 'react';
 import { connect } from 'react-redux';
-import { 
-	Collapsible, 
-	CollapsibleItem, 
-	Card, 
-	Badge,
-	SideNav,
-	Button,
-} from 'react-materialize';
-import Filter from 'components/Filter/Filter';
-import Favorites from 'components/Favorites/Favorites';
-
-import './Menu.css';
 
 const Menu = (props) => (
 	<SideNav

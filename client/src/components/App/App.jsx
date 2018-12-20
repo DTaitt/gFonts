@@ -1,8 +1,8 @@
 import React, { memo } from 'react';
 
+import Helm from 'components/Helm/Helm';
 import Main from 'components/Main/Main';
 import Menu from 'components/Menu/Menu';
-import Helm from '../Helm/Helm';
 
 const App = memo(() => (
 	<div className='app'>

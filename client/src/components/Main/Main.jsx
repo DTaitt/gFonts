@@ -1,5 +1,7 @@
-import React, { memo } from 'react';
 import './Main.css';
+
+import React, { memo } from 'react';
+
 import FontList from 'components/FontList/FontList';
 
 const Main = memo(() => (

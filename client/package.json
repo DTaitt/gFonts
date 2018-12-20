@@ -58,5 +58,17 @@
       "!**/src/index.js**",
       "!**/src/registerServiceWorker.js**"
     ]
+  },
+  "importSort": {
+    ".js, .jsx, .es6, .es": {
+      "parser": "babylon",
+      "style": "module-compact",
+      "options": {}
+    },
+    ".ts, .tsx": {
+      "parser": "typescript",
+      "style": "module-compact",
+      "options": {}
+    }
   }
 }

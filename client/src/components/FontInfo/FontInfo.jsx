@@ -1,8 +1,7 @@
-// @flow
-import React, { memo } from 'react';
-import {Button, Dropdown, Collection, CollectionItem} from 'react-materialize';
-
 import './FontInfo.css';
+
+import { Button, Collection, CollectionItem, Dropdown } from 'react-materialize';
+import React, { memo } from 'react';
 
 const FontInfo = memo((props) => (
 	<div className='font-info'>

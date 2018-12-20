@@ -1,7 +1,7 @@
-//@flow
+import { CollectionItem, Input, Row } from 'react-materialize';
+
 import React from 'react';
-import { connect} from 'react-redux';
-import { Row, Input, CollectionItem } from 'react-materialize';
+import { connect } from 'react-redux';
 import { updateSearchValue } from 'redux/state/searchValue/actions';
 
 const Search = (props) => {

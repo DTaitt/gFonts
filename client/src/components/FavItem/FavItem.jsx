@@ -1,7 +1,6 @@
-// @flow
+import { Button } from 'react-materialize';
 import React from 'react';
 import { connect } from 'react-redux';
-import { Button } from 'react-materialize';
 import { deleteFavorite } from 'redux/state/favorites/actions'
 
 const FavItem = (props) => {

@@ -1,14 +1,14 @@
-//@flow
+import './FontList.css'
+
 import React, { memo, useEffect } from 'react';
-import { connect } from 'react-redux';
+import { prefixWithUrlRoute, separateByPlus } from 'utilities/utilities'
+
+import Font from 'components/Font/Font';
 import InfiniteScroll from 'react-infinite-scroller'
 import _pipe from 'lodash.flow'
+import { connect } from 'react-redux';
 import { initializeFontData } from 'redux/state/fonts/actions';
 import { renderAdditionalFonts } from 'redux/state/renderedFonts/actions'
-import Font from 'components/Font/Font';
-import { separateByPlus, prefixWithUrlRoute } from 'utilities/utilities'
-
-import './FontList.css'
 
 const FontList = memo((props) => {
 

@@ -1,12 +1,13 @@
-// @flow
+import './Font.css'
+
+import { Button, CardPanel } from 'react-materialize';
 import React, { memo } from 'react';
-import { CardPanel, Button } from 'react-materialize';
-import { connect } from 'react-redux';
+import { copyToClipboard, createCssStyle, createHtmlLink, separateByPlus } from 'utilities/utilities';
+
+import FontInfo from 'components/FontInfo/FontInfo';
 import _pipe from 'lodash.flow'
 import { addFavorite } from 'redux/state/favorites/actions';
-import FontInfo from 'components/FontInfo/FontInfo';
-import { separateByPlus, createHtmlLink, createCssStyle, copyToClipboard } from 'utilities/utilities';
-import './Font.css'
+import { connect } from 'react-redux';
 
 const Font = memo((props) => (
 		<CardPanel 
@@ -24,8 +25,19 @@ const Font = memo((props) => (
 			</div>
 			<div className="font__interaction">
 				<div className="font__interaction__code">
-					<Button onClick={() => _pipe(separateByPlus, createHtmlLink, copyToClipboard)(props.family, props.category)}>Copy HTML</Button>
-					<Button onClick={() => _pipe(createCssStyle, copyToClipboard)(props.family)}>Copy CSS</Button>
+					<Button onClick={
+						() => _pipe(
+							separateByPlus,
+							createHtmlLink,
+							copyToClipboard
+							)(props.family, props.category)
+						}>Copy HTML</Button>
+					<Button onClick={
+						() => _pipe(
+							createCssStyle,
+							copyToClipboard
+						)(props.family)
+						}>Copy CSS</Button>
 				</div>
 				<Button 
 					className='font__interaction__btn red' 

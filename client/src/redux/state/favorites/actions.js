@@ -1,6 +1,5 @@
-// @flow
-import axios from 'axios';
 import { URLPATH } from 'utilities/utilities';
+import axios from 'axios';
 
 export const initializeFavData = () => async (dispatch) => {
 	dispatch({type: 'LOADING_FAV_DATA'});

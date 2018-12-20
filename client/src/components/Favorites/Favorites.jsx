@@ -1,8 +1,8 @@
-// @flow
 import React, { useEffect } from 'react';
-import {connect} from 'react-redux';
-import {initializeFavData} from 'redux/state/favorites/actions';
+
 import FavItem from 'components/FavItem/FavItem';
+import { connect } from 'react-redux';
+import { initializeFavData } from 'redux/state/favorites/actions';
 
 const Favorites = (props) => {
 	useEffect(() => {

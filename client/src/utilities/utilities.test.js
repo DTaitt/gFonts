@@ -1,5 +1,6 @@
-import { formatFontNameForHref, addFontNameHrefFormat, formatSingleVariant, formatVariants, renameFontVariants, formatFontData, createWrapper , formatFontUrl, modalSectionCreator} from './utilities';
 import React, {Component} from 'react';
+import { addFontNameHrefFormat, createWrapper, formatFontData, formatFontNameForHref, formatFontUrl, formatSingleVariant, formatVariants, modalSectionCreator, renameFontVariants } from './utilities';
+
 import App from 'components/App/App';
 
 describe('formatFontNameForHref', () => {

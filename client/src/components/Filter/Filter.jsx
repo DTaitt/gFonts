@@ -1,5 +1,5 @@
-// @flow
 import React, { memo } from 'react';
+
 import { Collection } from 'react-materialize';
 import Search from 'components/Search/Search';
 
