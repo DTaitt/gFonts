@@ -1,18 +1,22 @@
 import './FontList.css'
 
-import React, { memo, useEffect } from 'react';
+import React, { memo, useEffect, useReducer } from 'react';
+import { fontsReducer, getFonts } from 'state/fonts'
 import { prefixWithUrlRoute, separateByPlus } from 'utilities/utilities'
 
 import Font from 'components/Font/Font';
 import InfiniteScroll from 'react-infinite-scroller'
 import _pipe from 'lodash.flow'
+import appState from 'state/appState'
 import { connect } from 'react-redux';
 import { initializeFontData } from 'redux/state/fonts/actions';
 import { renderAdditionalFonts } from 'redux/state/renderedFonts/actions'
 
 const FontList = memo((props) => {
 
-	useEffect(() => { props.initializeFontData() }, [])
+	const [ { fonts }, dispatch ] = useReducer(fontsReducer, appState)
+	
+	useEffect(() => { getFonts(dispatch) }, [])
 
 	return(
 		<section className="font-list">
@@ -20,10 +24,10 @@ const FontList = memo((props) => {
 				pageStart={0}
 				loadMore={props.renderAdditionalFonts}
 				threshold={500}
-				hasMore={props.fonts.length > props.renderedFonts.length}
+				hasMore={fonts.length > props.renderedFonts.length}
                 loader={null}>
                 {
-					props.renderedFonts.map((font) => (
+					fonts.map((font) => (
 						<Font
 							category={font.category}
 							family={font.family}
