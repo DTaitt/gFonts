@@ -1,6 +1,6 @@
 const Sequelize = require('sequelize');
 
-const sequelize = new Sequelize('gfonts', 'donovan', 'password', {
+const sequelize = new Sequelize('gfonts', process.env.DB_USER, 'password', {
     host: 'localhost',
     dialect: 'postgres',
     operatorsAliases: false,
@@ -14,18 +14,4 @@ const sequelize = new Sequelize('gfonts', 'donovan', 'password', {
   
 });
 
-const Font = sequelize.define('font', {
-    category: Sequelize.STRING,
-    family: Sequelize.STRING,
-    url: Sequelize.STRING,
-    variants: {
-        type: Sequelize.ARRAY(Sequelize.STRING)
-    }
-})
-
-const main = async () => {
-    await sequelize.sync({force: true});
-    process.exit();
-}
-  
-main();
+module.exports = sequelize

@@ -1,5 +1,5 @@
 const _pipe = require('lodash.flow')
-
+const { Font } = require('./models')
 const separateByPlus = (text) => text.split(' ').join('+')
 const prefixWithUrlRoute = (family) => `https://fonts.google.com/specimen/${family}`
 
@@ -79,6 +79,19 @@ const updateFonts = (fontsResponse) => {
     return fonts.map(font => _pipe(removeExcessFontProperties, addUrl, renameFontVariants)(font))
 }
 
+const saveFontsToDB = async (fonts) => {
+    const fontPromises = fonts.map(async (font) => {
+        await Font.create({
+            family: font.family,
+            category: font.category,
+            url: font.url,
+            variants: font.variants,
+        })
+    })
+    await Promise.all(fontPromises)
+}
+
 module.exports = {
-    updateFonts
+	updateFonts,
+	saveFontsToDB,
 }
