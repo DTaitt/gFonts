@@ -1,11 +1,9 @@
 import './FontList.css'
 
-import React, { memo, useEffect } from 'react';
-import { prefixWithUrlRoute, separateByPlus } from 'utilities/utilities'
-
 import Font from 'components/Font/Font';
-import InfiniteScroll from 'react-infinite-scroller'
 import _pipe from 'lodash.flow'
+import React, { memo, useEffect } from 'react';
+import InfiniteScroll from 'react-infinite-scroller'
 import { connect } from 'react-redux';
 import { initializeFontData } from 'redux/state/fonts/actions';
 import { renderAdditionalFonts } from 'redux/state/renderedFonts/actions'
@@ -29,7 +27,7 @@ const FontList = memo((props) => {
 							family={font.family}
 							key={font.family}
 							id={font.family}
-							url={_pipe(separateByPlus, prefixWithUrlRoute)(font.family)}
+							url={font.url}
 							variants={font.variants}
 						/>
 					))

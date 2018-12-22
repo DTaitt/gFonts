@@ -25,19 +25,7 @@ const Font = sequelize.define('font', {
 
 const main = async () => {
     await sequelize.sync({force: true});
-    // 🤔 what does this do??
     process.exit();
-  }
-  
-  main();
-
-const sequelizeConnectionCheck = async () => {
-    try {
-        await sequelize.authenticate()
-        console.log('Connection has been established successfully.');
-    } catch (e) {
-        console.error('Unable to connect to the database:', err);
-    }
 }
-
-sequelizeConnectionCheck()
+  
+main();
