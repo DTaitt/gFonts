@@ -2,9 +2,6 @@ import { URLPATH, renameFontVariants } from 'utilities/utilities';
 
 import axios from 'axios'
 
-// LOCAL STATE
-export const fonts = [];
-
 // ACTION
 export const getFonts = async (dispatch) => {
     const { data: { items } } = await axios.get(URLPATH.FONTS);
@@ -16,7 +13,8 @@ export const getFonts = async (dispatch) => {
 export const fontsReducer = (state = {}, action) => {
 	switch (action.type) {
         case 'INITIALIZE_FONTS':
-        return { ...state, fonts: action.payload}
+            const newState = {...state, fonts: action.payload }
+            return newState
 	default:
 		return state;
 	}

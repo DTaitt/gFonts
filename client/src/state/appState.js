@@ -1,7 +1,7 @@
-import { fonts } from './fonts'
-
-const state = {}
-
-state.fonts = fonts;
+const state = {
+    fonts: [],
+    renderedFontsIndex: 0,
+    renderedFonts: [],
+}
 
 export default state;

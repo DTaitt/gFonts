@@ -63,10 +63,10 @@ export const renameFontVariants = (fonts) => {
 
 export const prefixWithUrlRoute = (family) => `https://fonts.google.com/specimen/${family}`
 
-export const URLPATH = {
+export const URLPATH = Object.freeze({
 	FONTS: '/api/fonts',
 	FAVORITES: '/api/favorites/',
-};
+})
 
 export const createHtmlLink = (family) => `<link href="https://fonts.googleapis.com/css?family=${family}" rel="stylesheet">`
 
