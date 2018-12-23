@@ -1,5 +1,8 @@
 import './Menu.css';
 
+import Favorites from 'components/Favorites/Favorites';
+import Filter from 'components/Filter/Filter';
+import React from 'react';
 import {
 	Badge,
 	Button,
@@ -8,10 +11,6 @@ import {
 	CollapsibleItem,
 	SideNav,
 } from 'react-materialize';
-
-import Favorites from 'components/Favorites/Favorites';
-import Filter from 'components/Filter/Filter';
-import React from 'react';
 import { connect } from 'react-redux';
 
 const Menu = (props) => (
@@ -35,7 +34,7 @@ const Menu = (props) => (
 					key={0} 
 					header='Filter' 
 					icon='search' 
-					className='sidenav__menu__item'
+					className='sidenav__menu__item search'
 				>
 					<Filter />
 				</CollapsibleItem>
@@ -44,7 +43,7 @@ const Menu = (props) => (
 					key={1}
 					header='Favorites'
 					icon='favorite'
-					className='sidenav__menu__item'
+					className='sidenav__menu__item favorites'
 				>
 					<Favorites />
 				</CollapsibleItem>

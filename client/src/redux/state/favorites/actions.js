@@ -1,10 +1,10 @@
-import { URLPATH } from 'utilities/utilities';
 import axios from 'axios';
+import { URLPATH } from 'utilities/utilities';
 
 export const initializeFavData = () => async (dispatch) => {
 	dispatch({type: 'LOADING_FAV_DATA'});
 	try {
-		const { data: { favorites }} = await axios.get(URLPATH.FAVORITES);
+		const { data: favorites } = await axios.get(URLPATH.FAVORITES);
 		dispatch({
 			type: 'INITIALIZE_FAV_DATA',
 			payload: favorites,

@@ -1,0 +1,17 @@
+.fav_item {
+  position: relative;
+  margin: 1px;
+  padding: 30px 10px 10px; }
+  .fav_item .font_info__category {
+    margin-top: -20px !important; }
+  .fav_item .font__interaction__code {
+    flex-direction: column;
+    margin: 0; }
+    .fav_item .font__interaction__code .btn {
+      margin: 1px 0; }
+  .fav_item .btn_add, .fav_item .btn_delete {
+    margin-top: 5px; }
+
+@media only screen and (min-width: 768px) {
+  .font {
+    margin: 10px; } }

@@ -1,6 +1,7 @@
-import React, { useEffect } from 'react';
+import './Favorites.css'
 
 import FavItem from 'components/FavItem/FavItem';
+import React, { useEffect } from 'react';
 import { connect } from 'react-redux';
 import { initializeFavData } from 'redux/state/favorites/actions';
 

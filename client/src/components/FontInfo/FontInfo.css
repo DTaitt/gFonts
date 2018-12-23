@@ -4,24 +4,29 @@
 ._capitalize {
   text-transform: capitalize; }
 
-.font-info__link {
+.font_info__link {
+  padding: 0 !important;
+  display: inline !important; }
+
+.font_info__title {
   font-size: 22px;
   margin: 0;
+  padding: 0 !important;
   color: royalblue;
   display: inline-block; }
 
-.font-info__category {
+.font_info__category {
   font-size: 12px; }
 
-.font-info__dropdown-btn {
+.font_info__dropdown-btn {
   font-size: 12px;
   position: absolute;
   top: 0;
   right: 0; }
 
-.font-info .collection {
+.font_info .collection {
   margin: 0; }
-  .font-info .collection .collection-item {
+  .font_info .collection .collection-item {
     padding: 10px;
     margin: 0;
     display: flex;

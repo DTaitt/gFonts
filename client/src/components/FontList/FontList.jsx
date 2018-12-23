@@ -1,7 +1,6 @@
 import './FontList.css'
 
 import Font from 'components/Font/Font';
-import _pipe from 'lodash.flow'
 import React, { memo, useEffect } from 'react';
 import InfiniteScroll from 'react-infinite-scroller'
 import { connect } from 'react-redux';

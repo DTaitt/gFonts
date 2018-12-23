@@ -19,6 +19,12 @@
         z-index: 2147483647;
         background: dimgrey !important;
     }
+    .favorites .collapsible-body {
+        padding: 5px;
+        background: gainsboro !important;
+        height: 300px;
+        overflow-y: scroll;
+    }
 }
 
 

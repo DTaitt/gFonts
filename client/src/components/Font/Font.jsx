@@ -1,13 +1,11 @@
 import './Font.css'
 
-import { Button, CardPanel } from 'react-materialize';
-import React, { memo } from 'react';
-import { copyToClipboard, createCssStyle, createHtmlLink, separateByPlus } from 'utilities/utilities';
-
 import FontInfo from 'components/FontInfo/FontInfo';
-import _pipe from 'lodash.flow'
-import { addFavorite } from 'redux/state/favorites/actions';
+import React, { memo } from 'react';
+import { CardPanel } from 'react-materialize';
 import { connect } from 'react-redux';
+import { addFavorite } from 'redux/state/favorites/actions';
+import FontInteraction from '../FontInteraction/FontInteraction';
 
 const Font = memo((props) => (
 		<CardPanel 
@@ -23,29 +21,7 @@ const Font = memo((props) => (
 			<div style={{fontFamily: `${props.family}, ${props.category}`}} className="font__pangram">
 				<p>A mad boxer shot a quick, gloved jab to the jaw of his dizzy opponent.</p>
 			</div>
-			<div className="font__interaction">
-				<div className="font__interaction__code">
-					<Button onClick={
-						() => _pipe(
-							separateByPlus,
-							createHtmlLink,
-							copyToClipboard
-							)(props.family, props.category)
-						}>Copy HTML</Button>
-					<Button onClick={
-						() => _pipe(
-							createCssStyle,
-							copyToClipboard
-						)(props.family)
-						}>Copy CSS</Button>
-				</div>
-				<Button 
-					className='font__interaction__btn red' 
-					waves='light' 
-					floating
-					icon='favorite'
-				/>
-			</div>
+			<FontInteraction family={props.family} category={props.category} willAddFont={true} />
 		</CardPanel>
 	)
 )
