@@ -7,15 +7,19 @@
     "enzyme": "^3.3.0",
     "enzyme-adapter-react-16": "^1.1.1",
     "flow": "^0.2.3",
+    "lodash.flow": "^3.5.0",
     "node-sass-chokidar": "^1.3.0",
     "npm-run-all": "^4.1.3",
-    "react": "^16.6.0",
-    "react-dom": "^16.6.0",
+    "react": "react@next",
+    "react-dom": "react@next",
+    "react-helmet": "^5.2.0",
+    "react-infinite-scroller": "^1.2.2",
     "react-materialize": "^2.2.1",
-    "react-redux": "^5.0.7",
+    "react-redux": "^5.1.0",
     "react-scripts": "1.1.4",
     "react-virtualized": "^9.21.0",
     "redux": "^4.0.0",
+    "redux-devtools-extension": "^2.13.7",
     "redux-thunk": "^2.3.0"
   },
   "scripts": {
@@ -54,5 +58,17 @@
       "!**/src/index.js**",
       "!**/src/registerServiceWorker.js**"
     ]
+  },
+  "importSort": {
+    ".js, .jsx, .es6, .es": {
+      "parser": "babylon",
+      "style": "module-compact",
+      "options": {}
+    },
+    ".ts, .tsx": {
+      "parser": "typescript",
+      "style": "module-compact",
+      "options": {}
+    }
   }
 }

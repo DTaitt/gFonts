@@ -1,42 +1,46 @@
-//@flow
-import React, { PureComponent } from 'react';
-import { connect } from 'react-redux';
-import {initializeFontData} from 'redux/state/fonts/actions';
-import Font from 'components/Font/Font';
-import { createFontsUrl, seperateByPlus } from '../../utilities/utilities';
 import './FontList.css'
 
-export class FontList extends PureComponent {
-	componentDidMount() {
-		this.props.initializeFontData();
-	}
+import Font from 'components/Font/Font';
+import React, { memo, useEffect } from 'react';
+import InfiniteScroll from 'react-infinite-scroller'
+import { connect } from 'react-redux';
+import { initializeFontData } from 'redux/state/fonts/actions';
+import { renderAdditionalFonts } from 'redux/state/renderedFonts/actions'
 
-	render() {
-		return (
-			<section className="font-list">
-				{
-					this.props.fonts.map((font) => (
+const FontList = memo((props) => {
+
+	useEffect(() => { props.initializeFontData() }, [])
+
+	return(
+		<section className="font-list">
+            <InfiniteScroll
+				pageStart={0}
+				loadMore={props.renderAdditionalFonts}
+				threshold={500}
+				hasMore={props.fonts.length > props.renderedFonts.length}
+                loader={null}>
+                {
+					props.renderedFonts.map((font) => (
 						<Font
 							category={font.category}
 							family={font.family}
 							key={font.family}
 							id={font.family}
-							url={createFontsUrl(seperateByPlus(font.family))}
+							url={font.url}
 							variants={font.variants}
 						/>
 					))
 				}
-			</section>
-		);
-	}
-}
-
-const mapStateToProps = (state) => ({
-	fonts: state.filteredFonts
+            </InfiniteScroll>
+		</section>
+	)
 })
 
-const mapDispatchToProps = ({
-	initializeFontData,
-});
+const mapStateToProps = (state) => ({
+	fonts: state.filteredFonts,
+	renderedFonts: state.renderedFonts
+})
+
+const mapDispatchToProps = ({ initializeFontData, renderAdditionalFonts });
 
 export default connect(mapStateToProps, mapDispatchToProps)(FontList);

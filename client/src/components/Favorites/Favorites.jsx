@@ -1,45 +1,20 @@
-// @flow
-import React, { Fragment, PureComponent } from 'react';
-import {connect} from 'react-redux';
-import {initializeFavData} from 'redux/state/favorites/actions';
-import FavItem from '../FavItem/FavItem';
+import './Favorites.css'
 
-type Props = {
-    initializeFavData():void,
-    favorites: Object[],
-}
-type State = {}
+import FavItem from 'components/FavItem/FavItem';
+import React, { useEffect } from 'react';
+import { connect } from 'react-redux';
+import { initializeFavData } from 'redux/state/favorites/actions';
 
-class Favorites extends PureComponent<Props, State> {
+const Favorites = (props) => {
+	useEffect(() => {
+		props.initializeFavData()
+	}, [])
 
-	componentDidMount() {
-		this.props.initializeFavData();
-	}
-
-	render() {
-		return(
-			<Fragment>
-				{
-					this.props.favorites.map(fav => {
-						return(
-							<FavItem 
-								key = {fav.family}
-								{...fav}
-							/>
-						);
-					})
-				}
-			</Fragment>
-		)
-	}
+	return props.favorites.map(fav => <FavItem key = {fav.family} {...fav} />
+	)
 }
 
-const mapStateToProps = (state) => ({
-	favorites: state.favorites,
-})
-
-const mapDispatchToProps = ({
-	initializeFavData
-});
+const mapStateToProps = (state) => ({ favorites: state.favorites })
+const mapDispatchToProps = ({ initializeFavData });
 
 export default connect(mapStateToProps, mapDispatchToProps)(Favorites);

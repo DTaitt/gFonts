@@ -1,11 +1,16 @@
 @import './../../styles/variables.scss';
 @import './../../styles/pipes.scss';
 
-.font-info {
+.font_info {
     &__link {
+        padding: 0 !important;
+        display: inline !important;
+    }
+    &__title {
         font-size: $font-size-md;
         margin: 0;
-        color: black;
+        padding: 0 !important;
+        color: royalblue;
         display: inline-block;
     }
     &__category {

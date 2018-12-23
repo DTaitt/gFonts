@@ -1,12 +1,23 @@
-.font-card {
+.font {
   position: relative;
-  height: 240px;
+  height: 350px;
   display: flex;
+  flex: 1;
+  margin: 5px 1px;
   flex-direction: column;
-  justify-content: space-around; }
-  .font-card .font-interaction {
-    display: flex;
-    flex-direction: row-reverse;
-    justify-content: space-around; }
-  .font-card .btn {
-    min-width: 130px; }
+  justify-content: space-around;
+  padding-top: 40px;
+  color: white; }
+  .font__pangram {
+    margin: 5px 0;
+    border-left: 5px solid grey;
+    padding: 0 10px;
+    word-wrap: break-word; }
+    .font__pangram p {
+      line-height: 1.5em;
+      margin: 2px 0;
+      font-size: 16px; }
+
+@media only screen and (min-width: 768px) {
+  .font {
+    margin: 10px; } }
