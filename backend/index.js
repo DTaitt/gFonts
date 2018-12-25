@@ -41,4 +41,14 @@ app.post('/api/favorites', async (req, res) => {
     res.json(newFavorite)
 })
 
+app.delete('/api/favorites', async (req, res) => {
+    const favorite = await Favorite.findOne({
+        where: { family: req.body.family }
+    });
+
+    favorite.destroy();
+    
+    res.json(favorite)
+})
+
 app.listen(process.env.PORT, (req, res) => console.log('running on port 8000...'))
