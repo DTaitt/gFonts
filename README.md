@@ -36,6 +36,7 @@
 
 - Node/Express
 - Google Fonts API
+- Sequelize
 
 ## Project Description
 
