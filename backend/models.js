@@ -16,5 +16,3 @@ const Favorite = sequelize.define('favorite', {
 })
 
 module.exports = { Font, Favorite }
-
-sequelize.sync({ force: true })

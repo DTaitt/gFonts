@@ -1,7 +1,7 @@
-import React from 'react';
+import FontList from 'FontList/FontList'
+import Sidebar from 'Sidebar/Sidebar'
 import enzyme, { shallow } from 'enzyme';
-import FontList from './../FontList/FontList'
-import Sidebar from './../Sidebar/Sidebar'
+import React from 'react';
 import Main from './Main';
 
 const wrapper = shallow(<Main />)

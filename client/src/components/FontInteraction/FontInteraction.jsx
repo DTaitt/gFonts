@@ -3,6 +3,8 @@ import './FontInteraction.css'
 import _pipe from 'lodash.flow'
 import React from 'react'
 import { Button } from 'react-materialize';
+import { connect } from 'react-redux'
+import { addFavorite } from 'redux/state/favorites/actions'
 import { copyToClipboard, createCssStyle, createHtmlLink, separateByPlus } from 'utilities/utilities';
 
 const FontInteraction = (props) => (
@@ -27,8 +29,17 @@ const FontInteraction = (props) => (
             waves='light' 
             floating
             icon={props.willAddFont ? 'favorite' : 'remove'}
+            onClick={() => props.addFavorite({
+                category: props.category,
+                family: props.family,
+                url: props.url,
+                variants: props.variants
+            })}
+            // onClick={() => addFavorite('asf')}
         />
     </div>
 )
 
-export default FontInteraction;
+const mapDispatchToProps = ({ addFavorite })
+
+export default connect(null, mapDispatchToProps)(FontInteraction)

@@ -15,13 +15,13 @@ export const initializeFavData = () => async (dispatch) => {
 	}
 }
 
-export const deleteFavorite = (hrefFamily) => async (dispatch) => {
+export const deleteFavorite = (family) => async (dispatch) => {
 	dispatch({type: 'DELETING_FAVORITE'});
 	try {
-		await axios.delete(`${URLPATH.FAVORITES}${hrefFamily}`);
+		// await axios.delete(`${URLPATH.FAVORITES}${family}`);
 		dispatch({
 			type: 'DELETE_FAV_FROM_FAV_SECTION',
-			payload: hrefFamily,
+			payload: family,
 		});
 	} catch(error) {
 		console.log(error);
@@ -31,13 +31,16 @@ export const deleteFavorite = (hrefFamily) => async (dispatch) => {
 	}
 }
 
-export const addFavorite = (font) => async(dispatch, getState) => {
+export const addFavorite = (font) => async (dispatch, getState) => {
 	dispatch({type: 'ADDING_FAVORITE'});
 	const { favorites } = getState();
-	const isInFav = favorites.some(fav => fav.hrefFamily === font.hrefFamily)
+
+	const isInFav = favorites.some(fav => fav.family === font.family)
+	console.log(font)
 	if (isInFav) {
-		deleteFavorite(font.hrefFamily);
-	} else if (isInFav) {
+		console.log('in fav')
+		// deleteFavorite(font.family);
+	} else {
 		try {
 			await axios.post(URLPATH.FAVORITES, font);
 			dispatch({

@@ -1,6 +1,6 @@
-import { initializeFontData } from './actions'
-import { mockStore } from '../../../setupTests';
 import moxios from 'moxios';
+import { initializeFontData } from './actions'
+import { mockStore } from '.setupTests';
 
 describe('fonts actions', () => {
     

@@ -20,3 +20,16 @@
         align-items: center;
     }
 }
+
+@media only screen and (min-width: 768px) {
+    .fav_item {
+        .font__interaction {
+            &__code {
+                .btn {
+                    min-width: 150px;
+                }
+            }
+        }
+    }
+    
+}

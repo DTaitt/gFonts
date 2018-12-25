@@ -9,8 +9,7 @@ const { Font, Favorite } = require('./models')
 
 const url = `https://www.googleapis.com/webfonts/v1/webfonts?sort=popularity&key=${process.env.GOOGLE_FONTS_KEY}`
 
-app.use(bodyParser.urlencoded({ urlencoded: false }))
-
+app.use(bodyParser.json())
 app.get('/', (req, res) => res.send('home'))
 
 app.get('/api/fonts', async (req, res) => {
@@ -36,7 +35,7 @@ app.post('/api/favorites', async (req, res) => {
         family: req.body.family,
         category: req.body.category,
         url: req.body.url,
-        variants: JSON.parse(req.body.variants),
+        variants: req.body.variants,
     }
     await Favorite.create(newFavorite)
     res.json(newFavorite)

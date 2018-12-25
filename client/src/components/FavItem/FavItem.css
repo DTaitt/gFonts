@@ -1,6 +1,6 @@
 .fav_item {
   position: relative;
-  margin: 1px;
+  margin: 1px 1px 5px;
   padding: 30px 10px 10px; }
   .fav_item .font_info__category {
     margin-top: -20px !important; }

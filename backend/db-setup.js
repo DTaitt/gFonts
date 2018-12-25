@@ -14,4 +14,6 @@ const sequelize = new Sequelize('gfonts', process.env.DB_USER, 'password', {
   
 });
 
+sequelize.sync({ force: true })
+
 module.exports = sequelize

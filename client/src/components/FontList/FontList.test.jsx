@@ -1,9 +1,9 @@
+import enzyme, { mount, shallow } from 'enzyme';
 import React from 'react';
-import enzyme, { shallow, mount } from 'enzyme';
+import { Provider } from 'react-redux';
+import store from 'redux/store'
 import FontList from './FontList';
 import { FontList as DumbFontList } from './FontList'
-import { Provider } from 'react-redux';
-import store from './../../redux/store'
 
 const wrapper = shallow(
 	<Provider store={store}>

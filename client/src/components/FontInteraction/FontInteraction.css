@@ -16,3 +16,7 @@
     display: flex;
     justify-content: center;
     align-items: center; }
+
+@media only screen and (min-width: 768px) {
+  .fav_item .font__interaction__code .btn {
+    min-width: 150px; } }
