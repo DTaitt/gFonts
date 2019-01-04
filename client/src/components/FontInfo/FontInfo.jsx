@@ -11,7 +11,7 @@ const FontInfo = memo((props) => (
 			rel="noopener noreferrer"
 			className="font_info__link"
 		>
-			<h2 style={{fontFamily: `${props.family}, ${props.category}`}} className="font_info__title _capitalize">{props.family}</h2>
+			<h2 style={{fontFamily: `"${props.family}", ${props.category}`}} className="font_info__title _capitalize">{props.family}</h2>
 		</a>
 		<p className='font_info__category _uppercase'>{props.category}</p>
 		<Dropdown trigger={

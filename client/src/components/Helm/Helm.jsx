@@ -1,5 +1,5 @@
-import { Helmet } from 'react-helmet';
 import React from 'react'
+import { Helmet } from 'react-helmet';
 import { connect } from 'react-redux'
 import { separateByPlus } from 'utilities/utilities';
 
@@ -13,9 +13,16 @@ const Helm = (props) => (
                 </style>
             ))
         }
+        {
+            props.favorites.map((fav) => (
+                <style key={fav.family}>
+                    {`@import url('https://fonts.googleapis.com/css?family=${separateByPlus(fav.family)}');`}
+                </style>
+            ))
+        }
     </Helmet>
 )
 
-const mapStateToProps = (state) => ({ renderedFonts: state.renderedFonts })
+const mapStateToProps = (state) => ({ renderedFonts: state.renderedFonts, favorites: state.favorites })
 
 export default connect(mapStateToProps)(Helm)

@@ -1,3 +1,9 @@
+._uppercase {
+  text-transform: uppercase; }
+
+._capitalize {
+  text-transform: capitalize; }
+
 .fav_item {
   position: relative;
   margin: 1px 1px 5px;
@@ -13,5 +19,5 @@
     margin-top: 5px; }
 
 @media only screen and (min-width: 768px) {
-  .font {
-    margin: 10px; } }
+  .fav_item .font_info__title {
+    font-size: 18px; } }

@@ -1,3 +1,6 @@
+@import './../../styles/variables.scss';
+@import './../../styles/pipes.scss';
+
 .fav_item {
     position: relative;
     margin: 1px 1px 5px;
@@ -19,7 +22,11 @@
 }
 
 @media only screen and (min-width: 768px) {
-    .font {
-        margin: 10px;
+    .fav_item {
+        .font_info {
+            &__title {
+                font-size: $font-size-md;
+            }
+        }
     }
 }

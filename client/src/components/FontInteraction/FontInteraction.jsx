@@ -15,13 +15,13 @@ const FontInteraction = (props) => (
                     separateByPlus,
                     createHtmlLink,
                     copyToClipboard
-                    )(props.family, props.category)
+                    )(props.family)
                 }>Copy HTML</Button>
             <Button onClick={
                 () => _pipe(
                     createCssStyle,
                     copyToClipboard
-                )(props.family)
+                )(props.family, props.category)
                 }>Copy CSS</Button>
         </div>
         <Button 

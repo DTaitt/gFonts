@@ -8,7 +8,6 @@ import { initializeFontData } from 'redux/state/fonts/actions';
 import { renderAdditionalFonts } from 'redux/state/renderedFonts/actions'
 
 const FontList = memo((props) => {
-
 	useEffect(() => { props.initializeFontData() }, [])
 
 	return(

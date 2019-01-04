@@ -34,7 +34,7 @@ export const addFavorite = (font) => async (dispatch, getState) => {
 	const { favorites } = getState();
 	const isInFav = favorites.some(fav => fav.family === font.family)
 	if (isInFav) {
-		console.log('dont add')
+		window.Materialize.toast('Already in favorites...', 1500) 
 	} else {
 		try {
 			dispatch({type: 'ADDING_FAVORITE'});
@@ -43,6 +43,7 @@ export const addFavorite = (font) => async (dispatch, getState) => {
 				type: 'ADD_FAV_TO_FAV_SECTION',
 				payload: font,
 			});
+			window.Materialize.toast('Added to favorites!', 1500) 
 		} catch (error) {
 			console.log(error);
 			dispatch({
