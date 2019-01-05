@@ -21,10 +21,19 @@ export const copySelectedHtml = (selectedFonts) => {
 
 		const multipleSelectedFamilies = selectedFonts
 			.map(getFamiliesFromFont)
-			.sort()
 			.join('|')
 		
 		_pipe(createHtmlLink, copyToClipboard)(multipleSelectedFamilies)
+}
+
+export const copySelectedCss = (selectedFonts) => {
+	
+	const multipleSelectedCategories = selectedFonts
+		.map((font) => createCssStyle(font.family, font.category))
+		.join('\n')
+
+	copyToClipboard(multipleSelectedCategories)
+
 }
 		
 

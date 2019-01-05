@@ -1,7 +1,7 @@
 import React from 'react'
 import { Button, CardPanel } from 'react-materialize'
 import { connect } from 'react-redux';
-import { copySelectedHtml } from 'utilities/utilities';
+import { copySelectedCss, copySelectedHtml } from 'utilities/utilities';
 
 const FontSet = (props) => {
     return(
@@ -10,7 +10,7 @@ const FontSet = (props) => {
         >
             <div className="font__interaction__code">
                 <Button onClick={() => copySelectedHtml(props.selectedFonts)}>Copy HTML Set</Button>
-                {/* <Button onClick={() => copyCss(props.family, props.category)}>Copy CSS</Button> */}
+                <Button onClick={() => copySelectedCss(props.selectedFonts)}>Copy CSS Set</Button>
             </div>
         </CardPanel>
     )
