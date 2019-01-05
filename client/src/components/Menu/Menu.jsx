@@ -47,6 +47,14 @@ const Menu = (props) => (
 				>
 					<Favorites />
 				</CollapsibleItem>
+				<CollapsibleItem
+					key={2}
+					header='Font Set'
+					icon='library_add'
+					className='sidenav__menu__item font-set'
+				>
+					<Favorites />
+				</CollapsibleItem>
 			</Collapsible>
 		</Card>  
 	</SideNav>

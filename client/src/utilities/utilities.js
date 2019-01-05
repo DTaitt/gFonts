@@ -1,3 +1,5 @@
+import _pipe from 'lodash.flow'
+
 export const separateByPlus = (text) => text.split(' ').join('+')
 
 export const URLPATH = {
@@ -8,6 +10,10 @@ export const URLPATH = {
 export const createHtmlLink = (family) => `<link href="https://fonts.googleapis.com/css?family=${family}" rel="stylesheet">`
 
 export const createCssStyle = (family, category) => `font-family: '${family}', ${category};`
+
+export const copyHtml = (family) => { _pipe(separateByPlus,createHtmlLink,copyToClipboard)(family) }
+
+export const copyCSS = (family, category) => { _pipe(createCssStyle,copyToClipboard)(family, category) }
 
 // https://hackernoon.com/copying-text-to-clipboard-with-javascript-df4d4988697f
 export const copyToClipboard = str => {
