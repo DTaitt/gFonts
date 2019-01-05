@@ -13,7 +13,20 @@ export const createCssStyle = (family, category) => `font-family: '${family}', $
 
 export const copyHtml = (family) => { _pipe(separateByPlus,createHtmlLink,copyToClipboard)(family) }
 
-export const copyCSS = (family, category) => { _pipe(createCssStyle,copyToClipboard)(family, category) }
+export const copyCss = (family, category) => { _pipe(createCssStyle,copyToClipboard)(family, category) }
+
+export const copySelectedHtml = (selectedFonts) => {
+
+		const getFamiliesFromFont = (font) => separateByPlus(font.family)
+
+		const multipleSelectedFamilies = selectedFonts
+			.map(getFamiliesFromFont)
+			.sort()
+			.join('|')
+		
+		_pipe(createHtmlLink, copyToClipboard)(multipleSelectedFamilies)
+}
+		
 
 // https://hackernoon.com/copying-text-to-clipboard-with-javascript-df4d4988697f
 export const copyToClipboard = str => {

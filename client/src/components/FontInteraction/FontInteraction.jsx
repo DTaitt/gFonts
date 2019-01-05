@@ -5,17 +5,16 @@ import { Button } from 'react-materialize';
 import { connect } from 'react-redux'
 import { addFavorite, deleteFavorite } from 'redux/state/favorites/actions'
 import { addSelectedFont } from 'redux/state/selectedFonts/actions'
-import { copyCSS, copyHtml } from 'utilities/utilities';
+import { copyCss, copyHtml } from 'utilities/utilities';
 
 const FontInteraction = (props) => (
     <div className="font__interaction">
         <div className="font__interaction__code">
             <Button onClick={() => copyHtml(props.family)}>Copy HTML</Button>
-            <Button onClick={() => copyCSS(props.family, props.category)}>Copy CSS</Button>
+            <Button onClick={() => copyCss(props.family, props.category)}>Copy CSS</Button>
         </div>
         <Button 
             className={`font__interaction__btn ${props.willAddFont ? 'btn_add' : 'btn_delete'} red`} 
-            waves='light' 
             floating
             icon={props.willAddFont ? 'favorite' : 'remove'}
             onClick={
@@ -28,8 +27,13 @@ const FontInteraction = (props) => (
                 })
                 : () => props.deleteFavorite(props.family)
             }
+            waves='light' 
         />
-        <Button icon='library_add' floating />
+        <Button 
+            icon='library_add' 
+            floating
+            onClick={() => props.addSelectedFont(props.family, props.category)}
+        />
     </div>
 )
 

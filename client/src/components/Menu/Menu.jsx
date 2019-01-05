@@ -2,6 +2,7 @@ import './Menu.css';
 
 import Favorites from 'components/Favorites/Favorites';
 import Filter from 'components/Filter/Filter';
+import FontSet from 'components/FontSet/FontSet';
 import React from 'react';
 import {
 	Badge,
@@ -53,7 +54,7 @@ const Menu = (props) => (
 					icon='library_add'
 					className='sidenav__menu__item font-set'
 				>
-					<Favorites />
+					<FontSet />
 				</CollapsibleItem>
 			</Collapsible>
 		</Card>  
