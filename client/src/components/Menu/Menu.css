@@ -17,7 +17,7 @@
   z-index: 2147483647;
   background: dimgrey !important; }
 
-.sidenav .favorites .collapsible-body {
+.sidenav .favorites .collapsible-body, .sidenav .font-set .collapsible-body {
   padding: 5px;
   background: gainsboro !important;
   height: 300px;
