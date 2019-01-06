@@ -31,14 +31,6 @@ const Menu = (props) => (
 				defaultActiveKey={0}
 				accordion
 			>
-				<CollapsibleItem 
-					key={0} 
-					header='Filter' 
-					icon='search' 
-					className='sidenav__menu__item search'
-				>
-					<Filter />
-				</CollapsibleItem>
 				<Badge>{props.favorites.length}</Badge>
 				<CollapsibleItem
 					key={1}
