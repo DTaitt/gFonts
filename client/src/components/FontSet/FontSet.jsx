@@ -23,10 +23,10 @@ const FontSet = (props) => (
         }
         {
             props.selectedFonts.map((font) => (
-                <div key={font.family} className='chip'>
+                <div key={font.family} className='_chip'>
                     {font.family}
                     <i 
-                        className="close material-icons"
+                        className="_chip__close material-icons"
                         onClick={() => props.deleteSelectedFont(font.family) }
                     >close</i>
                 </div>

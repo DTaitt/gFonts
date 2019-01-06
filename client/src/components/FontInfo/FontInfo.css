@@ -4,6 +4,25 @@
 ._capitalize {
   text-transform: capitalize; }
 
+._chip {
+  display: inline-block;
+  height: 32px;
+  font-size: 13px;
+  font-weight: 500;
+  color: rgba(0, 0, 0, 0.6);
+  line-height: 32px;
+  padding: 0 12px;
+  border-radius: 16px;
+  background-color: #e4e4e4;
+  margin-bottom: 5px;
+  margin-right: 5px; }
+  ._chip__close {
+    cursor: pointer;
+    float: right;
+    font-size: 16px;
+    line-height: 32px;
+    padding-left: 8px; }
+
 .font_info__link {
   padding: 0 !important;
   display: inline !important; }

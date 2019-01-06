@@ -13,27 +13,27 @@ const FontInteraction = (props) => (
             <Button onClick={() => copyHtml(props.family)}>Copy HTML</Button>
             <Button onClick={() => copyCss(props.family, props.category)}>Copy CSS</Button>
         </div>
-        <Button 
-            className={`font__interaction__btn ${props.willAddFont ? 'btn_add' : 'btn_delete'} red`} 
-            floating
-            icon={props.willAddFont ? 'favorite' : 'remove'}
-            onClick={
-                props.willAddFont
-                ? () => props.addFavorite({
-                    category: props.category,
-                    family: props.family,
-                    url: props.url,
-                    variants: props.variants
-                })
-                : () => props.deleteFavorite(props.family)
-            }
-            waves='light' 
-        />
-        <Button 
-            icon='library_add' 
-            floating
-            onClick={() => props.addSelectedFont(props.family, props.category)}
-        />
+        <div className="font__interaction__add">
+            <Button 
+                className={`font__interaction__btn ${props.willAddFont ? 'btn_add' : 'btn_delete'} red`} 
+                icon={props.willAddFont ? 'favorite' : 'remove'}
+                onClick={
+                    props.willAddFont
+                    ? () => props.addFavorite({
+                        category: props.category,
+                        family: props.family,
+                        url: props.url,
+                        variants: props.variants
+                    })
+                    : () => props.deleteFavorite(props.family)
+                }
+                waves='light' 
+            />
+            <Button 
+                icon='library_add' 
+                onClick={() => props.addSelectedFont(props.family, props.category)}
+            />
+        </div>
     </div>
 )
 

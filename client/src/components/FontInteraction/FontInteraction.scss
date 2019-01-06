@@ -2,7 +2,7 @@
     display:flex;
     flex-direction: column;
     align-items: center;
-    &__code {
+    &__code, &__add {
         display: flex;
         flex-direction: row;
         justify-content: space-around;
@@ -11,7 +11,7 @@
         margin: 20px 0;
         .btn {
             margin: 0 2px 15px;
-            min-width: 140px;
+            width: 100%;
         }
     }
     .btn_add, .btn_delete {
@@ -22,14 +22,11 @@
 }
 
 @media only screen and (min-width: 768px) {
-    .fav_item {
-        .font__interaction {
-            &__code {
-                .btn {
-                    min-width: 150px;
-                }
+    .font__interaction {
+        &__code, &__add {
+            .btn {
+                width: 150px;
             }
         }
-    }
-    
+    }    
 }

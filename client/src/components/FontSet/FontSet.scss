@@ -1,7 +1,6 @@
 @import './../../styles/variables.scss';
 @import './../../styles/pipes.scss';
 .font-set {
-    background: red;
     .font-set__title {
         font-size: $font-size-md;
         margin: 0;
@@ -9,26 +8,12 @@
         color: royalblue;
         display: inline-block;
     }
-    .font__interaction {
-        display:flex;
-        flex-direction: column;
-        align-items: center;
+    &__interaction {
         &__code {
-            display: flex;
-            flex-direction: row;
-            justify-content: space-around;
-            align-items: center;
-            width: 100%;
-            margin: 20px 0;
             .btn {
                 margin: 0 2px 15px;
-                min-width: 140px;
+                min-width: 100%;
             }
-        }
-        .btn_add, .btn_delete {
-            display: flex;
-            justify-content: center;
-            align-items: center;
         }
     }
     
@@ -43,26 +28,5 @@
             }
         }
         
-    }
-}
-
-.chip {
-    display: inline-block;
-    height: 32px;
-    font-size: 13px;
-    font-weight: 500;
-    color: rgba(0,0,0,0.6);
-    line-height: 32px;
-    padding: 0 12px;
-    border-radius: 16px;
-    background-color: #e4e4e4;
-    margin-bottom: 5px;
-    margin-right: 5px;
-    .close {
-        cursor: pointer;
-        float: right;
-        font-size: 16px;
-        line-height: 32px;
-        padding-left: 8px;
     }
 }

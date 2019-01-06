@@ -4,13 +4,13 @@
 .fav_item {
     position: relative;
     margin: 1px 1px 5px;
-    padding: 30px 10px 10px;
+    padding: 24px;
     .font_info__category {
         margin-top: -20px !important;
     }
-    .font__interaction__code {
+    .font__interaction__code, .font__interaction__add {
         flex-direction: column;
-        margin: 0;
+        margin: 5px 0;
         .btn {
             margin: 1px 0;
         }
@@ -26,6 +26,13 @@
         .font_info {
             &__title {
                 font-size: $font-size-md;
+            }
+        }
+        .font__interaction {
+            &__code, &__add {
+                .btn {
+                    width: 100%;
+                }
             }
         }
     }

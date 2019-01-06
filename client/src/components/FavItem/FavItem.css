@@ -4,20 +4,41 @@
 ._capitalize {
   text-transform: capitalize; }
 
+._chip {
+  display: inline-block;
+  height: 32px;
+  font-size: 13px;
+  font-weight: 500;
+  color: rgba(0, 0, 0, 0.6);
+  line-height: 32px;
+  padding: 0 12px;
+  border-radius: 16px;
+  background-color: #e4e4e4;
+  margin-bottom: 5px;
+  margin-right: 5px; }
+  ._chip__close {
+    cursor: pointer;
+    float: right;
+    font-size: 16px;
+    line-height: 32px;
+    padding-left: 8px; }
+
 .fav_item {
   position: relative;
   margin: 1px 1px 5px;
-  padding: 30px 10px 10px; }
+  padding: 24px; }
   .fav_item .font_info__category {
     margin-top: -20px !important; }
-  .fav_item .font__interaction__code {
+  .fav_item .font__interaction__code, .fav_item .font__interaction__add {
     flex-direction: column;
-    margin: 0; }
-    .fav_item .font__interaction__code .btn {
+    margin: 5px 0; }
+    .fav_item .font__interaction__code .btn, .fav_item .font__interaction__add .btn {
       margin: 1px 0; }
   .fav_item .btn_add, .fav_item .btn_delete {
     margin-top: 5px; }
 
 @media only screen and (min-width: 768px) {
   .fav_item .font_info__title {
-    font-size: 18px; } }
+    font-size: 18px; }
+  .fav_item .font__interaction__code .btn, .fav_item .font__interaction__add .btn {
+    width: 100%; } }
