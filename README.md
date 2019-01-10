@@ -1,5 +1,7 @@
 # gFonts
 
+To run, go to backend folder and run `yarn install` and `yarn serve`. Then go to client folder and run `yarn install` and `yarn start`. Enjoy!
+
 ## UI
 
 ### Tech Stack
