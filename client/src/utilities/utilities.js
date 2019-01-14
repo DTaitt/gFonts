@@ -35,7 +35,8 @@ export const copySelectedCss = (selectedFonts) => {
 	copyToClipboard(multipleSelectedCategories)
 
 }
-		
+
+export const createCssImport = (family) => `@import url('https://fonts.googleapis.com/css?family=${separateByPlus(family)}');`
 
 // https://hackernoon.com/copying-text-to-clipboard-with-javascript-df4d4988697f
 export const copyToClipboard = str => {

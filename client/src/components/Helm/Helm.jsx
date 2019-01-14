@@ -1,25 +1,13 @@
 import React from 'react'
 import { Helmet } from 'react-helmet';
 import { connect } from 'react-redux'
-import { separateByPlus } from 'utilities/utilities';
+import { createCssImport } from 'utilities/utilities';
 
 const Helm = (props) => (
     <Helmet>
         <title>gFonts</title>
-        {
-            props.renderedFonts.map((font) => (
-                <style key={font.family}>
-                    {`@import url('https://fonts.googleapis.com/css?family=${separateByPlus(font.family)}');`}
-                </style>
-            ))
-        }
-        {
-            props.favorites.map((fav) => (
-                <style key={fav.family}>
-                    {`@import url('https://fonts.googleapis.com/css?family=${separateByPlus(fav.family)}');`}
-                </style>
-            ))
-        }
+        { props.renderedFonts.map((font) => <style key={font.family}>{ createCssImport(font.family) }</style>) }
+        { props.favorites.map((fav) => <style key={fav.family}>{ createCssImport(fav.family) }</style>) }
     </Helmet>
 )
 

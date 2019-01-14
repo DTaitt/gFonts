@@ -1,8 +1,7 @@
-import React from 'react';
 import enzyme, { shallow } from 'enzyme';
-import App from './App';
-import Header from '../Header/Header';
+import React from 'react';
 import Main from '../Main/Main'
+import App from './App';
 
 const wrapper = shallow(<App />)
 
@@ -11,11 +10,11 @@ describe('<App />', () => {
         it('itself', () => {
             expect(wrapper.exists()).toBe(true)
         })
-        it('<Header />', () => {
-            expect(wrapper.exists(<Header />)).toBe(true)
-        })
-        it('<Main />', () => {
-            expect(wrapper.exists(<Main />)).toBe(true)
-        })
+        // it('<Header />', () => {
+        //     expect(wrapper.exists(<Header />)).toBe(true)
+        // })
+        // it('<Main />', () => {
+        //     expect(wrapper.exists(<Main />)).toBe(true)
+        // })
     })
 })

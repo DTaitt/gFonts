@@ -5,12 +5,13 @@ import Main from 'components/Main/Main';
 import Menu from 'components/Menu/Menu';
 import React, { memo } from 'react';
 
-const App = memo(() => (
+const App = () => (
 	<div className='app'>
 		<Helm />
 		<Menu />
 		<Main />
 	</div>
-))
+)
+
 
 export default App;
