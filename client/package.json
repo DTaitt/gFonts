@@ -5,18 +5,19 @@
   "dependencies": {
     "axios": "^0.18.0",
     "enzyme": "^3.3.0",
-    "enzyme-adapter-react-16": "^1.1.1",
+    "enzyme-adapter-react-16": "^1.5.1",
     "flow": "^0.2.3",
     "lodash.flow": "^3.5.0",
+    "lodash.isequal": "^4.5.0",
     "node-sass-chokidar": "^1.3.0",
     "npm-run-all": "^4.1.3",
-    "react": "react@next",
-    "react-dom": "react@next",
+    "react": "16.7.0-alpha.2",
+    "react-dom": "16.7.0-alpha.2",
     "react-helmet": "^5.2.0",
     "react-infinite-scroller": "^1.2.2",
     "react-materialize": "^2.2.1",
     "react-redux": "^5.1.0",
-    "react-scripts": "1.1.4",
+    "react-scripts": "^2.1.3",
     "react-virtualized": "^9.21.0",
     "redux": "^4.0.0",
     "redux-devtools-extension": "^2.13.7",
@@ -34,20 +35,12 @@
     "test:coverage": "react-scripts test --env=jsdom --verbose --coverage",
     "eject": "react-scripts eject",
     "prepush": "yarn flow && yarn test:coverage",
-    "lint:fix": "eslint --fix src/",
     "flow": "flow"
   },
   "proxy": "http://localhost:8000",
   "devDependencies": {
-    "babel-eslint": "^8.2.3",
     "babel-preset-flow": "^6.23.0",
-    "eslint": "^4.19.1",
-    "eslint-plugin-flowtype": "^2.49.3",
-    "eslint-plugin-import": "^2.12.0",
-    "eslint-plugin-jsx-a11y": "^6.0.3",
-    "eslint-plugin-react": "^7.9.1",
     "flow-bin": "^0.73.0",
-    "prettier-eslint": "^8.8.1",
     "react-test-renderer": "^16.4.0"
   },
   "jest": {
@@ -70,5 +63,11 @@
       "style": "module-compact",
       "options": {}
     }
-  }
+  },
+  "browserslist": [
+    ">0.2%",
+    "not dead",
+    "not ie <= 11",
+    "not op_mini all"
+  ]
 }
