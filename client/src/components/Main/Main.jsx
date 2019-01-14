@@ -1,13 +1,12 @@
 import './Main.css';
 
-import React, { memo } from 'react';
-
 import FontList from 'components/FontList/FontList';
+import React from 'react';
 
-const Main = memo(() => (
+const Main = () => (
 	<main>
 		<FontList />
 	</main>
-))
+)
 
 export default Main;
